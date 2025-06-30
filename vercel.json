@@ -1,12 +1,6 @@
 {
   "version": 2,
   "name": "pest-control-landing",
-  "builds": [
-    {
-      "src": "**/*",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
     {
       "src": "/",
@@ -48,10 +42,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "app/**/*": {
-      "runtime": "@vercel/node@18"
-    }
-  }
+  ]
 } 
