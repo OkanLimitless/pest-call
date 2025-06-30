@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Pest Control - Call Now</title>
+    <meta name="description" content="Emergency pest control services. Get immediate help - call now for same-day service.">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS with cache busting -->
+    <link rel="stylesheet" href="./styles.css?v=1.0" type="text/css">
+    
+    <!-- Google Fonts with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Fallback font style -->
+    <style>
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <h1>🛡️ PestGuard Pro</h1>
+                <span class="emergency-badge">24/7 EMERGENCY</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="status-bar">
+                    <div class="status-dot"></div>
+                    <span>Technician Available Now</span>
+                </div>
+                
+                <h2 class="hero-title">
+                    Pest Emergency?<br>
+                    <span class="highlight">We're Ready to Help</span>
+                </h2>
+                
+                <div class="urgency-box">
+                    <p><strong>⚠️ Don't wait!</strong> Pests multiply fast. Our certified technicians are standing by for immediate response.</p>
+                </div>
+
+                <!-- Call Progress Section -->
+                <div class="call-progress" id="callProgress">
+                    <div class="progress-header">
+                        <div class="spinner"></div>
+                        <h3>Connecting to Specialist...</h3>
+                    </div>
+                    <p class="progress-text">Please wait while we connect your call</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Manual Call Section -->
+                <div class="manual-call" id="manualCall">
+                    <p class="call-instruction">Tap to speak with a pest control expert:</p>
+                    <a href="tel:+18442130185" class="call-button">
+                        <span class="phone-icon">📞</span>
+                        <div class="call-text">
+                            <strong>Call Now</strong>
+                            <span>(844) 213-0185</span>
+                        </div>
+                    </a>
+                    <p class="call-benefits">✓ Free consultation ✓ Licensed experts ✓ Same-day service</p>
+                </div>
+            </section>
+
+            <!-- Trust Section -->
+            <section class="trust-section">
+                <div class="trust-grid">
+                    <div class="trust-card">
+                        <div class="trust-icon">🏆</div>
+                        <h4>4.9★ Rating</h4>
+                        <p>1000+ Reviews</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">⚡</div>
+                        <h4>Same Day</h4>
+                        <p>Emergency Service</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">🔒</div>
+                        <h4>Licensed</h4>
+                        <p>Fully Insured</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">💰</div>
+                        <h4>Free Quote</h4>
+                        <p>No Hidden Fees</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services -->
+            <section class="services">
+                <h3>We Handle All Pest Problems</h3>
+                <div class="pest-grid">
+                    <div class="pest-card">🐜 Ants</div>
+                    <div class="pest-card">🪳 Roaches</div>
+                    <div class="pest-card">🕷️ Spiders</div>
+                    <div class="pest-card">🐝 Wasps</div>
+                    <div class="pest-card">🐭 Rodents</div>
+                    <div class="pest-card">🦗 Termites</div>
+                    <div class="pest-card">🦟 Bed Bugs</div>
+                    <div class="pest-card">🪲 Fleas</div>
+                </div>
+            </section>
+
+            <!-- Testimonial -->
+            <section class="testimonial">
+                <div class="quote-mark">"</div>
+                <p>"They came out same day and solved our ant problem completely. Professional service and fair pricing!"</p>
+                <div class="testimonial-author">
+                    <strong>Sarah M.</strong> - Verified Customer
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><strong>📞 (844) 213-0185</strong></p>
+                <p>📧 info@pestguardpro.com</p>
+                <p class="license">Licensed • Bonded • Insured</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript with fallback and cache busting -->
+    <script src="./script.js?v=1.0" type="text/javascript"></script>
+    
+    <!-- Fallback script for basic functionality -->
+    <script>
+        // Fallback if main script fails to load
+        setTimeout(function() {
+            if (typeof CONFIG === 'undefined') {
+                console.log('Main script failed, using fallback');
+                // Simple fallback call functionality
+                document.getElementById('manualCall').style.display = 'block';
+                document.getElementById('callProgress').style.display = 'none';
+            }
+        }, 2000);
+    </script>
+</body>
+</html> 
