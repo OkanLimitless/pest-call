@@ -63,8 +63,8 @@ function hideCallbackForm() {
     }
 }
 
-// Handle form submission
-function submitCallback(event) {
+// Handle form submission and trigger call
+function submitQuickCall(event) {
     event.preventDefault();
     
     const form = event.target;
@@ -96,50 +96,67 @@ function submitCallback(event) {
     // Show loading state
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = '⏳ Submitting...';
+    submitBtn.textContent = '⏳ Processing...';
     submitBtn.disabled = true;
     
     // Track submission
-    trackEvent('callback_form_submitted', {
+    trackEvent('quick_call_form_submitted', {
         phone: data.phone,
         zipCode: data.zipCode,
-        source: 'callback_form'
+        source: 'quick_call_form'
     });
     
-    // Simulate API call (replace with real endpoint)
+    // Log the lead data (you can send this to your CRM/email)
+    console.log('📞 Lead submitted:', data);
+    
+    // After brief delay, trigger call and show success
     setTimeout(() => {
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         
         // Show success modal
-        showSuccessModal(data.phone);
+        showCallTriggeredModal(data.firstName);
         
         // Hide form
         hideCallbackForm();
         
+        // TRIGGER THE ACTUAL CALL
+        setTimeout(() => {
+            window.location.href = CONFIG.PHONE_NUMBER;
+            
+            // Mobile vibration
+            if (navigator.vibrate) {
+                navigator.vibrate([300, 100, 300]);
+            }
+        }, 1500); // 1.5 second delay for user to see success message
+        
         // Track conversion
-        trackEvent('callback_request_completed', {
+        trackEvent('quick_call_triggered', {
             phone: data.phone,
-            conversion_type: 'callback',
+            conversion_type: 'form_to_call',
             value: 99 // $99 offer value
         });
         
-        console.log('📞 Callback request submitted:', data);
-    }, 2000);
+    }, 1000);
 }
 
-// Show success modal
-function showSuccessModal(phoneNumber) {
+// Show call triggered modal
+function showCallTriggeredModal(firstName) {
     const modal = document.getElementById('successModal');
-    const phoneSpan = document.getElementById('submittedPhone');
+    const modalContent = modal.querySelector('.modal-content');
     
-    if (modal && phoneSpan) {
-        phoneSpan.textContent = phoneNumber;
+    if (modal && modalContent) {
+        modalContent.innerHTML = `
+            <h3>🎉 Thanks ${firstName}!</h3>
+            <p><strong>Connecting you now to get your $99 quote...</strong></p>
+            <p>Your phone should ring momentarily with our pest control expert.</p>
+            <button onclick="closeModal()" class="modal-btn">Got It!</button>
+        `;
         modal.style.display = 'flex';
         
-        trackEvent('success_modal_shown', {
-            phone: phoneNumber
+        trackEvent('call_triggered_modal_shown', {
+            firstName: firstName
         });
     }
 }
@@ -297,6 +314,6 @@ if (document.readyState === 'loading') {
 // Export functions for global access
 window.showCallbackForm = showCallbackForm;
 window.hideCallbackForm = hideCallbackForm;
-window.submitCallback = submitCallback;
+window.submitQuickCall = submitQuickCall;
 window.closeModal = closeModal;
 window.contactNow = contactNow; 

@@ -67,19 +67,19 @@
                     </div>
                     
                     <button class="secondary-cta" onclick="showCallbackForm()">
-                        📝 Get Instant Callback
+                        📝 Quick Call Form
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Callback Form (Hidden Initially) -->
+        <!-- Quick Call Form (Hidden Initially) -->
         <section class="callback-form" id="callbackForm" style="display: none;">
             <div class="form-container">
-                <h3>📞 We'll Call You in 60 Seconds!</h3>
-                <p class="form-description">Enter your details and we'll call you immediately with your $99 quote</p>
+                <h3>📞 Get Your $99 Quote Now!</h3>
+                <p class="form-description">Fill out for priority calling - we'll dial you immediately</p>
                 
-                <form id="callbackFormData" onsubmit="submitCallback(event)">
+                <form id="callbackFormData" onsubmit="submitQuickCall(event)">
                     <div class="form-row">
                         <input type="text" name="firstName" placeholder="First Name" required>
                         <input type="text" name="lastName" placeholder="Last Name" required>
@@ -96,12 +96,12 @@
                         <label class="checkbox-container">
                             <input type="checkbox" name="consent" required>
                             <span class="checkmark"></span>
-                            By clicking "Contact Me" I provide my electronic signature and consent to receive marketing calls, texts, and prerecorded messages at any phone number I provide. Consent not required to make a purchase.
+                            By clicking "Call Me Now" I provide consent to receive calls about pest control services. No purchase required.
                         </label>
                     </div>
                     
                     <button type="submit" class="submit-btn">
-                        📞 Contact Me Now
+                        📞 Call Me Now - $99 Quote
                     </button>
                 </form>
             </div>
@@ -246,7 +246,7 @@
                         📞 Call Now
                     </a>
                     <button class="final-form-btn" onclick="showCallbackForm()">
-                        📝 Get Callback
+                        📝 Quick Call Form
                     </button>
                 </div>
             </div>
@@ -265,10 +265,7 @@
     <!-- Success Modal -->
     <div id="successModal" class="modal" style="display: none;">
         <div class="modal-content">
-            <h3>🎉 Request Submitted!</h3>
-            <p><strong>We'll call you within 60 seconds!</strong></p>
-            <p>Please keep your phone nearby - our expert will call <span id="submittedPhone"></span> momentarily with your $99 quote.</p>
-            <button onclick="closeModal()" class="modal-btn">Got It!</button>
+            <!-- Content generated dynamically by JavaScript -->
         </div>
     </div>
 
