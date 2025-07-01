@@ -20,34 +20,42 @@
             font-family: 'Open Sans', Arial, sans-serif;
             line-height: 1.4;
             color: #333;
+            padding-top: 60px;
         }
         
         /* Header */
         .header {
             background: #d32f2f;
             color: white;
-            padding: 8px 0;
-            font-size: 14px;
+            padding: 12px 0;
+            font-size: 16px;
             font-weight: 600;
             text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .header-phone {
             display: inline-block;
-            margin-left: 15px;
-            font-size: 16px;
-            font-weight: 700;
+            margin-left: 20px;
+            font-size: 22px;
+            font-weight: 800;
         }
         
         .header-phone a {
             color: white;
             text-decoration: none;
         }
+
         
         /* Top Navigation */
         .top-nav {
             background: white;
-            padding: 15px 0;
+            padding: 20px 0;
             border-bottom: 1px solid #eee;
         }
         
@@ -67,11 +75,11 @@
         }
         
         .findipest-logo {
-            height: 60px;
+            height: 80px;
         }
         
         .orkin-logo {
-            height: 40px;
+            height: 60px;
         }
         
         /* Hero Section */
@@ -528,6 +536,24 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .header {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+            
+            .header-phone {
+                font-size: 18px;
+                margin-left: 10px;
+            }
+            
+            .findipest-logo {
+                height: 60px;
+            }
+            
+            .orkin-logo {
+                height: 45px;
+            }
+            
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -535,6 +561,25 @@
             
             .hero-content h1 {
                 font-size: 32px;
+            }
+            
+            .guarantee-badge {
+                width: 120px;
+                height: 120px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .guarantee-badge .percent {
+                font-size: 24px;
+            }
+            
+            .guarantee-badge .guaranteed {
+                font-size: 12px;
+            }
+            
+            .guarantee-badge .satisfaction {
+                font-size: 10px;
             }
             
             .trust-stats {
