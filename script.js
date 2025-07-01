@@ -1,11 +1,13 @@
-// Configuration
+// Configuration - OPTIMIZED FOR MAXIMUM CONVERSIONS
 const CONFIG = {
     phoneNumber: 'tel:+18442130185',
-    initialDelay: 1000, // 1 second delay before showing progress
-    progressDuration: 3000, // 3 seconds for progress animation
-    autoCallDelay: 2000, // 2 seconds after progress starts to trigger call
-    manualCallDelay: 6000, // 6 seconds total before showing manual call option
-    enableAutoCall: true // Set to false to disable auto-call for testing
+    initialDelay: 500, // REDUCED: 0.5 second delay 
+    progressDuration: 1500, // REDUCED: 1.5 seconds for progress
+    autoCallDelay: 800, // REDUCED: 0.8 seconds after progress starts
+    manualCallDelay: 1500, // REDUCED: 1.5 seconds total - IMMEDIATE fallback
+    enableAutoCall: true,
+    enableInstantButton: true, // NEW: Show call button immediately
+    enableDebug: window.location.search.includes('debug=true') // Enable debug mode with ?debug=true
 };
 
 // DOM Elements
@@ -21,9 +23,19 @@ let manualTimer;
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Track page load immediately
+    trackCallAttempt('page_loaded');
+    
     initializeElements();
     setupEventListeners();
     startCallSequence();
+    
+    // Track if user is still on page after 10 seconds (high intent)
+    setTimeout(() => {
+        if (!document.hidden) {
+            trackCallAttempt('high_intent_user_10s');
+        }
+    }, 10000);
 });
 
 function initializeElements() {
@@ -31,8 +43,17 @@ function initializeElements() {
     manualCallEl = document.getElementById('manualCall');
     progressTextEl = document.querySelector('.progress-text');
     
-    // Ensure manual call section is hidden initially
-    if (manualCallEl) {
+    // CRITICAL FIX: Show manual call button IMMEDIATELY as backup
+    if (CONFIG.enableInstantButton && manualCallEl) {
+        manualCallEl.style.display = 'block';
+        manualCallEl.style.opacity = '0.7'; // Slightly faded while auto-call attempts
+        
+        // Add urgent messaging
+        const instruction = manualCallEl.querySelector('.call-instruction');
+        if (instruction) {
+            instruction.innerHTML = '🚨 <strong>URGENT:</strong> Tap to call now for FREE quote + 30% OFF!';
+        }
+    } else if (manualCallEl) {
         manualCallEl.style.display = 'none';
     }
 }
@@ -63,24 +84,41 @@ function setupEventListeners() {
 }
 
 function startCallSequence() {
-    // Show initial progress after delay
-    setTimeout(() => {
-        showProgressSection();
-        startProgressAnimation();
+    // IMMEDIATE ACTION: Show call button instantly if enabled
+    if (CONFIG.enableInstantButton) {
+        // Call button is already visible from initializeElements()
         
-        // Trigger automatic call
+        // Still show progress animation for trust/authority
+        setTimeout(() => {
+            showProgressSection();
+            startProgressAnimation();
+        }, CONFIG.initialDelay);
+        
+        // Trigger automatic call (but button is already visible as backup)
         if (CONFIG.enableAutoCall) {
             setTimeout(() => {
                 triggerAutoCall();
-            }, CONFIG.autoCallDelay);
+            }, CONFIG.initialDelay + CONFIG.autoCallDelay);
         }
         
-        // Show manual call option after full sequence
+    } else {
+        // Original sequence for A/B testing
         setTimeout(() => {
-            showManualCallSection();
-        }, CONFIG.manualCallDelay);
-        
-    }, CONFIG.initialDelay);
+            showProgressSection();
+            startProgressAnimation();
+            
+            if (CONFIG.enableAutoCall) {
+                setTimeout(() => {
+                    triggerAutoCall();
+                }, CONFIG.autoCallDelay);
+            }
+            
+            setTimeout(() => {
+                showManualCallSection();
+            }, CONFIG.manualCallDelay);
+            
+        }, CONFIG.initialDelay);
+    }
 }
 
 function showProgressSection() {
@@ -130,30 +168,53 @@ function triggerAutoCall() {
     hasTriggeredCall = true;
     
     try {
-        // Create and trigger the call link
-        const link = document.createElement('a');
-        link.href = CONFIG.phoneNumber;
-        link.style.display = 'none';
-        document.body.appendChild(link);
+        // AGGRESSIVE AUTO-CALL: Try multiple methods for maximum compatibility
         
-        // Trigger the call
-        link.click();
-        
-        // Clean up
-        setTimeout(() => {
-            document.body.removeChild(link);
-        }, 1000);
+        // Method 1: Direct window.location (most reliable on mobile)
+        if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
+            window.location.href = CONFIG.phoneNumber;
+        } else {
+            // Method 2: Create and click link (for desktop)
+            const link = document.createElement('a');
+            link.href = CONFIG.phoneNumber;
+            link.style.position = 'absolute';
+            link.style.left = '-9999px';
+            document.body.appendChild(link);
+            
+            // Try both click methods
+            link.click();
+            
+            // Fallback: Dispatch click event
+            const clickEvent = new MouseEvent('click', {
+                view: window,
+                bubbles: true,
+                cancelable: true
+            });
+            link.dispatchEvent(clickEvent);
+            
+            // Clean up
+            setTimeout(() => {
+                if (document.body.contains(link)) {
+                    document.body.removeChild(link);
+                }
+            }, 1000);
+        }
         
         trackCallAttempt('auto_call_triggered');
         
         // Update progress text
         if (progressTextEl) {
-            progressTextEl.innerHTML = '<strong>📞 Call initiated! Please answer your phone.</strong>';
+            progressTextEl.innerHTML = '<strong>📞 Calling now! Answer your phone...</strong>';
         }
         
+        // Make manual button fully visible and urgent
+        setTimeout(() => {
+            makeManualButtonUrgent();
+        }, 2000);
+        
     } catch (error) {
-        console.log('Auto-call failed, showing manual option');
-        showManualCallSection();
+        console.log('Auto-call failed:', error);
+        makeManualButtonUrgent();
         trackCallAttempt('auto_call_failed');
     }
 }
@@ -183,13 +244,56 @@ function showManualCallSection() {
     }
 }
 
+function makeManualButtonUrgent() {
+    if (!manualCallEl) return;
+    
+    // Make manual call section fully visible and urgent
+    manualCallEl.style.display = 'block';
+    manualCallEl.style.opacity = '1';
+    
+    // Update messaging to be more urgent
+    const instruction = manualCallEl.querySelector('.call-instruction');
+    if (instruction) {
+        instruction.innerHTML = '🚨 <strong>TAP TO CALL NOW!</strong> FREE Quote + 30% OFF - Limited Time!';
+    }
+    
+    // Make call button pulse/animate to draw attention
+    const callButton = manualCallEl.querySelector('.call-button');
+    if (callButton) {
+        callButton.style.animation = 'pulse 1s infinite';
+        callButton.style.transform = 'scale(1.05)';
+        callButton.style.boxShadow = '0 12px 40px rgba(220, 38, 38, 0.6)';
+        
+        // Add vibration on mobile if supported
+        if (navigator.vibrate) {
+            navigator.vibrate([200, 100, 200]);
+        }
+    }
+    
+    // Hide progress section if still visible
+    if (callProgressEl) {
+        callProgressEl.style.display = 'none';
+    }
+}
+
 function trackCallAttempt(event) {
-    // Analytics tracking (can be connected to Google Analytics, etc.)
-    console.log('Call tracking event:', event, {
+    const eventData = {
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
-        phoneNumber: CONFIG.phoneNumber
-    });
+        phoneNumber: CONFIG.phoneNumber,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+        screenWidth: window.screen.width,
+        screenHeight: window.screen.height,
+        url: window.location.href
+    };
+    
+    // Enhanced logging for debugging
+    console.log('🚨 CALL TRACKING EVENT:', event, eventData);
+    
+    // Show debug info on screen if debug mode enabled
+    if (CONFIG.enableDebug) {
+        showDebugInfo(event, eventData);
+    }
     
     // Send to analytics service if needed
     if (window.gtag) {
@@ -198,6 +302,38 @@ function trackCallAttempt(event) {
             event_label: 'pest_control_mobile',
             value: 1
         });
+    }
+}
+
+function showDebugInfo(event, data) {
+    // Create or update debug panel
+    let debugPanel = document.getElementById('debug-panel');
+    if (!debugPanel) {
+        debugPanel = document.createElement('div');
+        debugPanel.id = 'debug-panel';
+        debugPanel.style.cssText = `
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            max-width: 200px;
+            z-index: 9999;
+            font-family: monospace;
+        `;
+        document.body.appendChild(debugPanel);
+    }
+    
+    const timestamp = new Date().toLocaleTimeString();
+    debugPanel.innerHTML += `<div>${timestamp}: ${event}</div>`;
+    
+    // Limit to last 10 entries
+    const entries = debugPanel.children;
+    if (entries.length > 10) {
+        debugPanel.removeChild(entries[0]);
     }
 }
 

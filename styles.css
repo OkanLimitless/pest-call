@@ -241,6 +241,12 @@ body {
     100% { width: 100%; }
 }
 
+@keyframes pulse {
+    0% { transform: scale(1.05); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1.05); }
+}
+
 /* Manual Call Section */
 .manual-call {
     text-align: center;
