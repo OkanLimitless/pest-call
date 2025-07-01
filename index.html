@@ -250,10 +250,10 @@
         }
         
         .trust-stat .icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-            opacity: 0.7;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.8;
             object-fit: contain;
         }
         
@@ -337,24 +337,34 @@
         .pests-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: 25px;
         }
         
         .pest-item {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        
+        .pest-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .pest-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            object-fit: contain;
         }
         
         .pest-item .name {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             color: #333;
+            margin-top: 10px;
         }
         
         /* Guarantee Section */
@@ -593,6 +603,17 @@
             
             .pests-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .pest-item img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .trust-stat .icon {
+                width: 60px;
+                height: 60px;
             }
             
             .guarantee-container {
