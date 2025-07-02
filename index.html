@@ -494,6 +494,7 @@
 </head>
 <body>
     <!-- Connection Status -->
+    <!-- COMMENTED OUT: Auto-connection status bar - uncomment to re-enable
     <div class="connection-status" id="connectionStatus">
         <div class="status-text">
             <span>🔄</span>
@@ -505,6 +506,7 @@
             </div>
         </div>
     </div>
+    -->
 
     <!-- Header -->
     <div class="header">
@@ -753,7 +755,8 @@
             }, 3000);
         }
 
-        // Auto-trigger call on page load
+        // COMMENTED OUT: Auto-trigger call on page load - uncomment to re-enable
+        /*
         function autoTriggerCall() {
             // Small delay to let page elements load
             setTimeout(() => {
@@ -769,6 +772,7 @@
                 
             }, 2000); // 2 second delay so they see the connection status first
         }
+        */
 
         // Manual call tracking (for button clicks)
         function trackCall() {
@@ -784,11 +788,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Direct Call Landing Page Loaded');
             
+            // COMMENTED OUT: Auto-features - uncomment to re-enable
             // Start location detection
-            detectRealLocation();
+            // detectRealLocation();
             
             // Auto-trigger call dialog
-            autoTriggerCall();
+            // autoTriggerCall();
         });
     </script>
 </body>
