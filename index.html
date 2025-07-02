@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pest Control Assessment | Free Quote in 3 Minutes</title>
-    <meta name="description" content="Get a free pest control quote in 3 minutes. Professional assessment and instant expert connection.">
+    <title>Local Pest Control Center | Free Quote | Call (844) 213-0185</title>
+    <meta name="description" content="Your local pest control center. Free quotes in under 3 minutes. Licensed professionals available 24/7.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -38,12 +38,6 @@
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
-    <script defer src="https://esm.sh/@vercel/analytics@1.1.1" type="module"></script>
-    <script type="module">
-        import { track } from 'https://esm.sh/@vercel/analytics@1.1.1';
-        window.vercelTrack = track;
-        console.log('✅ Vercel Analytics track function loaded');
-    </script>
 
     <style>
         * {
@@ -54,190 +48,282 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
+            line-height: 1.5;
+            color: #2c3e50;
+            background: #f8f9fa;
         }
-        
-        .app-container {
-            max-width: 420px;
-            margin: 0 auto;
-            min-height: 100vh;
-            background: white;
+
+        /* Connection Status Bar */
+        .connection-status {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 600;
             position: relative;
-            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            overflow: hidden;
         }
-        
-        .step {
-            display: none;
-            min-height: 100vh;
-            padding: 40px 30px 30px 30px;
-            position: relative;
-            animation: slideInRight 0.4s ease-out;
-        }
-        
-        .step.active {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        @keyframes slideInRight {
-            from { transform: translateX(30px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .progress-bar {
+
+        .connection-status::before {
+            content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            height: 4px;
-            background: #4CAF50;
-            transition: width 0.5s ease;
-            border-radius: 0 2px 2px 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
         }
-        
-        .step-counter {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 14px;
-            color: #666;
-            font-weight: 500;
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
-        
-        .step-header {
-            margin-bottom: 30px;
+
+        .status-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        
-        .step-title {
-            font-size: 28px;
+
+        .loading-dots {
+            display: inline-flex;
+            gap: 3px;
+        }
+
+        .loading-dots span {
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite both;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
             font-weight: 800;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Main Call Section */
+        .call-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .call-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .call-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
             line-height: 1.2;
         }
-        
-        .step-subtitle {
-            font-size: 16px;
-            color: #666;
-            font-weight: 500;
+
+        .call-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
-        
-        .options-grid {
-            flex: 1;
+
+        .phone-display {
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .phone-number {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .tap-to-call {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        .call-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            text-decoration: none;
+        }
+
+        .call-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.5);
+        }
+
+        /* Info Section */
+        .info-section {
+            background: white;
+            padding: 50px 20px;
+        }
+
+        .info-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .benefits-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .benefit-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background: #f8f9fa;
+            padding: 50px 20px;
+        }
+
+        .reviews-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .google-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
         }
-        
-        .option-card {
-            background: white;
-            border: 2px solid #f0f0f0;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .option-card:hover {
-            border-color: #4CAF50;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
-        }
-        
-        .option-card.selected {
-            border-color: #4CAF50;
-            background: #f8fff8;
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
-        }
-        
-        .option-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-            display: block;
-        }
-        
-        .option-title {
-            font-size: 16px;
+
+        .google-logo {
+            font-size: 24px;
             font-weight: 700;
+            color: #4285f4;
+        }
+
+        .rating-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 20px;
+        }
+
+        .rating-text {
+            font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 4px;
         }
-        
-        .option-desc {
-            font-size: 13px;
-            color: #666;
-            font-weight: 500;
+
+        .reviews-grid {
+            display: grid;
+            gap: 20px;
         }
-        
-        .continue-btn {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        
-        .continue-btn.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-        
-        .continue-btn:hover.active {
-            background: #45a049;
-            transform: translateY(-2px);
-        }
-        
-        .location-display {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #4CAF50;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .expert-card {
-            background: #f8fff8;
-            border: 1px solid #4CAF50;
-            border-radius: 16px;
+
+        .review-card {
+            background: white;
             padding: 25px;
-            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        .expert-info {
+
+        .review-header {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
-        
-        .expert-avatar {
-            width: 50px;
-            height: 50px;
-            background: #4CAF50;
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -246,407 +332,247 @@
             font-weight: 700;
             margin-right: 15px;
         }
-        
-        .expert-details h4 {
+
+        .reviewer-info h4 {
+            font-weight: 600;
             color: #2c3e50;
-            font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
-        
-        .expert-details p {
-            color: #666;
+
+        .reviewer-info .review-stars {
+            color: #ffc107;
             font-size: 14px;
         }
-        
-        .call-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            border-radius: 12px;
-            font-size: 20px;
-            font-weight: 800;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+
+        .review-text {
+            color: #4a5568;
+            line-height: 1.6;
+            font-style: italic;
         }
-        
-        .call-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
-        }
-        
-        .urgency-banner {
-            background: linear-gradient(135deg, #ff9500, #ff6b35);
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
+            padding: 50px 20px;
             text-align: center;
-            padding: 12px;
-            font-weight: 700;
-            font-size: 14px;
-            position: sticky;
-            bottom: 0;
-            margin: 20px -30px -30px -30px;
         }
-        
-        .time-sensitive {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #fff3cd;
-            color: #856404;
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .urgency-text {
+            background: rgba(255,193,7,0.2);
+            color: #ffc107;
             padding: 12px 20px;
             border-radius: 8px;
-            margin: 15px 0;
+            margin: 20px 0;
             font-weight: 600;
-            font-size: 14px;
         }
-        
-        @media (max-width: 480px) {
-            .app-container {
-                max-width: 100%;
-            }
-            
-            .step {
-                padding: 30px 20px 20px 20px;
-            }
-            
-            .step-title {
+
+        @media (max-width: 768px) {
+            .call-title {
                 font-size: 24px;
+            }
+
+            .phone-number {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <div class="progress-bar" id="progressBar"></div>
-        
-        <!-- Step 1: Welcome -->
-        <div class="step active" id="step1">
-            <div class="step-counter">1 of 6</div>
-            <div class="step-header">
-                <h1 class="step-title">Get Your Free Pest Control Quote</h1>
-                <p class="step-subtitle">Expert assessment in 3 minutes. Connect with local professionals instantly.</p>
-            </div>
-            
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 48px;">🛡️</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 20px;">Licensed & Insured Experts</h3>
-                    <p style="color: #666;">We'll match you with certified professionals in your area</p>
-                </div>
-            </div>
-            
-            <button class="continue-btn active" onclick="startAssessment()">Start Free Assessment</button>
-        </div>
-        
-        <!-- Step 2: Location Detection -->
-        <div class="step" id="step2">
-            <div class="step-counter">2 of 6</div>
-            <div class="step-header">
-                <h1 class="step-title">Detecting Your Location</h1>
-                <p class="step-subtitle">Finding local experts in your area...</p>
-            </div>
-            
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <div class="loading-spinner"></div>
-                <p style="text-align: center; color: #666; margin-top: 20px;">Analyzing your location for nearby professionals</p>
-                
-                <div class="location-display" id="locationDisplay" style="display: none;">
-                    <h4 style="color: #4CAF50; margin-bottom: 8px;">Location Confirmed</h4>
-                    <p id="detectedLocation" style="color: #2c3e50; font-weight: 600;"></p>
-                    <p style="color: #666; font-size: 14px; margin-top: 5px;">3 certified experts found in your area</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Step 3: Pest Type -->
-        <div class="step" id="step3">
-            <div class="step-counter">3 of 6</div>
-            <div class="step-header">
-                <h1 class="step-title">What pest problem are you dealing with?</h1>
-                <p class="step-subtitle">Select the pest you're seeing most</p>
-            </div>
-            
-            <div class="options-grid">
-                <div class="option-card" onclick="selectOption(this, 'ants')">
-                    <span class="option-icon">🐜</span>
-                    <div class="option-title">Ants</div>
-                    <div class="option-desc">Kitchen, trails, colonies</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'roaches')">
-                    <span class="option-icon">🪳</span>
-                    <div class="option-title">Roaches</div>
-                    <div class="option-desc">Cockroaches, water bugs</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'spiders')">
-                    <span class="option-icon">🕷️</span>
-                    <div class="option-title">Spiders</div>
-                    <div class="option-desc">Webs, crawling, bites</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'rodents')">
-                    <span class="option-icon">🐭</span>
-                    <div class="option-title">Mice/Rats</div>
-                    <div class="option-desc">Droppings, scratching sounds</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'termites')">
-                    <span class="option-icon">🪵</span>
-                    <div class="option-title">Termites</div>
-                    <div class="option-desc">Wood damage, swarms</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'other')">
-                    <span class="option-icon">🐛</span>
-                    <div class="option-title">Other Pest</div>
-                    <div class="option-desc">Bed bugs, wasps, flies</div>
-                </div>
-            </div>
-            
-            <button class="continue-btn" id="continueBtn3" onclick="nextStep(4)">Continue</button>
-        </div>
-        
-        <!-- Step 4: Severity -->
-        <div class="step" id="step4">
-            <div class="step-counter">4 of 6</div>
-            <div class="step-header">
-                <h1 class="step-title">How severe is the problem?</h1>
-                <p class="step-subtitle">This helps us prioritize your service</p>
-            </div>
-            
-            <div class="options-grid">
-                <div class="option-card" onclick="selectOption(this, 'mild')">
-                    <span class="option-icon">🟢</span>
-                    <div class="option-title">Just Started</div>
-                    <div class="option-desc">Saw a few, want to prevent spread</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'moderate')">
-                    <span class="option-icon">🟡</span>
-                    <div class="option-title">Moderate</div>
-                    <div class="option-desc">Seeing them regularly, spreading</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'severe')">
-                    <span class="option-icon">🔴</span>
-                    <div class="option-title">Severe</div>
-                    <div class="option-desc">Major infestation, urgent help needed</div>
-                </div>
-            </div>
-            
-            <div class="time-sensitive">
-                <span>⏰</span>
-                <span>Early treatment is 3x more effective</span>
-            </div>
-            
-            <button class="continue-btn" id="continueBtn4" onclick="nextStep(5)">Continue</button>
-        </div>
-        
-        <!-- Step 5: Property Type -->
-        <div class="step" id="step5">
-            <div class="step-counter">5 of 6</div>
-            <div class="step-header">
-                <h1 class="step-title">What type of property?</h1>
-                <p class="step-subtitle">Helps us recommend the right treatment</p>
-            </div>
-            
-            <div class="options-grid">
-                <div class="option-card" onclick="selectOption(this, 'house')">
-                    <span class="option-icon">🏠</span>
-                    <div class="option-title">Single Family Home</div>
-                    <div class="option-desc">House, townhome, duplex</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'apartment')">
-                    <span class="option-icon">🏢</span>
-                    <div class="option-title">Apartment/Condo</div>
-                    <div class="option-desc">Multi-unit building</div>
-                </div>
-                <div class="option-card" onclick="selectOption(this, 'business')">
-                    <span class="option-icon">🏪</span>
-                    <div class="option-title">Business</div>
-                    <div class="option-desc">Commercial property</div>
-                </div>
-            </div>
-            
-            <button class="continue-btn" id="continueBtn5" onclick="nextStep(6)">Continue</button>
-        </div>
-        
-        <!-- Step 6: Final - Expert Match -->
-        <div class="step" id="step6">
-            <div class="step-counter">6 of 6</div>
-            <div class="step-header">
-                <h1 class="step-title">Perfect Match Found!</h1>
-                <p class="step-subtitle">Expert ready to provide your free quote</p>
-            </div>
-            
-            <div style="flex: 1;">
-                <div class="expert-card">
-                    <div class="expert-info">
-                        <div class="expert-avatar">JS</div>
-                        <div class="expert-details">
-                            <h4>Johnson's Pest Solutions</h4>
-                            <p>Licensed • 4.9★ rating • Available now</p>
-                        </div>
-                    </div>
-                    <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0;">
-                        <p style="color: #2c3e50; font-weight: 600; margin-bottom: 8px;">✅ Specialized in <span id="selectedPestType">your pest type</span></p>
-                        <p style="color: #666; font-size: 14px;">Free inspection • Same-day service • Licensed & insured</p>
-                    </div>
-                </div>
-                
-                <div class="time-sensitive">
-                    <span>⚡</span>
-                    <span>Quote expires in 15 minutes - Call now!</span>
-                </div>
-            </div>
-            
-            <button class="call-btn" onclick="makeCall()">
-                CALL NOW: (844) 213-0185
-            </button>
-            
-            <div class="urgency-banner">
-                🔥 FREE quote available for next 15 minutes only
+    <!-- Connection Status -->
+    <div class="connection-status" id="connectionStatus">
+        <div class="status-text">
+            <span>🔄</span>
+            <span id="statusMessage">Connecting to local pest control center in your area</span>
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>
 
+    <!-- Header -->
+    <div class="header">
+        <h1 id="centerName">Local Pest Control Center</h1>
+        <p>Licensed & Insured • Available 24/7</p>
+    </div>
+
+    <!-- Main Call Section -->
+    <div class="call-section">
+        <div class="call-container">
+            <h2 class="call-title">Free Pest Control Quote</h2>
+            <p class="call-subtitle">Get connected with a local expert in under 3 minutes</p>
+            
+            <div class="phone-display">
+                <div class="phone-number">(844) 213-0185</div>
+                <div class="tap-to-call">Tap to call now</div>
+            </div>
+            
+            <a href="tel:+18442130185" class="call-btn" onclick="trackCall()">
+                CALL NOW - FREE QUOTE
+            </a>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+        <div class="info-container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">Licensed & Insured</h3>
+                    <p class="benefit-desc">Fully licensed professionals with comprehensive insurance coverage for your peace of mind.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Same Day Service</h3>
+                    <p class="benefit-desc">Emergency pest problems? We can be at your location within hours of your call.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Free Inspection</h3>
+                    <p class="benefit-desc">No hidden fees. We provide free, thorough inspections and honest quotes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews-section">
+        <div class="reviews-container">
+            <div class="google-header">
+                <span class="google-logo">Google</span>
+                <div class="rating-display">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-text">4.9 (2,847 reviews)</span>
+                </div>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">SM</div>
+                        <div class="reviewer-info">
+                            <h4>Sarah Martinez</h4>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Called them for an ant problem and they were at my house within 2 hours. Professional, friendly, and completely solved the issue. Highly recommend!"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">MJ</div>
+                        <div class="reviewer-info">
+                            <h4>Mike Johnson</h4>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best pest control service in the area. Free inspection was thorough and honest. No pressure tactics, just professional service."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">LW</div>
+                        <div class="reviewer-info">
+                            <h4>Lisa Wilson</h4>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Had a severe roach infestation. They came out same day and took care of everything. Haven't seen a single bug since. Amazing work!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Don't Wait - Call Now!</h2>
+            <p class="cta-subtitle">Every day you wait, the problem gets worse</p>
+            
+            <div class="urgency-text">
+                ⏰ Free quotes available today only
+            </div>
+            
+            <a href="tel:+18442130185" class="call-btn" onclick="trackCall()">
+                (844) 213-0185
+            </a>
+        </div>
+    </div>
+
     <script>
-        // Quiz data storage
-        const quizData = {
-            step: 1,
-            location: null,
-            pestType: null,
-            severity: null,
-            propertyType: null,
-            startTime: Date.now()
-        };
-
-        // Track step completion
-        function trackStep(stepNumber, data = {}) {
-            if (window.vercelTrack) {
-                window.vercelTrack(`Quiz Step ${stepNumber}`, {
-                    step: stepNumber,
-                    timeSpent: Date.now() - quizData.startTime,
-                    ...data
-                });
-            }
-            console.log(`📊 Quiz Step ${stepNumber}:`, data);
-        }
-
-        // Start assessment
-        function startAssessment() {
-            trackStep(1, { action: 'started' });
-            nextStep(2);
-            detectLocation();
-        }
-
-        // Location detection simulation
-        function detectLocation() {
+        // Location detection and status simulation
+        function simulateConnection() {
+            const states = ['Arizona', 'Florida', 'Texas', 'Colorado', 'Georgia', 'California', 'New York', 'Illinois'];
+            const selectedState = states[Math.floor(Math.random() * states.length)];
+            
+            const statusElement = document.getElementById('statusMessage');
+            const centerNameElement = document.getElementById('centerName');
+            
+            // Phase 1: Connecting
+            statusElement.textContent = `Connecting to local pest control center in ${selectedState}`;
+            
             setTimeout(() => {
-                // Simulate getting location (in real app, use geolocation API)
-                const cities = ['Phoenix, AZ', 'Tampa, FL', 'Austin, TX', 'Denver, CO', 'Atlanta, GA'];
-                const randomCity = cities[Math.floor(Math.random() * cities.length)];
+                // Phase 2: Found
+                statusElement.textContent = `✅ Connected to ${selectedState} Pest Control Center`;
+                centerNameElement.textContent = `${selectedState} Pest Control Center`;
                 
-                quizData.location = randomCity;
-                
-                document.getElementById('detectedLocation').textContent = randomCity;
-                document.getElementById('locationDisplay').style.display = 'block';
-                
-                trackStep(2, { location: randomCity });
+                // Change status bar color to success
+                document.getElementById('connectionStatus').style.background = 'linear-gradient(135deg, #28a745, #20c997)';
                 
                 setTimeout(() => {
-                    nextStep(3);
-                }, 2000);
-            }, 3000);
+                    // Phase 3: Hide status bar
+                    document.getElementById('connectionStatus').style.display = 'none';
+                }, 3000);
+            }, 4000);
         }
 
-        // Option selection
-        function selectOption(element, value) {
-            // Remove previous selections in this step
-            const step = element.closest('.step');
-            step.querySelectorAll('.option-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            
-            // Select current option
-            element.classList.add('selected');
-            
-            // Enable continue button
-            const continueBtn = step.querySelector('.continue-btn');
-            continueBtn.classList.add('active');
-            
-            // Store selection based on current step
-            const stepId = step.id;
-            if (stepId === 'step3') {
-                quizData.pestType = value;
-            } else if (stepId === 'step4') {
-                quizData.severity = value;
-            } else if (stepId === 'step5') {
-                quizData.propertyType = value;
-            }
-        }
-
-        // Next step navigation
-        function nextStep(stepNumber) {
-            // Hide current step
-            document.querySelector('.step.active').classList.remove('active');
-            
-            // Show new step
-            document.getElementById(`step${stepNumber}`).classList.add('active');
-            
-            // Update progress bar
-            const progress = (stepNumber - 1) / 5 * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-            
-            // Track step
-            const stepData = { ...quizData };
-            delete stepData.startTime;
-            trackStep(stepNumber, stepData);
-            
-            // Special handling for final step
-            if (stepNumber === 6) {
-                document.getElementById('selectedPestType').textContent = 
-                    quizData.pestType ? quizData.pestType : 'your pest type';
-                
-                // Track quiz completion
-                if (window.vercelTrack) {
-                    window.vercelTrack('Quiz Completed', {
-                        ...quizData,
-                        totalTime: Date.now() - quizData.startTime
-                    });
-                }
-            }
-            
-            quizData.step = stepNumber;
-        }
-
-        // Make call function
-        function makeCall() {
-            // Track call attempt
-            if (window.vercelTrack) {
-                window.vercelTrack('Call Attempted', {
-                    ...quizData,
-                    source: 'quiz_completion'
-                });
-            }
-            
+        // Call tracking
+        function trackCall() {
             // Google Ads conversion tracking
             if (typeof gtag_report_conversion === 'function') {
                 gtag_report_conversion('tel:+18442130185');
             }
             
-            // Initiate call
-            window.location.href = 'tel:+18442130185';
-            
-            console.log('📞 Call initiated with quiz data:', quizData);
+            console.log('📞 Call initiated from direct landing page');
         }
 
-        // Initialize app
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Pest Control Quiz App Loaded');
-            
-            // Track app load
-            if (window.vercelTrack) {
-                window.vercelTrack('Quiz App Loaded');
-            }
+            console.log('🚀 Direct Call Landing Page Loaded');
+            simulateConnection();
         });
     </script>
 </body>
