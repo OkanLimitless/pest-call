@@ -340,38 +340,40 @@
 
         .google-reviews-header {
             background: white;
-            padding: 20px;
+            padding: 16px;
             border-radius: 8px;
             margin-bottom: 24px;
             border: 1px solid #dadce0;
             display: flex;
             align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+            overflow: hidden;
         }
 
         .google-reviews-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             flex-shrink: 0;
         }
 
         .google-logo-text {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 400;
         }
 
         .rating-summary {
             display: flex;
             align-items: center;
-            gap: 8px;
-            flex: 1;
+            gap: 6px;
+            flex-shrink: 1;
             min-width: 0;
+            justify-content: flex-end;
         }
 
         .overall-rating {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 400;
             color: #202124;
             flex-shrink: 0;
@@ -379,14 +381,41 @@
 
         .stars {
             color: #fbbc04;
-            font-size: 16px;
+            font-size: 14px;
             flex-shrink: 0;
         }
 
         .rating-count {
             color: #5f6368;
-            font-size: 13px;
+            font-size: 11px;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
+            max-width: 80px;
+        }
+
+        @media (max-width: 480px) {
+            .google-reviews-header {
+                padding: 12px;
+                gap: 4px;
+            }
+            
+            .google-logo-text {
+                font-size: 14px;
+            }
+            
+            .overall-rating {
+                font-size: 16px;
+            }
+            
+            .stars {
+                font-size: 12px;
+            }
+            
+            .rating-count {
+                font-size: 10px;
+                max-width: 60px;
+            }
         }
 
         .reviews-grid {
