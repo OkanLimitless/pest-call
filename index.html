@@ -637,7 +637,7 @@
     <div class="header">
         <span>CALL BEFORE 2:00PM FOR SAME DAY SERVICE*</span>
         <span class="header-phone">
-            <a href="tel:+18442130185" onclick="if(window.va) window.va('track', 'Phone Call', {location: 'header'})">📞 (844) 213-0185</a>
+            <a href="tel:+18442130185" onclick="if(window.vercelTrack) { window.vercelTrack('Phone Call', {location: 'header'}); console.log('📞 Tracked: Phone Call from header'); }">📞 (844) 213-0185</a>
         </span>
     </div>
 
@@ -820,10 +820,13 @@
     </div>
 
     <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="https://esm.sh/@vercel/analytics@1.1.1" type="module"></script>
+    <script type="module">
+        import { track } from 'https://esm.sh/@vercel/analytics@1.1.1';
+        window.vercelTrack = track;
+        console.log('✅ Vercel Analytics track function loaded');
+    </script>
 
     <script>
         function handleZipSubmit(event) {
@@ -832,8 +835,9 @@
             
             if (zipCode.length === 5 && /^\d+$/.test(zipCode)) {
                 // Track form submission
-                if (window.va) {
-                    window.va('track', 'Form Submitted', { zipCode: zipCode });
+                if (window.vercelTrack) {
+                    window.vercelTrack('Form Submitted', { zipCode: zipCode });
+                    console.log('📊 Tracked: Form Submitted', { zipCode: zipCode });
                 }
                 
                 // Show loading state
@@ -975,8 +979,9 @@
             console.log('📍 ZIP code submitted:', zipCode);
             
             // Track form page view
-            if (window.va) {
-                window.va('track', 'Page View', { page: 'form', zipCode: zipCode });
+            if (window.vercelTrack) {
+                window.vercelTrack('Form Page View', { zipCode: zipCode });
+                console.log('📊 Tracked: Form Page View', { zipCode: zipCode });
             }
         }
         
@@ -1001,12 +1006,13 @@
             submitBtn.style.cursor = 'not-allowed';
             
             // Track final form completion
-            if (window.va) {
-                window.va('track', 'Lead Conversion', { 
-                    zipCode: data.zipCode,
+            if (window.vercelTrack) {
+                window.vercelTrack('Lead Conversion', { 
+                    service: data.service,
                     phone: data.phone,
                     email: data.email 
                 });
+                console.log('📊 Tracked: Lead Conversion', data);
             }
             
             // Add loading delay
@@ -1198,7 +1204,7 @@
                 <div class="thank-you-header">
                     <span>CALL BEFORE 2:00PM FOR SAME DAY SERVICE*</span>
                     <span class="thank-you-header-phone">
-                        <a href="tel:+18442130185" onclick="if(window.va) window.va('track', 'Phone Call', {location: 'thank_you_header'})">📞 (844) 213-0185</a>
+                        <a href="tel:+18442130185" onclick="if(window.vercelTrack) { window.vercelTrack('Phone Call', {location: 'thank_you_header'}); console.log('📞 Tracked: Phone Call from thank you header'); }">📞 (844) 213-0185</a>
                     </span>
                 </div>
 
@@ -1217,7 +1223,7 @@
                             <h1>THANKS FOR REQUESTING A QUOTE!</h1>
                             <p>Your pest control specialist is standing by to help you right now!</p>
                             <p><strong>Call immediately for your FREE quote:</strong></p>
-                            <a href="tel:+18442130185" class="thank-you-call-btn" onclick="if(window.va) window.va('track', 'Phone Call', {location: 'thank_you_page'})">
+                            <a href="tel:+18442130185" class="thank-you-call-btn" onclick="if(window.vercelTrack) { window.vercelTrack('Phone Call', {location: 'thank_you_page'}); console.log('📞 Tracked: Phone Call from thank you page'); }">
                                 📞 (844) 213-0185
                             </a>
                             <div style="background: #f0f8ff; border: 2px dashed #2196F3; padding: 15px; margin-top: 20px; border-radius: 8px; text-align: center;">
@@ -1244,8 +1250,9 @@
             `;
             
             // Track thank you page view
-            if (window.va) {
-                window.va('track', 'Page View', { page: 'thank_you' });
+            if (window.vercelTrack) {
+                window.vercelTrack('Thank You Page View');
+                console.log('📊 Tracked: Thank You Page View');
             }
             
             console.log('🎉 Form submitted successfully:', data);
@@ -1254,17 +1261,30 @@
         function scrollToForm() {
             document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth' });
             // Track scroll to form
-            if (window.va) {
-                window.va('track', 'Scroll to Form');
+            if (window.vercelTrack) {
+                window.vercelTrack('Scroll to Form');
+                console.log('📊 Tracked: Scroll to Form');
             }
         }
         
-        // Track page view
-        if (window.va) {
-            window.va('track', 'Page View', { page: 'landing' });
-        }
+        // Initialize analytics tracking with delay to ensure script loads
+        setTimeout(() => {
+            if (window.vercelTrack) {
+                window.vercelTrack('Landing Page View');
+                console.log('📊 Tracked: Landing Page View');
+            } else {
+                console.warn('⚠️ Vercel Analytics not loaded yet');
+                // Retry after another second
+                setTimeout(() => {
+                    if (window.vercelTrack) {
+                        window.vercelTrack('Landing Page View');
+                        console.log('📊 Tracked: Landing Page View (retry)');
+                    }
+                }, 1000);
+            }
+        }, 500);
         
-        console.log('🛡️ Orkin-style landing page loaded with analytics');
+        console.log('🛡️ Orkin-style landing page loaded with Vercel Analytics');
     </script>
 </body>
 </html> 
