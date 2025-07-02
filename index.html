@@ -918,13 +918,188 @@
                 
                 // Add loading delay
                 setTimeout(() => {
-                    showFormPage(zipCode);
+                    showSearchingPage(zipCode);
                 }, 1500); // 1.5 second delay
             } else {
                 alert('Please enter a valid 5-digit ZIP code');
             }
         }
         
+        function showSearchingPage(zipCode) {
+            // Show loading/searching page first
+            document.body.innerHTML = `
+                <div class="header">
+                    <span>🚨 NATIONAL PEST CONTROL HOTLINE - LOCAL EXPERTS STANDING BY</span>
+                    <span class="header-phone">
+                        <a href="tel:+18442130185" onclick="return gtag_report_conversion('tel:+18442130185');">📞 (844) 213-0185</a>
+                    </span>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; padding: 40px 20px; display: flex; align-items: center; justify-content: center;">
+                    <div style="background: white; border-radius: 15px; padding: 50px 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); text-align: center; max-width: 500px; width: 100%;">
+                        <div id="searchAnimation">
+                            <div style="margin-bottom: 30px;">
+                                <div style="width: 80px; height: 80px; border: 4px solid #f3f3f3; border-top: 4px solid #d32f2f; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                                <h2 style="color: #333; margin-bottom: 15px; font-size: 24px; font-weight: 700;">🔍 Searching Your Area</h2>
+                                <p id="searchText" style="color: #666; font-size: 16px; font-weight: 500;">Finding the nearest, cheapest & best pest control experts...</p>
+                            </div>
+                            
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 25px 0;">
+                                <div style="font-size: 14px; color: #666; margin-bottom: 15px;">ZIP CODE: <strong style="color: #d32f2f;">${zipCode}</strong></div>
+                                <div id="searchProgress" style="width: 100%; background: #e9ecef; border-radius: 20px; height: 8px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, #d32f2f, #ff4444); border-radius: 20px; width: 0%; animation: progressFill 4s ease-out forwards;"></div>
+                                </div>
+                                <div id="searchStatus" style="font-size: 12px; color: #999; margin-top: 10px;">Analyzing local providers...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                    
+                    @keyframes progressFill {
+                        0% { width: 0%; }
+                        25% { width: 30%; }
+                        50% { width: 65%; }
+                        75% { width: 85%; }
+                        100% { width: 100%; }
+                    }
+                    
+                    @keyframes slideInUp {
+                        from {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                </style>
+            `;
+            
+            // Update search text dynamically
+            const searchTexts = [
+                "Finding the nearest, cheapest & best pest control experts...",
+                "Comparing prices from local certified professionals...",
+                "Verifying licenses and customer reviews...",
+                "Matching you with top-rated local experts..."
+            ];
+            
+            const statusTexts = [
+                "Analyzing local providers...",
+                "Checking availability...",
+                "Comparing quotes...",
+                "Match found! Preparing connection..."
+            ];
+            
+            let textIndex = 0;
+            const textInterval = setInterval(() => {
+                textIndex = (textIndex + 1) % searchTexts.length;
+                document.getElementById('searchText').textContent = searchTexts[textIndex];
+                document.getElementById('searchStatus').textContent = statusTexts[textIndex];
+            }, 1000);
+            
+            // After 4.5 seconds, show the results with direct CTA
+            setTimeout(() => {
+                clearInterval(textInterval);
+                showDirectCTA(zipCode);
+            }, 4500);
+        }
+        
+        function showDirectCTA(zipCode) {
+            // Show the direct call CTA page
+            document.body.innerHTML = `
+                <div class="header">
+                    <span>🚨 NATIONAL PEST CONTROL HOTLINE - LOCAL EXPERTS STANDING BY</span>
+                    <span class="header-phone">
+                        <a href="tel:+18442130185" onclick="return gtag_report_conversion('tel:+18442130185');">📞 (844) 213-0185</a>
+                    </span>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; padding: 40px 20px; display: flex; align-items: center; justify-content: center;">
+                    <div style="background: white; border-radius: 15px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); text-align: center; max-width: 600px; width: 100%; animation: slideInUp 0.6s ease-out;">
+                        <div style="margin-bottom: 30px;">
+                            <div style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; padding: 15px 25px; border-radius: 50px; display: inline-block; margin-bottom: 20px; font-weight: 700; font-size: 16px;">
+                                ✅ 3 EXPERTS FOUND IN ${zipCode}
+                            </div>
+                            <h1 style="color: #333; margin-bottom: 15px; font-size: 28px; font-weight: 800; line-height: 1.2;">
+                                TOP-RATED LOCAL EXPERTS<br/>READY TO HELP!
+                            </h1>
+                            <p style="color: #666; font-size: 16px; margin-bottom: 25px;">
+                                Our system matched you with <strong>3 certified, licensed professionals</strong> in your area offering the best rates.
+                            </p>
+                        </div>
+
+                        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin-bottom: 30px;">
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; color: #4CAF50; margin-bottom: 5px;">🏆</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: #333;">LICENSED</div>
+                                    <div style="font-size: 12px; color: #666;">& Insured</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; color: #4CAF50; margin-bottom: 5px;">⭐</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: #333;">4.9/5 RATING</div>
+                                    <div style="font-size: 12px; color: #666;">Google Reviews</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; color: #4CAF50; margin-bottom: 5px;">💰</div>
+                                    <div style="font-size: 14px; font-weight: 700; color: #333;">BEST PRICE</div>
+                                    <div style="font-size: 12px; color: #666;">Guaranteed</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 14px; color: #666; font-weight: 500;">
+                                ⏰ <strong>Limited time:</strong> Call now for up to 50% off first treatment
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <a href="tel:+18442130185" onclick="return gtag_report_conversion('tel:+18442130185');" 
+                               style="display: block; background: linear-gradient(135deg, #d32f2f, #ff4444); color: white; text-decoration: none; padding: 20px 40px; border-radius: 12px; font-size: 20px; font-weight: 800; box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4); transition: all 0.3s ease; border: none; cursor: pointer;"
+                               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 35px rgba(211, 47, 47, 0.5)';"
+                               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(211, 47, 47, 0.4)';">
+                                📞 CALL NOW: (844) 213-0185
+                            </a>
+                            <div style="font-size: 12px; color: #999; margin-top: 10px;">
+                                Free quote • No obligation • Licensed professionals only
+                            </div>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, #fff3cd, #ffeaa7); padding: 20px; border-radius: 10px; border-left: 4px solid #ffb347;">
+                            <div style="font-size: 14px; color: #856404; font-weight: 600; margin-bottom: 5px;">
+                                🕐 CALL WITHIN 15 MINUTES
+                            </div>
+                            <div style="font-size: 13px; color: #856404;">
+                                Secure your spot with the closest available expert before they book up!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer" style="background: #333; color: white; padding: 20px 0; text-align: center;">
+                    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                        <div style="font-size: 12px; color: #ccc; margin-bottom: 10px;">
+                            National Pest Control Hotline • Licensed & Insured Professionals • BBB Accredited
+                        </div>
+                        <div style="font-size: 11px; color: #999;">
+                            By calling, you agree to be connected with local pest control professionals. Service may not be available in all areas.
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Track successful matching
+            if (window.vercelTrack) {
+                window.vercelTrack('Expert Match Complete', { zipCode: zipCode });
+                console.log('📊 Tracked: Expert Match Complete', { zipCode: zipCode });
+            }
+        }
+
         function showFormPage(zipCode) {
             // Replace entire page with form page
             document.body.innerHTML = `
