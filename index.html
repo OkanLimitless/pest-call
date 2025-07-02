@@ -9,6 +9,34 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-697295426');
+    </script>
+
+    <!-- Event snippet for Click to call (1) conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-697295426/tu9yCLeJhOgaEMLEv8wC',
+          'value': 1.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -648,7 +676,7 @@
     <div class="header">
         <span>CALL BEFORE 2:00PM FOR SAME DAY SERVICE*</span>
         <span class="header-phone">
-            <a href="tel:+18442130185" onclick="if(window.vercelTrack) { window.vercelTrack('Phone Call', {location: 'header'}); console.log('📞 Tracked: Phone Call from header'); }">📞 (844) 213-0185</a>
+            <a href="tel:+18442130185" onclick="return gtag_report_conversion('tel:+18442130185');">📞 (844) 213-0185</a>
         </span>
     </div>
 
@@ -870,7 +898,7 @@
                 <div class="header">
                     <span>CALL BEFORE 2:00 PM FOR SAME DAY SERVICE*</span>
                     <span class="header-phone">
-                        <a href="tel:+18442130185">📞 (844) 213-0185</a>
+                        <a href="tel:+18442130185" onclick="return gtag_report_conversion('tel:+18442130185');">📞 (844) 213-0185</a>
                     </span>
                 </div>
 
@@ -1211,7 +1239,7 @@
                 <div class="thank-you-header">
                     <span>CALL BEFORE 2:00PM FOR SAME DAY SERVICE*</span>
                     <span class="thank-you-header-phone">
-                        <a href="tel:+18442130185" onclick="if(window.vercelTrack) { window.vercelTrack('Phone Call', {location: 'thank_you_header'}); console.log('📞 Tracked: Phone Call from thank you header'); }">📞 (844) 213-0185</a>
+                        <a href="tel:+18442130185" onclick="return gtag_report_conversion('tel:+18442130185');">📞 (844) 213-0185</a>
                     </span>
                 </div>
 
@@ -1230,7 +1258,7 @@
                             <h1>THANKS FOR REQUESTING A QUOTE!</h1>
                             <p>Your pest control specialist is standing by to help you right now!</p>
                             <p><strong>Call immediately for your FREE quote:</strong></p>
-                            <a href="tel:+18442130185" class="thank-you-call-btn" onclick="if(window.vercelTrack) { window.vercelTrack('Phone Call', {location: 'thank_you_page'}); console.log('📞 Tracked: Phone Call from thank you page'); }">
+                            <a href="tel:+18442130185" class="thank-you-call-btn" onclick="return gtag_report_conversion('tel:+18442130185');">
                                 📞 (844) 213-0185
                             </a>
                             <div style="background: #f0f8ff; border: 2px dashed #2196F3; padding: 15px; margin-top: 20px; border-radius: 8px; text-align: center;">
