@@ -7,7 +7,7 @@
     <meta name="description" content="Your local pest control center. Free quotes in under 3 minutes. Licensed professionals available 24/7.">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
@@ -47,21 +47,22 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.5;
-            color: #2c3e50;
-            background: #f8f9fa;
+            color: #202124;
+            background: #fff;
         }
 
         /* Connection Status Bar */
         .connection-status {
-            background: linear-gradient(135deg, #28a745, #20c997);
+            background: #4285F4;
             color: white;
             text-align: center;
             padding: 12px 20px;
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
         }
 
         .connection-status::before {
@@ -111,250 +112,308 @@
         /* Header */
         .header {
             background: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
+            padding: 16px 24px;
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .header h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: #2c3e50;
-            margin-bottom: 5px;
+        .google-logo-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .header p {
-            color: #666;
-            font-size: 16px;
+        .google-logo {
+            font-size: 22px;
+            font-weight: 400;
+            color: #4285F4;
+            text-decoration: none;
+        }
+
+        .google-logo .g1 { color: #4285F4; }
+        .google-logo .g2 { color: #EA4335; }
+        .google-logo .g3 { color: #FBBC05; }
+        .google-logo .g4 { color: #4285F4; }
+        .google-logo .g5 { color: #34A853; }
+        .google-logo .g6 { color: #EA4335; }
+
+        .service-name {
+            color: #5f6368;
+            font-size: 22px;
+            font-weight: 400;
+            margin-left: 16px;
+        }
+
+        .header-info {
+            color: #5f6368;
+            font-size: 14px;
+            font-weight: 400;
         }
 
         /* Main Call Section */
         .call-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
+            background: #f8f9fa;
+            color: #202124;
+            padding: 48px 24px;
             text-align: center;
+            border-bottom: 1px solid #dadce0;
         }
 
         .call-container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
+        .google-service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f0fe;
+            color: #1a73e8;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
         .call-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            line-height: 1.2;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.25;
+            color: #202124;
         }
 
         .call-subtitle {
             font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            margin-bottom: 32px;
+            color: #5f6368;
+            font-weight: 400;
         }
 
         .phone-display {
-            background: rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 25px;
-            backdrop-filter: blur(10px);
+            background: white;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
         }
 
         .phone-number {
-            font-size: 36px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: #1a73e8;
         }
 
         .tap-to-call {
             font-size: 16px;
-            opacity: 0.8;
+            color: #5f6368;
         }
 
         .call-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: #1a73e8;
             color: white;
             border: none;
-            padding: 20px 50px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 800;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
-            width: 100%;
-            max-width: 350px;
+            max-width: 200px;
             margin: 0 auto;
             display: block;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transition: all 0.2s ease;
             text-decoration: none;
+            box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
         }
 
         .call-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.5);
+            background: #1557b0;
+            box-shadow: 0 1px 3px rgba(60,64,67,.3), 0 4px 8px rgba(60,64,67,.15);
         }
 
         /* Info Section */
         .info-section {
             background: white;
-            padding: 50px 20px;
+            padding: 48px 24px;
         }
 
         .info-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 32px;
-            font-weight: 800;
+            font-size: 28px;
+            font-weight: 400;
             text-align: center;
             margin-bottom: 40px;
-            color: #2c3e50;
+            color: #202124;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
         }
 
         .benefit-card {
-            text-align: center;
-            padding: 30px 20px;
-            background: #f8f9fa;
-            border-radius: 16px;
-            transition: transform 0.3s ease;
+            text-align: left;
+            padding: 24px;
+            background: white;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            transition: box-shadow 0.2s ease;
         }
 
         .benefit-card:hover {
-            transform: translateY(-5px);
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
         }
 
         .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #28a745, #20c997);
+            width: 48px;
+            height: 48px;
+            background: #34A853;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 32px;
+            margin-bottom: 16px;
+            font-size: 24px;
             color: white;
         }
 
         .benefit-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #202124;
         }
 
         .benefit-desc {
-            color: #666;
-            line-height: 1.6;
+            color: #5f6368;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
         /* Reviews Section */
         .reviews-section {
             background: #f8f9fa;
-            padding: 50px 20px;
+            padding: 48px 24px;
         }
 
         .reviews-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .google-header {
+        .google-reviews-header {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border: 1px solid #dadce0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 16px;
         }
 
-        .google-logo {
+        .google-reviews-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .google-logo-text {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .overall-rating {
             font-size: 24px;
-            font-weight: 700;
-            color: #4285f4;
-        }
-
-        .rating-display {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-weight: 400;
+            color: #202124;
         }
 
         .stars {
-            color: #ffc107;
-            font-size: 20px;
+            color: #fbbc04;
+            font-size: 18px;
         }
 
-        .rating-text {
-            font-weight: 600;
-            color: #2c3e50;
+        .rating-count {
+            color: #5f6368;
+            font-size: 14px;
         }
 
         .reviews-grid {
             display: grid;
-            gap: 20px;
+            gap: 16px;
         }
 
         .review-card {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dadce0;
         }
 
         .review-header {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .reviewer-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            width: 32px;
+            height: 32px;
+            background: #1a73e8;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 700;
-            margin-right: 15px;
+            font-weight: 500;
+            font-size: 14px;
+            margin-right: 12px;
         }
 
         .reviewer-info h4 {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 2px;
-        }
-
-        .reviewer-info .review-stars {
-            color: #ffc107;
+            font-weight: 400;
+            color: #202124;
+            margin-bottom: 4px;
             font-size: 14px;
         }
 
+        .reviewer-info .review-stars {
+            color: #fbbc04;
+            font-size: 12px;
+        }
+
         .review-text {
-            color: #4a5568;
-            line-height: 1.6;
-            font-style: italic;
+            color: #3c4043;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 50px 20px;
+            background: white;
+            border-top: 1px solid #dadce0;
+            padding: 48px 24px;
             text-align: center;
         }
 
@@ -364,24 +423,27 @@
         }
 
         .cta-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: #202124;
         }
 
         .cta-subtitle {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: 16px;
+            margin-bottom: 24px;
+            color: #5f6368;
         }
 
         .urgency-text {
-            background: rgba(255,193,7,0.2);
-            color: #ffc107;
-            padding: 12px 20px;
-            border-radius: 8px;
+            background: #fef7e0;
+            color: #ea8600;
+            padding: 12px 16px;
+            border-radius: 4px;
             margin: 20px 0;
-            font-weight: 600;
+            font-weight: 400;
+            font-size: 14px;
+            border: 1px solid #fce8b2;
         }
 
         @media (max-width: 768px) {
@@ -409,7 +471,7 @@
     <div class="connection-status" id="connectionStatus">
         <div class="status-text">
             <span>🔄</span>
-            <span id="statusMessage">Connecting to local pest control center in your area</span>
+            <span id="statusMessage">Connecting to Google Local Services in your area</span>
             <div class="loading-dots">
                 <span></span>
                 <span></span>
@@ -420,23 +482,33 @@
 
     <!-- Header -->
     <div class="header">
-        <h1 id="centerName">Local Pest Control Center</h1>
-        <p>Licensed & Insured • Available 24/7</p>
+        <div class="google-logo-section">
+            <a href="#" class="google-logo">
+                <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span>
+            </a>
+            <span class="service-name" id="centerName">Local Services</span>
+        </div>
+        <div class="header-info">Verified Business Directory</div>
     </div>
 
     <!-- Main Call Section -->
     <div class="call-section">
         <div class="call-container">
+            <div class="google-service-badge">
+                <span>🛡️</span>
+                <span>Google Verified Business</span>
+            </div>
+            
             <h2 class="call-title">Free Pest Control Quote</h2>
-            <p class="call-subtitle">Get connected with a local expert in under 3 minutes</p>
+            <p class="call-subtitle">Connect with verified local experts through Google's trusted network</p>
             
             <div class="phone-display">
                 <div class="phone-number">(844) 213-0185</div>
-                <div class="tap-to-call">Tap to call now</div>
+                <div class="tap-to-call">Tap to call Google verified expert</div>
             </div>
             
             <a href="tel:+18442130185" class="call-btn" onclick="trackCall()">
-                CALL NOW - FREE QUOTE
+                Call Now
             </a>
         </div>
     </div>
@@ -471,46 +543,52 @@
     <!-- Reviews Section -->
     <div class="reviews-section">
         <div class="reviews-container">
-            <div class="google-header">
-                <span class="google-logo">Google</span>
-                <div class="rating-display">
+            <div class="google-reviews-header">
+                <div class="google-reviews-logo">
+                    <span class="google-logo">
+                        <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span>
+                    </span>
+                    <span class="google-logo-text">reviews</span>
+                </div>
+                <div class="rating-summary">
+                    <span class="overall-rating">4.9</span>
                     <span class="stars">★★★★★</span>
-                    <span class="rating-text">4.9 (2,847 reviews)</span>
+                    <span class="rating-count">(2,847 reviews)</span>
                 </div>
             </div>
             
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-avatar">SM</div>
+                        <div class="reviewer-avatar">S</div>
                         <div class="reviewer-info">
                             <h4>Sarah Martinez</h4>
                             <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Called them for an ant problem and they were at my house within 2 hours. Professional, friendly, and completely solved the issue. Highly recommend!"</p>
+                    <p class="review-text">Called them for an ant problem and they were at my house within 2 hours. Professional, friendly, and completely solved the issue. Highly recommend!</p>
                 </div>
                 
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-avatar">MJ</div>
+                        <div class="reviewer-avatar">M</div>
                         <div class="reviewer-info">
                             <h4>Mike Johnson</h4>
                             <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Best pest control service in the area. Free inspection was thorough and honest. No pressure tactics, just professional service."</p>
+                    <p class="review-text">Best pest control service in the area. Free inspection was thorough and honest. No pressure tactics, just professional service.</p>
                 </div>
                 
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-avatar">LW</div>
+                        <div class="reviewer-avatar">L</div>
                         <div class="reviewer-info">
                             <h4>Lisa Wilson</h4>
                             <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Had a severe roach infestation. They came out same day and took care of everything. Haven't seen a single bug since. Amazing work!"</p>
+                    <p class="review-text">Had a severe roach infestation. They came out same day and took care of everything. Haven't seen a single bug since. Amazing work!</p>
                 </div>
             </div>
         </div>
@@ -565,14 +643,14 @@
                 }
                 
                 // Update with real location
-                statusElement.textContent = `Connecting to local pest control center in ${detectedState}`;
+                statusElement.textContent = `Connecting to Google Local Services in ${detectedState}`;
                 
                 setTimeout(() => {
-                    statusElement.textContent = `✅ Connected to ${detectedState} Pest Control Center`;
-                    centerNameElement.textContent = `${detectedState} Pest Control Center`;
+                    statusElement.textContent = `✅ Connected to Google Local Services - ${detectedState}`;
+                    centerNameElement.textContent = `${detectedState} Local Services`;
                     
                     // Change status bar color to success
-                    document.getElementById('connectionStatus').style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                    document.getElementById('connectionStatus').style.background = '#34A853';
                     
                     setTimeout(() => {
                         // Hide status bar
@@ -596,8 +674,8 @@
                                 
                                 const detectedState = geoData.principalSubdivision || 'Local';
                                 
-                                statusElement.textContent = `✅ Connected to ${detectedState} Pest Control Center`;
-                                centerNameElement.textContent = `${detectedState} Pest Control Center`;
+                                statusElement.textContent = `✅ Connected to Google Local Services - ${detectedState}`;
+                                centerNameElement.textContent = `${detectedState} Local Services`;
                                 
                                 setTimeout(() => {
                                     document.getElementById('connectionStatus').style.display = 'none';
@@ -622,8 +700,8 @@
             const statusElement = document.getElementById('statusMessage');
             const centerNameElement = document.getElementById('centerName');
             
-            statusElement.textContent = '✅ Connected to Local Pest Control Center';
-            centerNameElement.textContent = 'Local Pest Control Center';
+            statusElement.textContent = '✅ Connected to Google Local Services';
+            centerNameElement.textContent = 'Local Services';
             
             setTimeout(() => {
                 document.getElementById('connectionStatus').style.display = 'none';
