@@ -637,7 +637,7 @@
     <div class="header">
         <span>CALL BEFORE 2:00PM FOR SAME DAY SERVICE*</span>
         <span class="header-phone">
-            <a href="tel:+18442130185">📞 (844) 213-0185</a>
+            <a href="tel:+18442130185" onclick="if(window.va) window.va('track', 'Phone Call', {location: 'header'})">📞 (844) 213-0185</a>
         </span>
     </div>
 
@@ -819,12 +819,22 @@
         </p>
     </div>
 
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
     <script>
         function handleZipSubmit(event) {
             event.preventDefault();
             const zipCode = event.target.querySelector('input').value;
             
             if (zipCode.length === 5 && /^\d+$/.test(zipCode)) {
+                // Track form submission
+                if (window.va) {
+                    window.va('track', 'Form Submitted', { zipCode: zipCode });
+                }
                 showFormPage(zipCode);
             } else {
                 alert('Please enter a valid 5-digit ZIP code');
@@ -951,6 +961,11 @@
             `;
             
             console.log('📍 ZIP code submitted:', zipCode);
+            
+            // Track form page view
+            if (window.va) {
+                window.va('track', 'Page View', { page: 'form', zipCode: zipCode });
+            }
         }
         
         function handleFormSubmit(event) {
@@ -964,6 +979,15 @@
                 phone: event.target.querySelector('input[placeholder*="Phone"]').value,
                 email: event.target.querySelector('input[placeholder*="Email"]').value
             };
+            
+            // Track final form completion
+            if (window.va) {
+                window.va('track', 'Lead Conversion', { 
+                    zipCode: data.zipCode,
+                    phone: data.phone,
+                    email: data.email 
+                });
+            }
             
             // Show thank you page
             showThankYouPage(data);
@@ -1133,7 +1157,7 @@
                             <h1>THANKS FOR REQUESTING A QUOTE!</h1>
                             <p>Your pest control specialist is standing by to help you right now!</p>
                             <p><strong>Call immediately for your FREE quote:</strong></p>
-                            <a href="tel:+18442130185" class="thank-you-call-btn">
+                            <a href="tel:+18442130185" class="thank-you-call-btn" onclick="if(window.va) window.va('track', 'Phone Call', {location: 'thank_you_page'})">
                                 📞 (844) 213-0185
                             </a>
                             <div style="background: #f0f8ff; border: 2px dashed #2196F3; padding: 15px; margin-top: 20px; border-radius: 8px; text-align: center;">
@@ -1159,14 +1183,28 @@
                 </div>
             `;
             
+            // Track thank you page view
+            if (window.va) {
+                window.va('track', 'Page View', { page: 'thank_you' });
+            }
+            
             console.log('🎉 Form submitted successfully:', data);
         }
         
         function scrollToForm() {
             document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth' });
+            // Track scroll to form
+            if (window.va) {
+                window.va('track', 'Scroll to Form');
+            }
         }
         
-        console.log('🛡️ Orkin-style landing page loaded');
+        // Track page view
+        if (window.va) {
+            window.va('track', 'Page View', { page: 'landing' });
+        }
+        
+        console.log('🛡️ Orkin-style landing page loaded with analytics');
     </script>
 </body>
 </html> 
