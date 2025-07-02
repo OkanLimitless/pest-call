@@ -51,6 +51,246 @@
             line-height: 1.5;
             color: #202124;
             background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 40px 20px;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .google-loading-logo {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .google-loading-text {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .loading-subtitle {
+            color: #5f6368;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .analysis-container {
+            width: 100%;
+            max-width: 480px;
+            margin-bottom: 32px;
+        }
+
+        .analysis-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+        }
+
+        .location-icon {
+            width: 24px;
+            height: 24px;
+            background: #4285f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .location-text {
+            font-size: 16px;
+            color: #202124;
+            font-weight: 500;
+        }
+
+        .detected-location {
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .progress-container {
+            margin-bottom: 32px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 4px;
+            background: #f1f3f4;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: #4285f4;
+            width: 0%;
+            transition: width 0.8s ease;
+            border-radius: 2px;
+        }
+
+        .analysis-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .analysis-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            opacity: 0.3;
+            transition: opacity 0.5s ease;
+        }
+
+        .analysis-step.active {
+            opacity: 1;
+        }
+
+        .analysis-step.completed {
+            opacity: 0.6;
+        }
+
+        .step-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .step-icon.pending {
+            background: #f1f3f4;
+            color: #5f6368;
+        }
+
+        .step-icon.active {
+            background: #4285f4;
+            color: white;
+        }
+
+        .step-icon.completed {
+            background: #34a853;
+            color: white;
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: #202124;
+        }
+
+        .step-subtext {
+            font-size: 12px;
+            color: #5f6368;
+            margin-left: 32px;
+            margin-top: 4px;
+        }
+
+        .final-result {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .final-result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result-badge {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: 400;
+            color: #202124;
+            margin-bottom: 8px;
+        }
+
+        .result-subtitle {
+            color: #5f6368;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .continue-button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .continue-button:hover {
+            background: #3367d6;
+        }
+
+        /* Main Content */
+        .main-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .main-content.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .google-loading-text {
+                font-size: 24px;
+            }
+            
+            .loading-subtitle {
+                font-size: 14px;
+            }
+            
+            .analysis-container {
+                max-width: 100%;
+            }
         }
 
         /* Connection Status Bar */
@@ -537,8 +777,78 @@
     </div>
     -->
 
-    <!-- Header -->
-    <div class="header">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="google-loading-logo">
+            <span class="google-logo">
+                <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span>
+            </span>
+            <div class="google-loading-text">Local Services</div>
+            <div class="loading-subtitle">Finding the best pest control provider for you</div>
+        </div>
+
+        <div class="analysis-container">
+            <div class="analysis-header">
+                <div class="location-icon">📍</div>
+                <div>
+                    <div class="location-text">Analyzing your area</div>
+                    <div class="detected-location" id="loadingLocation">Detecting location...</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="analysis-steps">
+                <div class="analysis-step" id="step1">
+                    <div class="step-icon pending">1</div>
+                    <div>
+                        <div class="step-text">Scanning local pest control providers</div>
+                        <div class="step-subtext">Checking availability and service areas</div>
+                    </div>
+                </div>
+                
+                <div class="analysis-step" id="step2">
+                    <div class="step-icon pending">2</div>
+                    <div>
+                        <div class="step-text">Verifying licensing and insurance</div>
+                        <div class="step-subtext">Confirming certifications and credentials</div>
+                    </div>
+                </div>
+                
+                <div class="analysis-step" id="step3">
+                    <div class="step-icon pending">3</div>
+                    <div>
+                        <div class="step-text">Analyzing customer reviews and ratings</div>
+                        <div class="step-subtext">Processing thousands of verified reviews</div>
+                    </div>
+                </div>
+                
+                <div class="analysis-step" id="step4">
+                    <div class="step-icon pending">4</div>
+                    <div>
+                        <div class="step-text">Comparing pricing and service quality</div>
+                        <div class="step-subtext">Finding the best value for your needs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-result" id="finalResult">
+            <div class="result-badge">✓ Analysis Complete</div>
+            <div class="result-title">Top Provider Found</div>
+            <div class="result-subtitle">Google has identified the highest-rated pest control service in your area</div>
+            <button class="continue-button" onclick="showMainContent()">View Recommended Provider</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="header">
         <div class="google-logo-section">
             <a href="#" class="google-logo">
                 <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span>
@@ -683,10 +993,12 @@
             </a>
             
             <p class="cta-note">Call connects you directly to Elite Pest Solutions</p>
-        </div>
-    </div>
+                 </div>
+     </div>
+     
+     </div> <!-- End Main Content -->
 
-    <script>
+     <script>
         // State mapping for location detection
         const stateMapping = {
             'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
@@ -810,19 +1122,129 @@
                 gtag_report_conversion('tel:+18442130185');
             }
             
-            console.log('📞 Manual call initiated from button');
+            console.log('📞 Call initiated to Google recommended provider');
+        }
+
+        // Loading Screen Animation
+        function startLoadingSequence() {
+            console.log('🚀 Starting Google Analysis...');
+            
+            // Step 1: Detect location
+            setTimeout(() => {
+                detectLocationForLoading();
+            }, 500);
+            
+            // Step 2: Start analysis sequence
+            setTimeout(() => {
+                runAnalysisSequence();
+            }, 2000);
+        }
+
+        function detectLocationForLoading() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    let detectedLocation = 'your area';
+                    if (data.city && data.region_code && stateMapping[data.region_code]) {
+                        detectedLocation = `${data.city}, ${stateMapping[data.region_code]}`;
+                    } else if (data.city && data.region) {
+                        detectedLocation = `${data.city}, ${data.region}`;
+                    } else if (data.region_code && stateMapping[data.region_code]) {
+                        detectedLocation = stateMapping[data.region_code];
+                    }
+                    
+                    document.getElementById('loadingLocation').textContent = detectedLocation;
+                    
+                    // Update header for main content later
+                    document.getElementById('centerName').textContent = `${detectedLocation.split(',')[1] || detectedLocation} Local Services`;
+                })
+                .catch(error => {
+                    console.log('Location detection failed:', error);
+                    document.getElementById('loadingLocation').textContent = 'your area';
+                });
+        }
+
+        function runAnalysisSequence() {
+            const progressBar = document.getElementById('progressBar');
+            const steps = ['step1', 'step2', 'step3', 'step4'];
+            let currentStep = 0;
+            
+            function activateStep(stepIndex) {
+                // Complete previous steps
+                for (let i = 0; i < stepIndex; i++) {
+                    const step = document.getElementById(steps[i]);
+                    step.classList.remove('active');
+                    step.classList.add('completed');
+                    step.querySelector('.step-icon').classList.remove('active', 'pending');
+                    step.querySelector('.step-icon').classList.add('completed');
+                    step.querySelector('.step-icon').innerHTML = '✓';
+                }
+                
+                // Activate current step
+                if (stepIndex < steps.length) {
+                    const currentStepEl = document.getElementById(steps[stepIndex]);
+                    currentStepEl.classList.add('active');
+                    currentStepEl.querySelector('.step-icon').classList.remove('pending');
+                    currentStepEl.querySelector('.step-icon').classList.add('active');
+                    
+                    // Update progress bar
+                    const progress = ((stepIndex + 1) / steps.length) * 100;
+                    progressBar.style.width = progress + '%';
+                }
+            }
+            
+            // Animate through steps
+            const stepTimings = [0, 2000, 4000, 6000]; // Timing for each step
+            
+            stepTimings.forEach((timing, index) => {
+                setTimeout(() => {
+                    activateStep(index);
+                    
+                    // Show final result after last step
+                    if (index === steps.length - 1) {
+                        setTimeout(() => {
+                            showFinalResult();
+                        }, 2000);
+                    }
+                }, timing);
+            });
+        }
+
+        function showFinalResult() {
+            // Complete all steps
+            const steps = ['step1', 'step2', 'step3', 'step4'];
+            steps.forEach(stepId => {
+                const step = document.getElementById(stepId);
+                step.classList.remove('active');
+                step.classList.add('completed');
+                step.querySelector('.step-icon').classList.remove('active', 'pending');
+                step.querySelector('.step-icon').classList.add('completed');
+                step.querySelector('.step-icon').innerHTML = '✓';
+            });
+            
+            // Fill progress bar completely
+            document.getElementById('progressBar').style.width = '100%';
+            
+            // Show final result
+            setTimeout(() => {
+                document.getElementById('finalResult').classList.add('show');
+            }, 500);
+        }
+
+        function showMainContent() {
+            // Hide loading screen
+            document.getElementById('loadingScreen').classList.add('hidden');
+            
+            // Show main content
+            setTimeout(() => {
+                document.getElementById('mainContent').classList.add('show');
+            }, 500);
         }
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Direct Call Landing Page Loaded');
-            
-            // COMMENTED OUT: Auto-features - uncomment to re-enable
-            // Start location detection
-            // detectRealLocation();
-            
-            // Auto-trigger call dialog
-            // autoTriggerCall();
+            console.log('🚀 Google Local Services Loading...');
+            startLoadingSequence();
         });
     </script>
 </body>
