@@ -1021,7 +1021,7 @@
                     /* Mobile-first responsive styles for thank you page */
                     .thank-you-nav {
                         background: white;
-                        padding: 15px 0;
+                        padding: 25px 0;
                         border-bottom: 1px solid #eee;
                     }
                     
@@ -1041,11 +1041,11 @@
                     }
                     
                     .thank-you-findipest-logo {
-                        height: 50px;
+                        height: 100px;
                     }
                     
                     .thank-you-orkin-logo {
-                        height: 35px;
+                        height: 80px;
                     }
                     
                     .thank-you-main {
@@ -1128,11 +1128,11 @@
                     /* Desktop styles */
                     @media (min-width: 768px) {
                         .thank-you-findipest-logo {
-                            height: 60px;
+                            height: 140px;
                         }
                         
                         .thank-you-orkin-logo {
-                            height: 40px;
+                            height: 120px;
                         }
                         
                         .thank-you-main {
@@ -1162,7 +1162,45 @@
                             margin: 0 15px;
                         }
                     }
+                    /* Header styles for thank you page */
+                    .thank-you-header {
+                        background: #d32f2f;
+                        color: white;
+                        padding: 20px 0;
+                        font-size: 16px;
+                        font-weight: 600;
+                        text-align: center;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: 1000;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    }
+                    
+                    .thank-you-header-phone {
+                        display: inline-block;
+                        margin-left: 20px;
+                        font-size: 22px;
+                        font-weight: 800;
+                    }
+                    
+                    .thank-you-header-phone a {
+                        color: white;
+                        text-decoration: none;
+                    }
+                    
+                    body {
+                        padding-top: 60px;
+                    }
                 </style>
+
+                <div class="thank-you-header">
+                    <span>CALL BEFORE 2:00PM FOR SAME DAY SERVICE*</span>
+                    <span class="thank-you-header-phone">
+                        <a href="tel:+18442130185" onclick="if(window.va) window.va('track', 'Phone Call', {location: 'thank_you_header'})">📞 (844) 213-0185</a>
+                    </span>
+                </div>
 
                 <div class="thank-you-nav">
                     <div class="thank-you-nav-container">
