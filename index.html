@@ -1243,9 +1243,65 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Google Local Services Loading...');
-            startLoadingSequence();
+            console.log('🚀 Direct Google Local Services Loaded');
+            
+            // Skip loading screen and show main content immediately
+            document.getElementById('loadingScreen').style.display = 'none';
+            document.getElementById('mainContent').classList.add('show');
+            
+            // Start location detection immediately for header
+            detectRealLocationForHeader();
         });
+        
+        // Real location detection for header display
+        function detectRealLocationForHeader() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    let detectedState = 'Local';
+                    let detectedCity = '';
+                    
+                    if (data.region_code && stateMapping[data.region_code]) {
+                        detectedState = stateMapping[data.region_code];
+                    } else if (data.region) {
+                        detectedState = data.region;
+                    }
+                    
+                    if (data.city) {
+                        detectedCity = data.city;
+                    }
+                    
+                    // Update header with state
+                    const centerNameElement = document.getElementById('centerName');
+                    centerNameElement.textContent = `${detectedState} Local Services`;
+                    
+                    // Update the main heading to be more prominent about location
+                    const headerElement = document.querySelector('.header');
+                    if (headerElement && detectedCity) {
+                        // Add a location indicator to make it super clear it's local
+                        const locationBadge = document.createElement('div');
+                        locationBadge.style.cssText = `
+                            background: #34a853;
+                            color: white;
+                            padding: 8px 16px;
+                            border-radius: 20px;
+                            font-size: 14px;
+                            font-weight: 500;
+                            text-align: center;
+                            margin-bottom: 16px;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                        `;
+                        locationBadge.innerHTML = `📍 Serving ${detectedCity}, ${detectedState}`;
+                        headerElement.appendChild(locationBadge);
+                    }
+                    
+                    console.log(`🎯 Location detected: ${detectedCity}, ${detectedState}`);
+                })
+                .catch(error => {
+                    console.log('Location detection failed, using fallback:', error);
+                    document.getElementById('centerName').textContent = 'Local Services';
+                });
+        }
     </script>
 </body>
 </html> 
