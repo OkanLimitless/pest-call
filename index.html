@@ -166,17 +166,29 @@
             margin: 0 auto;
         }
 
-        .google-service-badge {
+        .google-recommendation-header {
+            background: #e8f5e8;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .recommendation-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #e8f0fe;
-            color: #1a73e8;
-            padding: 8px 16px;
-            border-radius: 16px;
-            font-size: 14px;
+            color: #1b5e20;
+            font-size: 16px;
             font-weight: 500;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-text {
+            color: #2e7d32;
+            font-size: 14px;
+            margin: 0;
         }
 
         .call-title {
@@ -198,13 +210,31 @@
             background: white;
             border: 1px solid #dadce0;
             border-radius: 8px;
-            padding: 32px;
+            padding: 24px;
             margin-bottom: 24px;
-            box-shadow: 0 1px 6px rgba(32,33,36,.28);
+            box-shadow: 0 2px 8px rgba(32,33,36,.15);
+        }
+
+        .service-info {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .provider-name {
+            font-size: 20px;
+            font-weight: 500;
+            color: #202124;
+            margin-bottom: 4px;
+        }
+
+        .provider-details {
+            font-size: 14px;
+            color: #5f6368;
         }
 
         .phone-number {
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 400;
             letter-spacing: 1px;
             margin-bottom: 8px;
@@ -212,7 +242,7 @@
         }
 
         .tap-to-call {
-            font-size: 16px;
+            font-size: 14px;
             color: #5f6368;
         }
 
@@ -277,24 +307,18 @@
             box-shadow: 0 1px 6px rgba(32,33,36,.28);
         }
 
-        .benefit-icon {
-            width: 48px;
-            height: 48px;
-            background: #34A853;
-            border-radius: 50%;
+        .benefit-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            font-size: 24px;
-            color: white;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .benefit-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
-            margin-bottom: 8px;
             color: #202124;
+            margin: 0;
         }
 
         .benefit-desc {
@@ -435,15 +459,11 @@
             color: #5f6368;
         }
 
-        .urgency-text {
-            background: #fef7e0;
-            color: #ea8600;
-            padding: 12px 16px;
-            border-radius: 4px;
-            margin: 20px 0;
+        .cta-note {
+            color: #5f6368;
+            font-size: 12px;
+            margin-top: 16px;
             font-weight: 400;
-            font-size: 14px;
-            border: 1px solid #fce8b2;
         }
 
         @media (max-width: 768px) {
@@ -494,21 +514,30 @@
     <!-- Main Call Section -->
     <div class="call-section">
         <div class="call-container">
-            <div class="google-service-badge">
-                <span>🛡️</span>
-                <span>Google Verified Business</span>
+            <div class="google-recommendation-header">
+                <div class="recommendation-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#34A853">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Google Recommended</span>
+                </div>
+                <p class="recommendation-text">Based on customer reviews, licensing, and service quality</p>
             </div>
             
-            <h2 class="call-title">Free Pest Control Quote</h2>
-            <p class="call-subtitle">Connect with verified local experts through Google's trusted network</p>
+            <h2 class="call-title">Elite Pest Solutions</h2>
+            <p class="call-subtitle">Google's #1 recommended pest control provider in your area</p>
             
             <div class="phone-display">
+                <div class="service-info">
+                    <div class="provider-name">Elite Pest Solutions</div>
+                    <div class="provider-details">Licensed • Insured • Same-day service available</div>
+                </div>
                 <div class="phone-number">(844) 213-0185</div>
-                <div class="tap-to-call">Tap to call Google verified expert</div>
+                <div class="tap-to-call">Connect with Google's recommended provider</div>
             </div>
             
             <a href="tel:+18442130185" class="call-btn" onclick="trackCall()">
-                Call Now
+                Call recommended provider
             </a>
         </div>
     </div>
@@ -516,25 +545,37 @@
     <!-- Info Section -->
     <div class="info-section">
         <div class="info-container">
-            <h2 class="section-title">Why Choose Us?</h2>
+            <h2 class="section-title">Why Google recommends Elite Pest Solutions</h2>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3 class="benefit-title">Licensed & Insured</h3>
-                    <p class="benefit-desc">Fully licensed professionals with comprehensive insurance coverage for your peace of mind.</p>
+                    <div class="benefit-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a73e8">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                        <h3 class="benefit-title">Licensed & Insured</h3>
+                    </div>
+                    <p class="benefit-desc">State-licensed professionals with full liability insurance and bonding for complete protection.</p>
                 </div>
                 
                 <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3 class="benefit-title">Same Day Service</h3>
-                    <p class="benefit-desc">Emergency pest problems? We can be at your location within hours of your call.</p>
+                    <div class="benefit-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a73e8">
+                            <path d="M13,3A9,9 0 0,0 4,12H1L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z"/>
+                        </svg>
+                        <h3 class="benefit-title">Same Day Response</h3>
+                    </div>
+                    <p class="benefit-desc">Fast response times with same-day service availability for urgent pest control needs.</p>
                 </div>
                 
                 <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3 class="benefit-title">Free Inspection</h3>
-                    <p class="benefit-desc">No hidden fees. We provide free, thorough inspections and honest quotes.</p>
+                    <div class="benefit-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a73e8">
+                            <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
+                        </svg>
+                        <h3 class="benefit-title">Transparent Pricing</h3>
+                    </div>
+                    <p class="benefit-desc">No hidden costs or surprise fees. Free estimates with clear, upfront pricing before any work begins.</p>
                 </div>
             </div>
         </div>
@@ -597,16 +638,14 @@
     <!-- Final CTA -->
     <div class="cta-section">
         <div class="cta-container">
-            <h2 class="cta-title">Don't Wait - Call Now!</h2>
-            <p class="cta-subtitle">Every day you wait, the problem gets worse</p>
-            
-            <div class="urgency-text">
-                ⏰ Free quotes available today only
-            </div>
+            <h2 class="cta-title">Ready to connect with our recommended provider?</h2>
+            <p class="cta-subtitle">Google has verified this provider's credentials, licensing, and customer satisfaction ratings</p>
             
             <a href="tel:+18442130185" class="call-btn" onclick="trackCall()">
                 (844) 213-0185
             </a>
+            
+            <p class="cta-note">Call connects you directly to Elite Pest Solutions</p>
         </div>
     </div>
 
