@@ -835,7 +835,19 @@
                 if (window.va) {
                     window.va('track', 'Form Submitted', { zipCode: zipCode });
                 }
-                showFormPage(zipCode);
+                
+                // Show loading state
+                const submitBtn = event.target.querySelector('button[type="submit"], .submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = '⏳ Processing...';
+                submitBtn.disabled = true;
+                submitBtn.style.background = '#999';
+                submitBtn.style.cursor = 'not-allowed';
+                
+                // Add loading delay
+                setTimeout(() => {
+                    showFormPage(zipCode);
+                }, 1500); // 1.5 second delay
             } else {
                 alert('Please enter a valid 5-digit ZIP code');
             }
@@ -980,6 +992,14 @@
                 email: event.target.querySelector('input[placeholder*="Email"]').value
             };
             
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '📤 Submitting Request...';
+            submitBtn.disabled = true;
+            submitBtn.style.background = '#999';
+            submitBtn.style.cursor = 'not-allowed';
+            
             // Track final form completion
             if (window.va) {
                 window.va('track', 'Lead Conversion', { 
@@ -989,8 +1009,10 @@
                 });
             }
             
-            // Show thank you page
-            showThankYouPage(data);
+            // Add loading delay
+            setTimeout(() => {
+                showThankYouPage(data);
+            }, 2000); // 2 second delay
         }
         
         function showThankYouPage(data) {
