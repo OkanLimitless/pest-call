@@ -9,15 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Vercel Analytics -->
-    <script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <script nonce="">
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
-    <script defer src="https://cdn.vercel-insights.com/v1/speed-insights/script.js"></script>
-    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 
     <!-- Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
-    <script>
+    <script nonce="">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -652,7 +651,7 @@
         </div>
     </div>
 
-    <script>
+    <script nonce="">
         // App State
         let selectedService = null;
         let selectedSeverity = null;
