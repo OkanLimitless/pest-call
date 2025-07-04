@@ -8,29 +8,27 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics 4 (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLRRFWRKK5"></script>
+    <!-- Google Ads & Analytics Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
     <script nonce="">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         
-        // GA4 Configuration
-        gtag('config', 'G-WLRRFWRKK5', {
-            // Enable enhanced ecommerce
-            send_page_view: true,
-            // Enable enhanced measurements
-            enhanced_measurements: {
-                scrolls: true,
-                outbound_clicks: true,
-                site_search: false,
-                video_engagement: false,
-                file_downloads: false
-            }
-        });
-        
-        // Google Ads Conversion Tracking
+        // Google Ads Configuration
         gtag('config', 'AW-697295426');
+        
+        // GA4 Configuration (commented out until we fix the ID)
+        // gtag('config', 'G-WLRRFWRKK5', {
+        //     send_page_view: true,
+        //     enhanced_measurements: {
+        //         scrolls: true,
+        //         outbound_clicks: true,
+        //         site_search: false,
+        //         video_engagement: false,
+        //         file_downloads: false
+        //     }
+        // });
         
         function gtag_report_conversion(url) {
             var callback = function () {
