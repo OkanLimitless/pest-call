@@ -29,8 +29,8 @@
             }
         });
         
-        // Google Ads Conversion Tracking (if you have Google Ads)
-        // gtag('config', 'AW-CONVERSION_ID');
+        // Google Ads Conversion Tracking
+        gtag('config', 'AW-697295426');
         
         function gtag_report_conversion(url) {
             var callback = function () {
@@ -39,7 +39,7 @@
                 }
             };
             gtag('event', 'conversion', {
-                'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                'send_to': 'AW-697295426/CONVERSION_LABEL',
                 'event_callback': callback
             });
             return false;
@@ -919,12 +919,12 @@
                 }
             });
             
-            // Also track as a conversion for Google Ads (if you have it)
-            // gtag('event', 'conversion', {
-            //     send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL',
-            //     value: 1.0,
-            //     currency: 'USD'
-            // });
+            // Also track as a conversion for Google Ads
+            gtag('event', 'conversion', {
+                send_to: 'AW-697295426/CONVERSION_LABEL',
+                value: 1.0,
+                currency: 'USD'
+            });
             
             console.log('📞 Expert call initiated:', {
                 service: selectedService,
