@@ -8,19 +8,29 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Vercel Analytics -->
-    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
-    <script nonce="">
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-
-    <!-- Google Ads Conversion Tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLRRFWRKK5"></script>
     <script nonce="">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'AW-CONVERSION_ID');
+        
+        // GA4 Configuration
+        gtag('config', 'G-WLRRFWRKK5', {
+            // Enable enhanced ecommerce
+            send_page_view: true,
+            // Enable enhanced measurements
+            enhanced_measurements: {
+                scrolls: true,
+                outbound_clicks: true,
+                site_search: false,
+                video_engagement: false,
+                file_downloads: false
+            }
+        });
+        
+        // Google Ads Conversion Tracking (if you have Google Ads)
+        // gtag('config', 'AW-CONVERSION_ID');
         
         function gtag_report_conversion(url) {
             var callback = function () {
@@ -677,11 +687,15 @@
             console.log('🚀 Google Pest Control App Loading...');
             
             // Track app load
-            va('track', 'app_loaded', {
-                timestamp: new Date().toISOString(),
-                user_agent: navigator.userAgent,
-                screen_width: window.screen.width,
-                screen_height: window.screen.height
+            gtag('event', 'app_loaded', {
+                event_category: 'engagement',
+                event_label: 'google_pest_control_app',
+                custom_parameters: {
+                    timestamp: new Date().toISOString(),
+                    user_agent: navigator.userAgent,
+                    screen_width: window.screen.width,
+                    screen_height: window.screen.height
+                }
             });
             
             detectUserLocation();
@@ -708,11 +722,14 @@
                     console.log('📍 Location detected:', locationText);
                     
                     // Track successful location detection
-                    va('track', 'location_detected', {
-                        location: locationText,
-                        city: data.city || 'unknown',
-                        state: data.region_code || 'unknown',
-                        country: data.country_code || 'unknown'
+                    gtag('event', 'location_detected', {
+                        event_category: 'user_data',
+                        event_label: locationText,
+                        custom_parameters: {
+                            city: data.city || 'unknown',
+                            state: data.region_code || 'unknown',
+                            country: data.country_code || 'unknown'
+                        }
                     });
                 })
                 .catch(error => {
@@ -720,8 +737,12 @@
                     document.getElementById('userLocation').textContent = 'Local Area';
                     
                     // Track failed location detection
-                    va('track', 'location_failed', {
-                        error: error.message || 'unknown_error'
+                    gtag('event', 'location_failed', {
+                        event_category: 'error',
+                        event_label: 'location_detection_failed',
+                        custom_parameters: {
+                            error: error.message || 'unknown_error'
+                        }
                     });
                 });
         }
@@ -742,10 +763,14 @@
                     document.getElementById('continueStep1').disabled = false;
                     
                     // Track service selection
-                    va('track', 'service_selected', {
-                        service: selectedService,
-                        service_name: this.querySelector('.service-name').textContent,
-                        service_price: this.querySelector('.service-price').textContent
+                    gtag('event', 'service_selected', {
+                        event_category: 'user_interaction',
+                        event_label: selectedService,
+                        custom_parameters: {
+                            service: selectedService,
+                            service_name: this.querySelector('.service-name').textContent,
+                            service_price: this.querySelector('.service-price').textContent
+                        }
                     });
                 });
             });
@@ -764,9 +789,13 @@
                     document.getElementById('continueStep2').disabled = false;
                     
                     // Track severity selection
-                    va('track', 'severity_selected', {
-                        severity: selectedSeverity,
-                        severity_title: this.querySelector('.severity-title').textContent
+                    gtag('event', 'severity_selected', {
+                        event_category: 'user_interaction',
+                        event_label: selectedSeverity,
+                        custom_parameters: {
+                            severity: selectedSeverity,
+                            severity_title: this.querySelector('.severity-title').textContent
+                        }
                     });
                 });
             });
@@ -789,10 +818,14 @@
             console.log(`📱 Navigated to step ${stepNumber}`);
             
             // Track step navigation
-            va('track', 'step_reached', {
-                step: stepNumber,
-                selected_service: selectedService,
-                selected_severity: selectedSeverity
+            gtag('event', 'step_reached', {
+                event_category: 'navigation',
+                event_label: `step_${stepNumber}`,
+                custom_parameters: {
+                    step: stepNumber,
+                    selected_service: selectedService,
+                    selected_severity: selectedSeverity
+                }
             });
         }
 
@@ -801,10 +834,14 @@
             goToStep(3);
             
             // Track expert matching start
-            va('track', 'expert_matching_started', {
-                service: selectedService,
-                severity: selectedSeverity,
-                location: userLocationData?.city || 'unknown'
+            gtag('event', 'expert_matching_started', {
+                event_category: 'conversion_funnel',
+                event_label: 'matching_started',
+                custom_parameters: {
+                    service: selectedService,
+                    severity: selectedSeverity,
+                    location: userLocationData?.city || 'unknown'
+                }
             });
             
             const loadingMessages = [
@@ -847,12 +884,16 @@
             console.log('🎯 Expert match complete');
             
             // Track expert match completion
-            va('track', 'expert_match_complete', {
-                service: selectedService,
-                severity: selectedSeverity,
-                expert_name: 'Mike Johnson',
-                expert_specialty: serviceNames[selectedService] || 'Pest Control Expert',
-                location: userLocationData?.city || 'unknown'
+            gtag('event', 'expert_match_complete', {
+                event_category: 'conversion_funnel',
+                event_label: 'expert_shown',
+                custom_parameters: {
+                    service: selectedService,
+                    severity: selectedSeverity,
+                    expert_name: 'Mike Johnson',
+                    expert_specialty: serviceNames[selectedService] || 'Pest Control Expert',
+                    location: userLocationData?.city || 'unknown'
+                }
             });
         }
 
@@ -864,14 +905,26 @@
             }
             
             // Track call button click - MAIN CONVERSION EVENT
-            va('track', 'call_button_clicked', {
-                service: selectedService,
-                severity: selectedSeverity,
-                location: userLocationData?.city || 'unknown',
-                expert_name: 'Mike Johnson',
-                phone_number: '+18442130185',
-                timestamp: new Date().toISOString()
+            gtag('event', 'call_button_clicked', {
+                event_category: 'conversion',
+                event_label: 'phone_call_initiated',
+                value: 1,
+                custom_parameters: {
+                    service: selectedService,
+                    severity: selectedSeverity,
+                    location: userLocationData?.city || 'unknown',
+                    expert_name: 'Mike Johnson',
+                    phone_number: '+18442130185',
+                    timestamp: new Date().toISOString()
+                }
             });
+            
+            // Also track as a conversion for Google Ads (if you have it)
+            // gtag('event', 'conversion', {
+            //     send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL',
+            //     value: 1.0,
+            //     currency: 'USD'
+            // });
             
             console.log('📞 Expert call initiated:', {
                 service: selectedService,
