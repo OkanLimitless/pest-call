@@ -492,6 +492,253 @@
             color: #34a853;
             font-weight: 500;
         }
+
+        /* Auto-Call Connection Screen */
+        .connection-container {
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .google-verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f5e8;
+            color: #137333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .verification-icon {
+            background: #34a853;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .connection-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #202124;
+            margin-bottom: 12px;
+        }
+
+        .connection-subtitle {
+            font-size: 16px;
+            color: #5f6368;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .expert-count {
+            color: #ea4335;
+            font-weight: 500;
+        }
+
+        .urgency-container {
+            margin-bottom: 32px;
+        }
+
+        .urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ea4335, #fbbc05);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            animation: urgencyPulse 2s infinite;
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+
+        .activity-indicator {
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .expert-preview {
+            margin-bottom: 32px;
+        }
+
+        .expert-preview-card {
+            background: white;
+            border: 1px solid #e8eaed;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .expert-avatar-mini {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .expert-info-mini {
+            flex: 1;
+            text-align: left;
+        }
+
+        .expert-name-mini {
+            font-size: 16px;
+            font-weight: 500;
+            color: #202124;
+            margin-bottom: 4px;
+        }
+
+        .expert-status {
+            font-size: 12px;
+            color: #34a853;
+            font-weight: 500;
+        }
+
+        .expert-rating-mini {
+            text-align: right;
+        }
+
+        .stars-mini {
+            color: #fbbc05;
+            font-size: 14px;
+            display: block;
+        }
+
+        .rating-count {
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        .connection-progress {
+            margin-bottom: 32px;
+        }
+
+        .progress-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #f1f3f4;
+            border-top: 3px solid #4285f4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .connection-status {
+            font-size: 16px;
+            color: #5f6368;
+        }
+
+        .call-action-container {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .call-explanation {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .call-explanation h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #202124;
+            margin-bottom: 8px;
+        }
+
+        .call-explanation p {
+            font-size: 14px;
+            color: #5f6368;
+            line-height: 1.5;
+        }
+
+        .btn-auto-call {
+            background: #34a853;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 24px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: background 0.2s ease;
+            animation: callPulse 3s infinite;
+        }
+
+        @keyframes callPulse {
+            0%, 70%, 100% { transform: scale(1); }
+            35% { transform: scale(1.05); }
+        }
+
+        .btn-auto-call:hover {
+            background: #2d7d32;
+        }
+
+        .btn-continue-steps {
+            background: transparent;
+            color: #4285f4;
+            border: 1px solid #e8eaed;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .btn-continue-steps:hover {
+            background: #f8f9fa;
+            border-color: #4285f4;
+        }
     </style>
 </head>
 <body>
@@ -508,8 +755,68 @@
             </div>
         </div>
 
+        <!-- Auto-Call Connection Screen -->
+        <div class="step-screen active" id="autoCallScreen">
+            <div class="connection-container">
+                <div class="connection-header">
+                    <div class="google-verified-badge">
+                        <span class="verification-icon">✓</span>
+                        <span>Google Verified Service</span>
+                    </div>
+                    <h1 class="connection-title">Connecting you to pest control experts</h1>
+                    <p class="connection-subtitle">Google has found <span class="expert-count" id="expertCount">2 certified experts</span> available in <span id="autoCallLocation">your area</span> right now</p>
+                </div>
+
+                <div class="urgency-container">
+                    <div class="urgency-badge">
+                        <span class="urgency-icon">⚡</span>
+                        <span>Limited availability - Call within <span id="countdown">60</span> seconds</span>
+                    </div>
+                    
+                    <div class="social-proof" id="socialProof">
+                        <span class="activity-indicator">🔴</span>
+                        <span>3 others from <span id="socialCity">your city</span> called in the last hour</span>
+                    </div>
+                </div>
+
+                <div class="expert-preview">
+                    <div class="expert-preview-card">
+                        <div class="expert-avatar-mini">MJ</div>
+                        <div class="expert-info-mini">
+                            <div class="expert-name-mini">Mike Johnson</div>
+                            <div class="expert-status">Available now • Licensed & Insured</div>
+                        </div>
+                        <div class="expert-rating-mini">
+                            <span class="stars-mini">★★★★★</span>
+                            <span class="rating-count">4.9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="connection-progress">
+                    <div class="progress-spinner"></div>
+                    <div class="connection-status" id="connectionStatus">Connecting...</div>
+                </div>
+
+                <div class="call-action-container" id="callActionContainer" style="display: none;">
+                    <div class="call-explanation">
+                        <h3>📞 Your expert is ready to help</h3>
+                        <p>Tap "Answer" when your phone rings to speak with Mike Johnson about your pest control needs. The call is free and you'll get an instant quote.</p>
+                    </div>
+                    
+                    <a href="tel:+18442130185" class="btn-auto-call" id="autoCallButton" onclick="trackAutoCall()">
+                        📞 Start Call Now
+                    </a>
+                    
+                    <button class="btn-continue-steps" onclick="skipToBookingFlow()">
+                        Continue with booking form instead
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Step 1: Service Selection -->
-        <div class="step-screen active" id="step1">
+        <div class="step-screen" id="step1">
             <div class="progress-indicator">
                 <div class="progress-dot active"></div>
                 <div class="progress-dot"></div>
@@ -680,14 +987,183 @@
             'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming'
         };
 
+        // Auto-Call Logic
+        let countdownTimer;
+        let autoCallAttempted = false;
+        
+        function startAutoCallSequence() {
+            console.log('🚀 Starting Auto-Call Connection Sequence...');
+            
+            // Track auto-call sequence start
+            gtag('event', 'auto_call_sequence_started', {
+                event_category: 'conversion_funnel',
+                event_label: 'connection_initiated'
+            });
+            
+            // Step 1: Detect location for personalization
+            detectLocationForAutoCall();
+            
+            // Step 2: Start connection sequence
+            setTimeout(() => {
+                document.getElementById('connectionStatus').textContent = 'Verifying expert availability...';
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('connectionStatus').textContent = 'Expert found • Preparing connection...';
+            }, 2500);
+            
+            // Step 3: Show call action after 4 seconds
+            setTimeout(() => {
+                showCallAction();
+            }, 4000);
+            
+            // Step 4: Start countdown timer
+            startCountdownTimer();
+        }
+
+        function detectLocationForAutoCall() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    let locationText = 'your area';
+                    let cityName = 'your city';
+                    
+                    if (data.city && data.region_code && stateMapping[data.region_code]) {
+                        locationText = `${data.city}, ${stateMapping[data.region_code]}`;
+                        cityName = data.city;
+                    } else if (data.city && data.region) {
+                        locationText = `${data.city}, ${data.region}`;
+                        cityName = data.city;
+                    } else if (data.region_code && stateMapping[data.region_code]) {
+                        locationText = stateMapping[data.region_code];
+                    }
+                    
+                    // Update auto-call screen with location
+                    document.getElementById('autoCallLocation').textContent = locationText;
+                    document.getElementById('socialCity').textContent = cityName;
+                    
+                    // Update header for fallback screens
+                    document.getElementById('userLocation').textContent = locationText;
+                    
+                    userLocationData = data;
+                    
+                    // Track location detection
+                    gtag('event', 'auto_call_location_detected', {
+                        event_category: 'user_data',
+                        event_label: locationText,
+                        custom_parameters: {
+                            city: data.city || 'unknown',
+                            state: data.region_code || 'unknown'
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.log('Location detection failed:', error);
+                    // Still show generic messaging
+                });
+        }
+
+        function startCountdownTimer() {
+            let timeLeft = 60;
+            const countdownElement = document.getElementById('countdown');
+            
+            countdownTimer = setInterval(() => {
+                timeLeft--;
+                countdownElement.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownTimer);
+                    // Auto-fallback to booking flow if they haven't called
+                    if (!autoCallAttempted) {
+                        setTimeout(() => {
+                            autoFallbackToBooking();
+                        }, 2000);
+                    }
+                }
+            }, 1000);
+        }
+
+        function showCallAction() {
+            document.getElementById('connectionStatus').textContent = 'Expert ready • Tap to connect';
+            document.getElementById('callActionContainer').style.display = 'block';
+            
+            // Track call action shown
+            gtag('event', 'call_action_shown', {
+                event_category: 'conversion_funnel',
+                event_label: 'call_button_displayed'
+            });
+        }
+
+        function trackAutoCall() {
+            autoCallAttempted = true;
+            clearInterval(countdownTimer);
+            
+            // Track auto-call attempt - MAIN CONVERSION EVENT
+            gtag('event', 'auto_call_initiated', {
+                event_category: 'conversion',
+                event_label: 'phone_call_auto',
+                value: 1,
+                custom_parameters: {
+                    call_type: 'auto_call',
+                    location: userLocationData?.city || 'unknown',
+                    timestamp: new Date().toISOString(),
+                    time_on_page: Math.round((Date.now() - pageLoadTime) / 1000)
+                }
+            });
+            
+            // Google Ads conversion
+            gtag('event', 'conversion', {
+                send_to: 'AW-697295426/CONVERSION_LABEL',
+                value: 1.0,
+                currency: 'USD'
+            });
+            
+            console.log('📞 Auto-call initiated');
+        }
+
+        function skipToBookingFlow() {
+            clearInterval(countdownTimer);
+            
+            // Track booking flow fallback
+            gtag('event', 'booking_flow_fallback', {
+                event_category: 'user_interaction',
+                event_label: 'manual_form_choice',
+                custom_parameters: {
+                    time_on_auto_call: Math.round((Date.now() - pageLoadTime) / 1000)
+                }
+            });
+            
+            // Hide auto-call screen and show booking flow
+            document.getElementById('autoCallScreen').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            
+            console.log('📋 User chose booking flow over auto-call');
+        }
+
+        function autoFallbackToBooking() {
+            // Track automatic fallback
+            gtag('event', 'auto_fallback_to_booking', {
+                event_category: 'conversion_funnel',
+                event_label: 'timeout_fallback'
+            });
+            
+            // Hide auto-call screen and show booking flow
+            document.getElementById('autoCallScreen').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            
+            console.log('⏰ Auto-fallback to booking flow due to timeout');
+        }
+
         // Initialize app
+        let pageLoadTime = Date.now();
+        
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Google Pest Control App Loading...');
+            console.log('🚀 Google Pest Control Auto-Call App Loading...');
             
             // Track app load
             gtag('event', 'app_loaded', {
                 event_category: 'engagement',
-                event_label: 'google_pest_control_app',
+                event_label: 'auto_call_version',
                 custom_parameters: {
                     timestamp: new Date().toISOString(),
                     user_agent: navigator.userAgent,
@@ -696,7 +1172,10 @@
                 }
             });
             
-            detectUserLocation();
+            // Start auto-call sequence
+            startAutoCallSequence();
+            
+            // Setup event listeners for fallback booking flow
             setupEventListeners();
         });
 
