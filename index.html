@@ -3,47 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Pest Control - Local Expert Matching</title>
+    <title>Delta Flight Changes & Cancellations | 24/7 Customer Service</title>
+    <meta name="description" content="Need to change or cancel your Delta flight? Get immediate assistance from Delta customer service representatives. Available 24/7 for urgent flight modifications.">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Google Ads & Analytics Tracking -->
+    <!-- Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
-    <script nonce="">
+    <script nonce="CSP_NONCE_PLACEHOLDER">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        
-        // Google Ads Configuration
         gtag('config', 'AW-697295426');
         
-        // GA4 Configuration (commented out until we fix the ID)
-        // gtag('config', 'G-WLRRFWRKK5', {
-        //     send_page_view: true,
-        //     enhanced_measurements: {
-        //         scrolls: true,
-        //         outbound_clicks: true,
-        //         site_search: false,
-        //         video_engagement: false,
-        //         file_downloads: false
-        //     }
-        // });
-        
-        function gtag_report_conversion(url) {
-            var callback = function () {
-                if (typeof(url) != 'undefined') {
-                    window.location = url;
-                }
-            };
+        // Track call button clicks
+        function trackCall() {
             gtag('event', 'conversion', {
-                'send_to': 'AW-697295426/CONVERSION_LABEL',
-                'event_callback': callback
+                'send_to': 'AW-697295426/call_conversion',
+                'value': 1.0,
+                'currency': 'USD'
             });
-            return false;
         }
     </script>
-
+    
     <style>
         * {
             margin: 0;
@@ -52,1363 +32,418 @@
         }
         
         body {
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f8f9fa;
-            color: #202124;
-            overflow-x: hidden;
-            line-height: 1.4;
+            color: #333;
+            line-height: 1.6;
         }
-
-        /* Mobile App Container */
-        .app-container {
+        
+        .container {
             max-width: 420px;
             margin: 0 auto;
             background: white;
             min-height: 100vh;
-            position: relative;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
-
-        /* Header */
-        .app-header {
-            background: white;
-            padding: 16px 20px;
-            border-bottom: 1px solid #e8eaed;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .google-logo {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 4px;
-        }
-        .g1 { color: #4285f4; }
-        .g2 { color: #ea4335; }
-        .g3 { color: #fbbc05; }
-        .g4 { color: #4285f4; }
-        .g5 { color: #34a853; }
-        .g6 { color: #ea4335; }
-
-        .header-subtitle {
-            font-size: 14px;
-            color: #5f6368;
-            font-weight: 400;
-        }
-
-        .location-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-            padding: 6px 12px;
-            background: #e8f0fe;
-            border-radius: 16px;
-            width: fit-content;
-        }
-
-        .location-icon {
-            width: 16px;
-            height: 16px;
-            background: #4285f4;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        /* Delta Header */
+        .delta-header {
+            background: #CE0E2D;
             color: white;
-            font-size: 10px;
-        }
-
-        .location-text {
-            font-size: 12px;
-            color: #4285f4;
-            font-weight: 500;
-        }
-
-        /* Step Screens */
-        .step-screen {
-            display: none;
-            padding: 20px;
-            min-height: calc(100vh - 100px);
-        }
-
-        .step-screen.active {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .step-title {
-            font-size: 24px;
-            font-weight: 400;
-            color: #202124;
-            margin-bottom: 8px;
-        }
-
-        .step-subtitle {
-            font-size: 16px;
-            color: #5f6368;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        /* Service Cards */
-        .service-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .service-card {
-            background: white;
-            border: 2px solid #e8eaed;
-            border-radius: 12px;
-            padding: 20px 16px;
+            padding: 16px 20px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
             position: relative;
         }
-
-        .service-card:hover {
-            border-color: #4285f4;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
-        }
-
-        .service-card.selected {
-            border-color: #4285f4;
-            background: #e8f0fe;
-        }
-
-        .service-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .service-name {
-            font-size: 14px;
-            font-weight: 500;
-            color: #202124;
-            margin-bottom: 4px;
-        }
-
-        .service-price {
-            font-size: 12px;
-            color: #5f6368;
-        }
-
-        /* Problem Severity */
-        .severity-options {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .severity-card {
-            background: white;
-            border: 2px solid #e8eaed;
-            border-radius: 12px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .severity-card:hover {
-            border-color: #4285f4;
-        }
-
-        .severity-card.selected {
-            border-color: #4285f4;
-            background: #e8f0fe;
-        }
-
-        .severity-title {
-            font-size: 16px;
-            font-weight: 500;
-            color: #202124;
-            margin-bottom: 4px;
-        }
-
-        .severity-desc {
-            font-size: 14px;
-            color: #5f6368;
-        }
-
-        .severity-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-top: 8px;
-        }
-
-        .severity-low .severity-badge {
-            background: #e8f5e8;
-            color: #137333;
-        }
-
-        .severity-medium .severity-badge {
-            background: #fef7e0;
-            color: #b06000;
-        }
-
-        .severity-high .severity-badge {
-            background: #fce8e6;
-            color: #c5221f;
-        }
-
-        /* Expert Matching */
-        .expert-card {
-            background: white;
-            border: 1px solid #e8eaed;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .expert-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .expert-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4285f4, #34a853);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: 500;
-        }
-
-        .expert-info h3 {
-            font-size: 18px;
-            font-weight: 500;
-            color: #202124;
-            margin-bottom: 4px;
-        }
-
-        .expert-rating {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 4px;
-        }
-
-        .stars {
-            color: #fbbc05;
-            font-size: 14px;
-        }
-
-        .rating-text {
-            font-size: 14px;
-            color: #5f6368;
-        }
-
-        .expert-specialty {
-            font-size: 12px;
-            color: #4285f4;
-            font-weight: 500;
-        }
-
-        .verification-badges {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 500;
-        }
-
-        .badge-verified {
-            background: #e8f5e8;
-            color: #137333;
-        }
-
-        .badge-available {
-            background: #e8f0fe;
-            color: #1a73e8;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background: #4285f4;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 16px 24px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background: #3367d6;
-        }
-
-        .btn-primary:disabled {
-            background: #f1f3f4;
-            color: #9aa0a6;
-            cursor: not-allowed;
-        }
-
-        .btn-call {
-            background: #34a853;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 16px 24px;
-            font-size: 18px;
-            font-weight: 500;
-            cursor: pointer;
-            width: 100%;
+        
+        .delta-logo {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            text-decoration: none;
-            transition: background 0.2s ease;
-        }
-
-        .btn-call:hover {
-            background: #2d7d32;
-        }
-
-        /* Loading States */
-        .loading-screen {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #f1f3f4;
-            border-top: 3px solid #4285f4;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            font-size: 16px;
-            color: #5f6368;
             margin-bottom: 8px;
         }
-
-        .loading-subtext {
+        
+        .delta-triangle {
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid white;
+        }
+        
+        .delta-text {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .header-subtitle {
             font-size: 14px;
-            color: #9aa0a6;
+            opacity: 0.9;
+            font-weight: 300;
         }
-
-        /* Progress Indicator */
-        .progress-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 24px;
+        
+        /* Main Content */
+        .content {
+            padding: 24px 20px;
         }
-
-        .progress-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #e8eaed;
-            transition: background 0.2s ease;
-        }
-
-        .progress-dot.active {
-            background: #4285f4;
-        }
-
-        .progress-dot.completed {
-            background: #34a853;
-        }
-
-        /* Urgency Elements */
-        .urgency-banner {
-            background: linear-gradient(135deg, #ea4335, #fbbc05);
-            color: white;
-            padding: 12px 16px;
+        
+        .urgent-banner {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
             border-radius: 8px;
-            margin-bottom: 20px;
+            padding: 16px;
+            margin-bottom: 24px;
             text-align: center;
         }
-
-        .urgency-text {
-            font-size: 14px;
-            font-weight: 500;
+        
+        .urgent-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
         }
-
-        .availability-indicator {
-            display: flex;
+        
+        .urgent-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #856404;
+        }
+        
+        .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #CE0E2D;
+            text-align: center;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .main-subtitle {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .service-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .service-item:hover {
+            border-color: #CE0E2D;
+            box-shadow: 0 2px 8px rgba(206, 14, 45, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .service-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #CE0E2D 0%, #a00d24 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .cta-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .cta-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .call-button {
+            background: white;
+            color: #CE0E2D;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 24px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .call-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        
+        .call-button:active {
+            transform: translateY(0);
+        }
+        
+        .phone-number {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .availability-text {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 12px;
+        }
+        
+        /* Trust Indicators */
+        .trust-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .trust-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
             margin-bottom: 16px;
         }
-
-        .available-dot {
-            width: 8px;
-            height: 8px;
-            background: #34a853;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .available-text {
-            font-size: 14px;
-            color: #34a853;
-            font-weight: 500;
-        }
-
-        /* Auto-Call Connection Screen */
-        .connection-container {
-            padding: 20px;
-            text-align: center;
-            min-height: calc(100vh - 120px);
+        
+        .trust-items {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 12px;
         }
-
-        .google-verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #e8f5e8;
-            color: #137333;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        .verification-icon {
-            background: #34a853;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-
-        .connection-title {
-            font-size: 28px;
-            font-weight: 400;
-            color: #202124;
-            margin-bottom: 12px;
-        }
-
-        .connection-subtitle {
-            font-size: 16px;
-            color: #5f6368;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        .expert-count {
-            color: #ea4335;
-            font-weight: 500;
-        }
-
-        .urgency-container {
-            margin-bottom: 32px;
-        }
-
-        .urgency-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #ea4335, #fbbc05);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 24px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            animation: urgencyPulse 2s infinite;
-        }
-
-        @keyframes urgencyPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .social-proof {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #5f6368;
-        }
-
-        .activity-indicator {
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0.3; }
-        }
-
-        .expert-preview {
-            margin-bottom: 32px;
-        }
-
-        .expert-preview-card {
-            background: white;
-            border: 1px solid #e8eaed;
-            border-radius: 12px;
-            padding: 16px;
+        
+        .trust-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            max-width: 320px;
-            margin: 0 auto;
+            padding: 8px 0;
         }
-
-        .expert-avatar-mini {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4285f4, #34a853);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        
+        .trust-icon {
             font-size: 18px;
-            font-weight: 500;
+            color: #CE0E2D;
         }
-
-        .expert-info-mini {
-            flex: 1;
-            text-align: left;
-        }
-
-        .expert-name-mini {
-            font-size: 16px;
-            font-weight: 500;
-            color: #202124;
-            margin-bottom: 4px;
-        }
-
-        .expert-status {
-            font-size: 12px;
-            color: #34a853;
-            font-weight: 500;
-        }
-
-        .expert-rating-mini {
-            text-align: right;
-        }
-
-        .stars-mini {
-            color: #fbbc05;
+        
+        .trust-text {
             font-size: 14px;
-            display: block;
+            color: #666;
         }
-
-        .rating-count {
-            font-size: 12px;
-            color: #5f6368;
-        }
-
-        .connection-progress {
+        
+        /* Why Choose Delta */
+        .why-delta {
             margin-bottom: 32px;
         }
-
-        .progress-spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid #f1f3f4;
-            border-top: 3px solid #4285f4;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 16px;
-        }
-
-        .connection-status {
-            font-size: 16px;
-            color: #5f6368;
-        }
-
-        .call-action-container {
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
-        .call-explanation {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .call-explanation h3 {
+        
+        .why-title {
             font-size: 18px;
-            font-weight: 500;
-            color: #202124;
-            margin-bottom: 8px;
+            font-weight: 600;
+            color: #CE0E2D;
+            margin-bottom: 16px;
+            text-align: center;
         }
-
-        .call-explanation p {
-            font-size: 14px;
-            color: #5f6368;
-            line-height: 1.5;
+        
+        .why-items {
+            display: grid;
+            gap: 12px;
         }
-
-        .btn-auto-call {
-            background: #34a853;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 16px 24px;
-            font-size: 18px;
-            font-weight: 500;
-            cursor: pointer;
-            width: 100%;
+        
+        .why-item {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            margin-bottom: 12px;
-            transition: background 0.2s ease;
-            animation: callPulse 3s infinite;
-        }
-
-        @keyframes callPulse {
-            0%, 70%, 100% { transform: scale(1); }
-            35% { transform: scale(1.05); }
-        }
-
-        .btn-auto-call:hover {
-            background: #2d7d32;
-        }
-
-        .btn-continue-steps {
-            background: transparent;
-            color: #4285f4;
-            border: 1px solid #e8eaed;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 14px;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.2s ease;
-        }
-
-        .btn-continue-steps:hover {
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
             background: #f8f9fa;
-            border-color: #4285f4;
+            border-radius: 8px;
+            border-left: 4px solid #CE0E2D;
+        }
+        
+        .why-icon {
+            font-size: 16px;
+            color: #CE0E2D;
+            margin-top: 2px;
+        }
+        
+        .why-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+        
+        /* Responsive */
+        @media (max-width: 380px) {
+            .container {
+                max-width: 100%;
+            }
+            
+            .main-title {
+                font-size: 24px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phone-number {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header -->
-        <div class="app-header">
-            <div class="google-logo">
-                <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span>
+    <div class="container">
+        <!-- Delta Header -->
+        <header class="delta-header">
+            <div class="delta-logo">
+                <div class="delta-triangle"></div>
+                <div class="delta-text">DELTA</div>
             </div>
-            <div class="header-subtitle">Pest Control Expert Matching</div>
-            <div class="location-indicator">
-                <div class="location-icon">📍</div>
-                <div class="location-text" id="userLocation">Detecting your location...</div>
+            <div class="header-subtitle">Customer Service Center</div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Urgent Banner -->
+            <div class="urgent-banner">
+                <div class="urgent-icon">⚠️</div>
+                <div class="urgent-text">Need immediate flight assistance?</div>
             </div>
-        </div>
-
-        <!-- Auto-Call Connection Screen -->
-        <div class="step-screen active" id="autoCallScreen">
-            <div class="connection-container">
-                <div class="connection-header">
-                    <div class="google-verified-badge">
-                        <span class="verification-icon">✓</span>
-                        <span>Google Verified Service</span>
-                    </div>
-                    <h1 class="connection-title">Connecting you to pest control experts</h1>
-                    <p class="connection-subtitle">Google has found <span class="expert-count" id="expertCount">2 certified experts</span> available in <span id="autoCallLocation">your area</span> right now</p>
+            
+            <!-- Main Title -->
+            <h1 class="main-title">Flight Changes & Cancellations</h1>
+            <p class="main-subtitle">Get immediate help with your Delta reservation from our customer service team</p>
+            
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">✈️</div>
+                    <div class="service-text">Flight Changes</div>
                 </div>
-
-                <div class="urgency-container">
-                    <div class="urgency-badge">
-                        <span class="urgency-icon">⚡</span>
-                        <span>Limited availability - Call within <span id="countdown">60</span> seconds</span>
-                    </div>
-                    
-                    <div class="social-proof" id="socialProof">
-                        <span class="activity-indicator">🔴</span>
-                        <span>3 others from <span id="socialCity">your city</span> called in the last hour</span>
-                    </div>
+                <div class="service-item">
+                    <div class="service-icon">❌</div>
+                    <div class="service-text">Cancellations</div>
                 </div>
-
-                <div class="expert-preview">
-                    <div class="expert-preview-card">
-                        <div class="expert-avatar-mini">MJ</div>
-                        <div class="expert-info-mini">
-                            <div class="expert-name-mini">Mike Johnson</div>
-                            <div class="expert-status">Available now • Licensed & Insured</div>
-                        </div>
-                        <div class="expert-rating-mini">
-                            <span class="stars-mini">★★★★★</span>
-                            <span class="rating-count">4.9</span>
-                        </div>
-                    </div>
+                <div class="service-item">
+                    <div class="service-icon">🔄</div>
+                    <div class="service-text">Rebooking</div>
                 </div>
-
-                <div class="connection-progress">
-                    <div class="progress-spinner"></div>
-                    <div class="connection-status" id="connectionStatus">Connecting...</div>
-                </div>
-
-                <div class="call-action-container" id="callActionContainer" style="display: none;">
-                    <div class="call-explanation">
-                        <h3>📞 Your expert is ready to help</h3>
-                        <p>Tap "Answer" when your phone rings to speak with Mike Johnson about your pest control needs. The call is free and you'll get an instant quote.</p>
-                    </div>
-                    
-                    <a href="tel:+18442130185" class="btn-auto-call" id="autoCallButton" onclick="trackAutoCall()">
-                        📞 Start Call Now
-                    </a>
-                    
-                    <button class="btn-continue-steps" onclick="skipToBookingFlow()">
-                        Continue with booking form instead
-                    </button>
+                <div class="service-item">
+                    <div class="service-icon">📅</div>
+                    <div class="service-text">Schedule Changes</div>
                 </div>
             </div>
-        </div>
-
-        <!-- Step 1: Service Selection -->
-        <div class="step-screen" id="step1">
-            <div class="progress-indicator">
-                <div class="progress-dot active"></div>
-                <div class="progress-dot"></div>
-                <div class="progress-dot"></div>
-                <div class="progress-dot"></div>
-            </div>
-
-            <h1 class="step-title">What pest problem do you have?</h1>
-            <p class="step-subtitle">Select the type of pest you're dealing with to get matched with the right expert</p>
-
-            <div class="service-grid">
-                <div class="service-card" data-service="ants">
-                    <div class="service-icon">🐜</div>
-                    <div class="service-name">Ant Control</div>
-                    <div class="service-price">Starting at $89</div>
-                </div>
-                
-                <div class="service-card" data-service="roaches">
-                    <div class="service-icon">🪳</div>
-                    <div class="service-name">Roach Removal</div>
-                    <div class="service-price">Starting at $119</div>
-                </div>
-                
-                <div class="service-card" data-service="spiders">
-                    <div class="service-icon">🕷️</div>
-                    <div class="service-name">Spider Control</div>
-                    <div class="service-price">Starting at $79</div>
-                </div>
-                
-                <div class="service-card" data-service="rodents">
-                    <div class="service-icon">🐭</div>
-                    <div class="service-name">Rodent Control</div>
-                    <div class="service-price">Starting at $149</div>
-                </div>
-                
-                <div class="service-card" data-service="termites">
-                    <div class="service-icon">🐛</div>
-                    <div class="service-name">Termite Treatment</div>
-                    <div class="service-price">Starting at $299</div>
-                </div>
-                
-                <div class="service-card" data-service="other">
-                    <div class="service-icon">🦗</div>
-                    <div class="service-name">Other Pests</div>
-                    <div class="service-price">Custom Quote</div>
-                </div>
-            </div>
-
-            <button class="btn-primary" id="continueStep1" disabled>Continue</button>
-        </div>
-
-        <!-- Step 2: Problem Severity -->
-        <div class="step-screen" id="step2">
-            <div class="progress-indicator">
-                <div class="progress-dot completed"></div>
-                <div class="progress-dot active"></div>
-                <div class="progress-dot"></div>
-                <div class="progress-dot"></div>
-            </div>
-
-            <h1 class="step-title">How severe is the problem?</h1>
-            <p class="step-subtitle">This helps us prioritize your request and find the right treatment approach</p>
-
-            <div class="severity-options">
-                <div class="severity-card severity-low" data-severity="low">
-                    <div class="severity-title">Just Started Seeing Them</div>
-                    <div class="severity-desc">Spotted a few pests recently, want to prevent it from getting worse</div>
-                    <div class="severity-badge">Low Priority</div>
-                </div>
-                
-                <div class="severity-card severity-medium" data-severity="medium">
-                    <div class="severity-title">Moderate Infestation</div>
-                    <div class="severity-desc">Seeing them regularly, problem is getting more noticeable</div>
-                    <div class="severity-badge">Medium Priority</div>
-                </div>
-                
-                <div class="severity-card severity-high" data-severity="high">
-                    <div class="severity-title">Severe Infestation</div>
-                    <div class="severity-desc">Major problem, need immediate professional help</div>
-                    <div class="severity-badge">High Priority</div>
-                </div>
-            </div>
-
-            <button class="btn-primary" id="continueStep2" disabled>Find My Expert</button>
-        </div>
-
-        <!-- Step 3: Expert Matching (Loading) -->
-        <div class="step-screen" id="step3">
-            <div class="progress-indicator">
-                <div class="progress-dot completed"></div>
-                <div class="progress-dot completed"></div>
-                <div class="progress-dot active"></div>
-                <div class="progress-dot"></div>
-            </div>
-
-            <div class="loading-screen">
-                <div class="loading-spinner"></div>
-                <div class="loading-text" id="loadingText">Searching for certified experts in your area...</div>
-                <div class="loading-subtext" id="loadingSubtext">Analyzing 847 local pest control professionals</div>
-            </div>
-        </div>
-
-        <!-- Step 4: Expert Match & Call -->
-        <div class="step-screen" id="step4">
-            <div class="progress-indicator">
-                <div class="progress-dot completed"></div>
-                <div class="progress-dot completed"></div>
-                <div class="progress-dot completed"></div>
-                <div class="progress-dot active"></div>
-            </div>
-
-            <div class="urgency-banner">
-                <div class="urgency-text">⚡ 3 Certified Experts Found - Limited Availability Today</div>
-            </div>
-
-            <h1 class="step-title">Your Matched Expert</h1>
-            <p class="step-subtitle">Google has verified this expert as the best match for your pest problem</p>
-
-            <div class="expert-card">
-                <div class="expert-header">
-                    <div class="expert-avatar">MJ</div>
-                    <div class="expert-info">
-                        <h3>Mike Johnson</h3>
-                        <div class="expert-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.9 (847 reviews)</span>
-                        </div>
-                        <div class="expert-specialty" id="expertSpecialty">Ant Control Specialist</div>
-                    </div>
-                </div>
-
-                <div class="verification-badges">
-                    <span class="badge badge-verified">✓ Google Verified</span>
-                    <span class="badge badge-verified">✓ Licensed & Insured</span>
-                    <span class="badge badge-available">✓ Available Today</span>
-                </div>
-
-                <div class="availability-indicator">
-                    <div class="available-dot"></div>
-                    <div class="available-text">Available now - Call within 15 minutes to secure same-day service</div>
-                </div>
-
-                <a href="tel:+18442130185" class="btn-call" onclick="trackExpertCall()">
-                    📞 Call Expert Now: (844) 213-0185
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Speak with Delta Representative</h2>
+                <p class="cta-subtitle">Get personalized assistance for your flight changes</p>
+                <a href="tel:+18442130185" class="call-button" onclick="trackCall()">
+                    📞 <span class="phone-number">(844) 213-0185</span>
                 </a>
+                <p class="availability-text">Available 24/7 • Average wait time: 2-3 minutes</p>
             </div>
-        </div>
+            
+            <!-- Trust Indicators -->
+            <div class="trust-section">
+                <h3 class="trust-title">Why Call Delta Direct?</h3>
+                <div class="trust-items">
+                    <div class="trust-item">
+                        <span class="trust-icon">🎯</span>
+                        <span class="trust-text">Direct access to your reservation</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">⚡</span>
+                        <span class="trust-text">Faster resolution than online</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">💼</span>
+                        <span class="trust-text">Expert customer service agents</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🛡️</span>
+                        <span class="trust-text">Secure transaction processing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why Choose Delta -->
+            <div class="why-delta">
+                <h3 class="why-title">Delta Flight Modification Benefits</h3>
+                <div class="why-items">
+                    <div class="why-item">
+                        <span class="why-icon">✓</span>
+                        <div class="why-text">Flexible change policies for most tickets</div>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-icon">✓</span>
+                        <div class="why-text">Same-day flight changes available</div>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-icon">✓</span>
+                        <div class="why-text">24/7 customer support for urgent needs</div>
+                    </div>
+                    <div class="why-item">
+                        <span class="why-icon">✓</span>
+                        <div class="why-text">Award-winning customer service</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                Delta Air Lines, Inc. • Customer Service<br>
+                For immediate assistance with flight changes and cancellations
+            </p>
+        </footer>
     </div>
-
-    <script nonce="">
-        // App State
-        let selectedService = null;
-        let selectedSeverity = null;
-        let userLocationData = null;
-
-        // State mapping for location detection
-        const stateMapping = {
-            'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
-            'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'FL': 'Florida', 'GA': 'Georgia',
-            'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa',
-            'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
-            'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
-            'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire',
-            'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina',
-            'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania',
-            'RI': 'Rhode Island', 'SC': 'South Carolina', 'SD': 'South Dakota', 'TN': 'Tennessee',
-            'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington',
-            'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming'
-        };
-
-        // Auto-Call Logic
-        let countdownTimer;
-        let autoCallAttempted = false;
-        
-        function startAutoCallSequence() {
-            console.log('🚀 Starting Auto-Call Connection Sequence...');
-            
-            // Track auto-call sequence start
-            gtag('event', 'auto_call_sequence_started', {
-                event_category: 'conversion_funnel',
-                event_label: 'connection_initiated'
-            });
-            
-            // Step 1: Detect location for personalization
-            detectLocationForAutoCall();
-            
-            // Step 2: Start connection sequence
-            setTimeout(() => {
-                document.getElementById('connectionStatus').textContent = 'Verifying expert availability...';
-            }, 1000);
-            
-            setTimeout(() => {
-                document.getElementById('connectionStatus').textContent = 'Expert found • Preparing connection...';
-            }, 2500);
-            
-            // Step 3: Show call action after 4 seconds
-            setTimeout(() => {
-                showCallAction();
-            }, 4000);
-            
-            // Step 4: Start countdown timer
-            startCountdownTimer();
-        }
-
-        function detectLocationForAutoCall() {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    let locationText = 'your area';
-                    let cityName = 'your city';
-                    
-                    if (data.city && data.region_code && stateMapping[data.region_code]) {
-                        locationText = `${data.city}, ${stateMapping[data.region_code]}`;
-                        cityName = data.city;
-                    } else if (data.city && data.region) {
-                        locationText = `${data.city}, ${data.region}`;
-                        cityName = data.city;
-                    } else if (data.region_code && stateMapping[data.region_code]) {
-                        locationText = stateMapping[data.region_code];
-                    }
-                    
-                    // Update auto-call screen with location
-                    document.getElementById('autoCallLocation').textContent = locationText;
-                    document.getElementById('socialCity').textContent = cityName;
-                    
-                    // Update header for fallback screens
-                    document.getElementById('userLocation').textContent = locationText;
-                    
-                    userLocationData = data;
-                    
-                    // Track location detection
-                    gtag('event', 'auto_call_location_detected', {
-                        event_category: 'user_data',
-                        event_label: locationText,
-                        custom_parameters: {
-                            city: data.city || 'unknown',
-                            state: data.region_code || 'unknown'
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.log('Location detection failed:', error);
-                    // Still show generic messaging
-                });
-        }
-
-        function startCountdownTimer() {
-            let timeLeft = 60;
-            const countdownElement = document.getElementById('countdown');
-            
-            countdownTimer = setInterval(() => {
-                timeLeft--;
-                countdownElement.textContent = timeLeft;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(countdownTimer);
-                    // Auto-fallback to booking flow if they haven't called
-                    if (!autoCallAttempted) {
-                        setTimeout(() => {
-                            autoFallbackToBooking();
-                        }, 2000);
-                    }
-                }
-            }, 1000);
-        }
-
-        function showCallAction() {
-            document.getElementById('connectionStatus').textContent = 'Expert ready • Tap to connect';
-            document.getElementById('callActionContainer').style.display = 'block';
-            
-            // Track call action shown
-            gtag('event', 'call_action_shown', {
-                event_category: 'conversion_funnel',
-                event_label: 'call_button_displayed'
-            });
-        }
-
-        function trackAutoCall() {
-            autoCallAttempted = true;
-            clearInterval(countdownTimer);
-            
-            // Track auto-call attempt - MAIN CONVERSION EVENT
-            gtag('event', 'auto_call_initiated', {
-                event_category: 'conversion',
-                event_label: 'phone_call_auto',
-                value: 1,
-                custom_parameters: {
-                    call_type: 'auto_call',
-                    location: userLocationData?.city || 'unknown',
-                    timestamp: new Date().toISOString(),
-                    time_on_page: Math.round((Date.now() - pageLoadTime) / 1000)
-                }
-            });
-            
-            // Google Ads conversion
-            gtag('event', 'conversion', {
-                send_to: 'AW-697295426/CONVERSION_LABEL',
-                value: 1.0,
-                currency: 'USD'
-            });
-            
-            console.log('📞 Auto-call initiated');
-        }
-
-        function skipToBookingFlow() {
-            clearInterval(countdownTimer);
-            
-            // Track booking flow fallback
-            gtag('event', 'booking_flow_fallback', {
-                event_category: 'user_interaction',
-                event_label: 'manual_form_choice',
-                custom_parameters: {
-                    time_on_auto_call: Math.round((Date.now() - pageLoadTime) / 1000)
-                }
-            });
-            
-            // Hide auto-call screen and show booking flow
-            document.getElementById('autoCallScreen').classList.remove('active');
-            document.getElementById('step1').classList.add('active');
-            
-            console.log('📋 User chose booking flow over auto-call');
-        }
-
-        function autoFallbackToBooking() {
-            // Track automatic fallback
-            gtag('event', 'auto_fallback_to_booking', {
-                event_category: 'conversion_funnel',
-                event_label: 'timeout_fallback'
-            });
-            
-            // Hide auto-call screen and show booking flow
-            document.getElementById('autoCallScreen').classList.remove('active');
-            document.getElementById('step1').classList.add('active');
-            
-            console.log('⏰ Auto-fallback to booking flow due to timeout');
-        }
-
-        // Initialize app
-        let pageLoadTime = Date.now();
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Google Pest Control Auto-Call App Loading...');
-            
-            // Track app load
-            gtag('event', 'app_loaded', {
-                event_category: 'engagement',
-                event_label: 'auto_call_version',
-                custom_parameters: {
-                    timestamp: new Date().toISOString(),
-                    user_agent: navigator.userAgent,
-                    screen_width: window.screen.width,
-                    screen_height: window.screen.height
-                }
-            });
-            
-            // Start auto-call sequence
-            startAutoCallSequence();
-            
-            // Setup event listeners for fallback booking flow
-            setupEventListeners();
+    
+    <script nonce="CSP_NONCE_PLACEHOLDER">
+        // Track page load
+        gtag('event', 'page_view', {
+            'send_to': 'AW-697295426'
         });
-
-        // Location detection
-        function detectUserLocation() {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    userLocationData = data;
-                    let locationText = 'Local Area';
-                    
-                    if (data.city && data.region_code && stateMapping[data.region_code]) {
-                        locationText = `${data.city}, ${data.region_code}`;
-                    } else if (data.city && data.region) {
-                        locationText = `${data.city}, ${data.region}`;
-                    } else if (data.region_code && stateMapping[data.region_code]) {
-                        locationText = stateMapping[data.region_code];
-                    }
-                    
-                    document.getElementById('userLocation').textContent = locationText;
-                    console.log('📍 Location detected:', locationText);
-                    
-                    // Track successful location detection
-                    gtag('event', 'location_detected', {
-                        event_category: 'user_data',
-                        event_label: locationText,
-                        custom_parameters: {
-                            city: data.city || 'unknown',
-                            state: data.region_code || 'unknown',
-                            country: data.country_code || 'unknown'
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.log('Location detection failed:', error);
-                    document.getElementById('userLocation').textContent = 'Local Area';
-                    
-                    // Track failed location detection
-                    gtag('event', 'location_failed', {
-                        event_category: 'error',
-                        event_label: 'location_detection_failed',
-                        custom_parameters: {
-                            error: error.message || 'unknown_error'
-                        }
-                    });
-                });
-        }
-
-        // Event listeners
-        function setupEventListeners() {
-            // Service selection
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    // Remove previous selection
-                    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
-                    
-                    // Select current card
-                    this.classList.add('selected');
-                    selectedService = this.dataset.service;
-                    
-                    // Enable continue button
-                    document.getElementById('continueStep1').disabled = false;
-                    
-                    // Track service selection
-                    gtag('event', 'service_selected', {
-                        event_category: 'user_interaction',
-                        event_label: selectedService,
-                        custom_parameters: {
-                            service: selectedService,
-                            service_name: this.querySelector('.service-name').textContent,
-                            service_price: this.querySelector('.service-price').textContent
-                        }
-                    });
-                });
-            });
-
-            // Severity selection
-            document.querySelectorAll('.severity-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    // Remove previous selection
-                    document.querySelectorAll('.severity-card').forEach(c => c.classList.remove('selected'));
-                    
-                    // Select current card
-                    this.classList.add('selected');
-                    selectedSeverity = this.dataset.severity;
-                    
-                    // Enable continue button
-                    document.getElementById('continueStep2').disabled = false;
-                    
-                    // Track severity selection
-                    gtag('event', 'severity_selected', {
-                        event_category: 'user_interaction',
-                        event_label: selectedSeverity,
-                        custom_parameters: {
-                            severity: selectedSeverity,
-                            severity_title: this.querySelector('.severity-title').textContent
-                        }
-                    });
-                });
-            });
-
-            // Continue buttons
-            document.getElementById('continueStep1').addEventListener('click', () => goToStep(2));
-            document.getElementById('continueStep2').addEventListener('click', () => startExpertMatching());
-        }
-
-        // Navigation
-        function goToStep(stepNumber) {
-            // Hide all steps
-            document.querySelectorAll('.step-screen').forEach(screen => {
-                screen.classList.remove('active');
-            });
-            
-            // Show target step
-            document.getElementById(`step${stepNumber}`).classList.add('active');
-            
-            console.log(`📱 Navigated to step ${stepNumber}`);
-            
-            // Track step navigation
-            gtag('event', 'step_reached', {
-                event_category: 'navigation',
-                event_label: `step_${stepNumber}`,
-                custom_parameters: {
-                    step: stepNumber,
-                    selected_service: selectedService,
-                    selected_severity: selectedSeverity
-                }
-            });
-        }
-
-        // Expert matching flow
-        function startExpertMatching() {
-            goToStep(3);
-            
-            // Track expert matching start
-            gtag('event', 'expert_matching_started', {
-                event_category: 'conversion_funnel',
-                event_label: 'matching_started',
-                custom_parameters: {
-                    service: selectedService,
-                    severity: selectedSeverity,
-                    location: userLocationData?.city || 'unknown'
-                }
-            });
-            
-            const loadingMessages = [
-                { text: "Searching for certified experts in your area...", sub: "Analyzing 847 local pest control professionals" },
-                { text: "Checking availability and ratings...", sub: "Verifying licenses and customer reviews" },
-                { text: "Matching you with the best expert...", sub: "Found 3 highly-rated specialists nearby" },
-                { text: "Finalizing your expert match...", sub: "Confirming same-day availability" }
-            ];
-            
-            let currentMessage = 0;
-            
-            const messageInterval = setInterval(() => {
-                if (currentMessage < loadingMessages.length) {
-                    document.getElementById('loadingText').textContent = loadingMessages[currentMessage].text;
-                    document.getElementById('loadingSubtext').textContent = loadingMessages[currentMessage].sub;
-                    currentMessage++;
-                } else {
-                    clearInterval(messageInterval);
-                    showExpertMatch();
-                }
-            }, 1500);
-        }
-
-        function showExpertMatch() {
-            // Update expert specialty based on selected service
-            const serviceNames = {
-                'ants': 'Ant Control Specialist',
-                'roaches': 'Roach Extermination Expert',
-                'spiders': 'Spider Control Specialist', 
-                'rodents': 'Rodent Control Expert',
-                'termites': 'Termite Treatment Specialist',
-                'other': 'General Pest Control Expert'
-            };
-            
-            document.getElementById('expertSpecialty').textContent = serviceNames[selectedService] || 'Pest Control Expert';
-            
-            // Show final step
-            goToStep(4);
-            
-            console.log('🎯 Expert match complete');
-            
-            // Track expert match completion
-            gtag('event', 'expert_match_complete', {
-                event_category: 'conversion_funnel',
-                event_label: 'expert_shown',
-                custom_parameters: {
-                    service: selectedService,
-                    severity: selectedSeverity,
-                    expert_name: 'Mike Johnson',
-                    expert_specialty: serviceNames[selectedService] || 'Pest Control Expert',
-                    location: userLocationData?.city || 'unknown'
-                }
-            });
-        }
-
-        // Call tracking
-        function trackExpertCall() {
-            // Google Ads conversion tracking
-            if (typeof gtag_report_conversion === 'function') {
-                gtag_report_conversion('tel:+18442130185');
-            }
-            
-            // Track call button click - MAIN CONVERSION EVENT
-            gtag('event', 'call_button_clicked', {
-                event_category: 'conversion',
-                event_label: 'phone_call_initiated',
-                value: 1,
-                custom_parameters: {
-                    service: selectedService,
-                    severity: selectedSeverity,
-                    location: userLocationData?.city || 'unknown',
-                    expert_name: 'Mike Johnson',
-                    phone_number: '+18442130185',
-                    timestamp: new Date().toISOString()
-                }
-            });
-            
-            // Also track as a conversion for Google Ads
-            gtag('event', 'conversion', {
-                send_to: 'AW-697295426/CONVERSION_LABEL',
-                value: 1.0,
-                currency: 'USD'
-            });
-            
-            console.log('📞 Expert call initiated:', {
-                service: selectedService,
-                severity: selectedSeverity,
-                location: userLocationData?.city || 'Unknown'
-            });
-        }
     </script>
 </body>
 </html> 
