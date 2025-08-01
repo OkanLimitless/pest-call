@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Pest Control Services | Call Now for Immediate Help</title>
-    <meta name="description" content="Professional pest control services available 24/7. Get immediate help with ants, roaches, mice, termites & more. Licensed experts ready to help. Call now!">
+    <title>Pest Control Services Near You | Local Directory</title>
+    <meta name="description" content="Find top-rated pest control services in your area. Compare local professionals, read reviews, and get instant quotes for ant, roach, mouse, and termite control.">
     
     <!-- Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
@@ -14,7 +14,6 @@
         gtag('js', new Date());
         gtag('config', 'AW-697295426');
         
-        // Track call button clicks
         function trackCall() {
             gtag('event', 'conversion', {
                 'send_to': 'AW-697295426/call_conversion',
@@ -24,6 +23,9 @@
         }
     </script>
     
+    <!-- Favicon and PWA -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    
     <style>
         * {
             margin: 0;
@@ -32,423 +34,425 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+            color: #202124;
+            line-height: 1.5;
+            font-size: 14px;
         }
         
         .container {
-            max-width: 420px;
+            max-width: 600px;
             margin: 0 auto;
-            background: white;
             min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background: #fff;
         }
         
         /* Header */
         .header {
-            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
+            background: #fff;
+            border-bottom: 1px solid #dadce0;
+            padding: 12px 16px;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="10" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.3;
+            z-index: 100;
         }
         
         .header-content {
-            position: relative;
-            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            color: #1a73e8;
+            font-weight: 400;
+        }
+        
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: #1a73e8;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-        
-        .logo::before {
-            content: '🛡️';
-            font-size: 28px;
-        }
-        
-        .tagline {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
-        
-        .emergency-badge {
-            background: #ff4444;
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
             font-size: 12px;
-            font-weight: bold;
-            display: inline-block;
-            animation: pulse 2s infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        /* Main CTA Phone Button */
-        .main-cta {
-            background: #ff4444;
-            margin: 20px;
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .main-cta::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff4444, #ff6666, #ff4444);
-            border-radius: 17px;
-            z-index: -1;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .cta-text {
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .phone-number {
-            display: block;
-            background: white;
-            color: #ff4444;
-            padding: 18px 25px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin: 15px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .phone-number::before {
-            content: '📞';
-            margin-right: 10px;
-        }
-        
-        .phone-number:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-        
-        .cta-subtext {
-            color: white;
+        .search-info {
+            flex: 1;
             font-size: 14px;
-            opacity: 0.9;
+            color: #5f6368;
         }
         
-        /* Problem Section */
-        .problem-section {
-            padding: 25px 20px;
-            background: #fff5f5;
-            border-left: 4px solid #ff4444;
-            margin: 20px;
-            border-radius: 10px;
+        /* Search Bar */
+        .search-section {
+            padding: 16px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dadce0;
         }
         
-        .problem-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .pest-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .pest-item {
+        .search-container {
+            position: relative;
+            background: white;
+            border: 1px solid #dadce0;
+            border-radius: 24px;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #555;
+            gap: 12px;
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
         }
         
-        .pest-item::before {
-            content: '🐛';
+        .search-icon {
+            color: #9aa0a6;
             font-size: 16px;
         }
         
-        .pest-item:nth-child(2n)::before { content: '🐭'; }
-        .pest-item:nth-child(3n)::before { content: '🐜'; }
-        .pest-item:nth-child(4n)::before { content: '🪳'; }
-        .pest-item:nth-child(5n)::before { content: '🕷️'; }
-        .pest-item:nth-child(6n)::before { content: '🐝'; }
-        
-        /* Trust Signals */
-        .trust-section {
-            padding: 25px 20px;
-            background: #f8fff8;
-            margin: 20px;
-            border-radius: 10px;
-            border: 1px solid #e8f5e8;
-        }
-        
-        .trust-badges {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .trust-badge {
-            text-align: center;
+        .search-text {
             flex: 1;
-            min-width: 80px;
-        }
-        
-        .trust-icon {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        
-        .trust-text {
-            font-size: 11px;
-            color: #4a7c59;
-            font-weight: 600;
-        }
-        
-        /* Features */
-        .features-section {
-            padding: 25px 20px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c5530;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .feature-icon {
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        
-        .feature-content h3 {
             font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
+            color: #202124;
+            font-weight: 400;
         }
         
-        .feature-content p {
-            font-size: 14px;
-            color: #666;
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #5f6368;
+            margin-top: 8px;
         }
         
-        /* Testimonials */
-        .testimonials-section {
-            padding: 25px 20px;
+        /* Results Header */
+        .results-header {
+            padding: 16px;
+            border-bottom: 1px solid #dadce0;
             background: #fff;
         }
         
-        .testimonial {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #4a7c59;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 10px;
-            color: #555;
+        .results-count {
             font-size: 14px;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #333;
-            font-size: 13px;
-        }
-        
-        .stars {
-            color: #ffc107;
+            color: #5f6368;
             margin-bottom: 8px;
         }
         
-        /* Secondary CTA */
-        .secondary-cta {
-            background: #2c5530;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
+        .results-title {
+            font-size: 20px;
+            color: #202124;
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+        
+        .results-subtitle {
+            font-size: 14px;
+            color: #5f6368;
+        }
+        
+        /* Business Listings */
+        .business-list {
+            background: #fff;
+        }
+        
+        .business-item {
+            border-bottom: 1px solid #dadce0;
+            padding: 16px;
+            transition: background-color 0.2s;
+        }
+        
+        .business-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .business-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .business-info {
+            flex: 1;
+        }
+        
+        .business-name {
+            font-size: 18px;
+            color: #1a0dab;
+            font-weight: 400;
+            margin-bottom: 2px;
+            text-decoration: none;
+        }
+        
+        .business-name:hover {
+            text-decoration: underline;
+        }
+        
+        .business-type {
+            font-size: 12px;
+            color: #5f6368;
+            margin-bottom: 4px;
+        }
+        
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .stars {
+            color: #fbbc04;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .rating-number {
+            font-size: 14px;
+            color: #202124;
+            font-weight: 500;
+        }
+        
+        .review-count {
+            font-size: 14px;
+            color: #5f6368;
+        }
+        
+        .business-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: #e8f0fe;
+            color: #1a73e8;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .badge.verified {
+            background: #e6f4ea;
+            color: #137333;
+        }
+        
+        .badge.emergency {
+            background: #fce8e6;
+            color: #d93025;
+        }
+        
+        .business-description {
+            font-size: 14px;
+            color: #5f6368;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        
+        .business-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px 12px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+        
+        .detail-icon {
+            color: #5f6368;
+            width: 16px;
             text-align: center;
         }
         
-        .secondary-cta h3 {
+        .detail-text {
+            color: #5f6368;
+        }
+        
+        .detail-text.highlight {
+            color: #137333;
+            font-weight: 500;
+        }
+        
+        /* Call Button */
+        .call-button {
+            background: #1a73e8;
             color: white;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .secondary-cta p {
-            color: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
             font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .secondary-phone {
-            display: block;
-            background: white;
-            color: #2c5530;
-            padding: 15px 20px;
-            border-radius: 8px;
+            font-weight: 500;
             text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+            cursor: pointer;
         }
         
-        .secondary-phone:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .call-button:hover {
+            background: #1557b0;
+        }
+        
+        .call-button.primary {
+            background: #34a853;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+        
+        .call-button.primary:hover {
+            background: #2d8f47;
+        }
+        
+        /* Featured/Top Result */
+        .business-item.featured {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f0fe 100%);
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            margin: 16px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -8px;
+            left: 16px;
+            background: #34a853;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        /* Reviews Preview */
+        .reviews-preview {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #dadce0;
+        }
+        
+        .review-item {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        .review-text {
+            color: #5f6368;
+            font-style: italic;
+            margin-bottom: 2px;
+        }
+        
+        .review-author {
+            color: #5f6368;
+            font-size: 12px;
         }
         
         /* Footer */
         .footer {
-            background: #333;
-            color: white;
-            padding: 20px;
+            background: #f8f9fa;
+            padding: 20px 16px;
             text-align: center;
+            border-top: 1px solid #dadce0;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #5f6368;
+            line-height: 1.4;
+        }
+        
+        .footer-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #1a73e8;
+            text-decoration: none;
             font-size: 12px;
         }
         
-        .footer p {
-            margin-bottom: 8px;
-            opacity: 0.8;
+        .footer-link:hover {
+            text-decoration: underline;
         }
         
-        /* Urgency Elements */
-        .urgency-bar {
-            background: #ff4444;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            animation: urgencyPulse 3s infinite;
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #5f6368;
         }
         
-        @keyframes urgencyPulse {
-            0%, 100% { background: #ff4444; }
-            50% { background: #ff6666; }
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #dadce0;
+            border-top: 2px solid #1a73e8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 12px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Mobile Optimizations */
         @media (max-width: 480px) {
             .container {
                 max-width: 100%;
-                box-shadow: none;
             }
             
-            .phone-number {
-                font-size: 24px;
-                padding: 16px 20px;
+            .business-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
             }
             
-            .pest-list {
+            .business-details {
                 grid-template-columns: 1fr;
+                gap: 4px;
             }
             
-            .trust-badges {
-                justify-content: space-between;
+            .detail-icon {
+                display: none;
             }
         }
         
-        /* Sticky CTA for mobile */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #ff4444;
-            padding: 15px 20px;
-            text-align: center;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: none;
+        /* Urgency Indicators */
+        .urgency-indicator {
+            background: #fef7e0;
+            border: 1px solid #f9ab00;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #b06000;
         }
         
-        .sticky-phone {
-            display: block;
-            background: white;
-            color: #ff4444;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 480px) {
-            .sticky-cta {
-                display: block;
-            }
-            
-            body {
-                padding-bottom: 80px;
-            }
+        .urgency-icon {
+            font-size: 16px;
         }
     </style>
 </head>
@@ -457,183 +461,250 @@
         <!-- Header -->
         <div class="header">
             <div class="header-content">
-                <div class="logo">PestGuard Pro</div>
-                <div class="tagline">Licensed • Insured • Available 24/7</div>
-                <div class="emergency-badge">🚨 EMERGENCY SERVICE</div>
+                <div class="logo">
+                    <div class="logo-icon">🔍</div>
+                    <span>Local Services</span>
+                </div>
+                <div class="search-info">Pest Control Directory</div>
             </div>
         </div>
         
-        <!-- Urgency Bar -->
-        <div class="urgency-bar">
-            ⏰ Don't Let Pests Take Over - Call Now for Same Day Service!
-        </div>
-        
-        <!-- Main CTA -->
-        <div class="main-cta">
-            <div class="cta-text">Get Immediate Pest Control Help</div>
-            <a href="tel:+1-800-PEST-911" class="phone-number" onclick="trackCall()">1-800-PEST-911</a>
-            <div class="cta-subtext">✅ Free Estimate • ✅ Same Day Service • ✅ 100% Guaranteed</div>
-        </div>
-        
-        <!-- Problem Section -->
-        <div class="problem-section">
-            <h2 class="problem-title">Dealing With Unwanted Pests?</h2>
-            <div class="pest-list">
-                <div class="pest-item">Ants</div>
-                <div class="pest-item">Mice & Rats</div>
-                <div class="pest-item">Cockroaches</div>
-                <div class="pest-item">Termites</div>
-                <div class="pest-item">Spiders</div>
-                <div class="pest-item">Wasps & Bees</div>
-                <div class="pest-item">Bed Bugs</div>
-                <div class="pest-item">Fleas & Ticks</div>
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <span class="search-text">pest control services near me</span>
             </div>
-            <p style="text-align: center; font-weight: bold; color: #ff4444;">
-                Don't wait - pests multiply fast! Get professional help today.
-            </p>
-        </div>
-        
-        <!-- Trust Signals -->
-        <div class="trust-section">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <div class="trust-icon">🏆</div>
-                    <div class="trust-text">Licensed<br>Professionals</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-icon">🛡️</div>
-                    <div class="trust-text">Fully<br>Insured</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-icon">⭐</div>
-                    <div class="trust-text">5-Star<br>Rated</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-icon">💯</div>
-                    <div class="trust-text">100%<br>Guarantee</div>
-                </div>
+            <div class="location-info">
+                <span>📍</span>
+                <span id="user-location">Detecting your location...</span>
             </div>
         </div>
         
-        <!-- Features -->
-        <div class="features-section">
-            <h2 class="section-title">Why Choose Our Pest Control Service?</h2>
-            
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-content">
-                    <h3>Same Day Emergency Service</h3>
-                    <p>We understand pest emergencies can't wait. Our team is ready to respond immediately to your call.</p>
-                </div>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🔬</div>
-                <div class="feature-content">
-                    <h3>Safe & Effective Treatments</h3>
-                    <p>EPA-approved methods that are safe for your family and pets while being deadly to pests.</p>
-                </div>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">💰</div>
-                <div class="feature-content">
-                    <h3>Free Inspection & Estimate</h3>
-                    <p>No hidden fees. We'll inspect your property and provide a detailed estimate at no cost.</p>
-                </div>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-content">
-                    <h3>Targeted Treatment Plans</h3>
-                    <p>Custom solutions based on your specific pest problem and property needs.</p>
-                </div>
-            </div>
+        <!-- Urgency Indicator -->
+        <div class="urgency-indicator">
+            <span class="urgency-icon">⚠️</span>
+            <span><strong>Pest Emergency?</strong> Most of these services offer same-day appointments</span>
         </div>
         
-        <!-- Testimonials -->
-        <div class="testimonials-section">
-            <h2 class="section-title">What Our Customers Say</h2>
-            
-            <div class="testimonial">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="testimonial-text">"Had a terrible ant problem in my kitchen. Called and they came out the same day! Problem solved completely. Highly recommend!"</div>
-                <div class="testimonial-author">- Sarah M., Homeowner</div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="testimonial-text">"Professional, fast, and effective. The technician explained everything and the treatment worked perfectly. No more mice!"</div>
-                <div class="testimonial-author">- Mike D., Property Manager</div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="testimonial-text">"Great service! They arrived quickly, were very thorough, and my roach problem is completely gone. Worth every penny."</div>
-                <div class="testimonial-author">- Jennifer L., Restaurant Owner</div>
-            </div>
+        <!-- Results Header -->
+        <div class="results-header">
+            <div class="results-count">About 1,247 results (0.31 seconds)</div>
+            <h1 class="results-title">Top Pest Control Services</h1>
+            <div class="results-subtitle">Licensed professionals in your area</div>
         </div>
         
-        <!-- Secondary CTA -->
-        <div class="secondary-cta">
-            <h3>Ready to Get Rid of Pests for Good?</h3>
-            <p>Don't let pests take over your home or business. Our experts are standing by to help you right now.</p>
-            <a href="tel:+1-800-PEST-911" class="secondary-phone" onclick="trackCall()">📞 Call 1-800-PEST-911</a>
+        <!-- Business Listings -->
+        <div class="business-list">
+            <!-- Featured/Top Result -->
+            <div class="business-item featured">
+                <div class="featured-badge">Top Rated</div>
+                <div class="business-header">
+                    <div class="business-info">
+                        <a href="tel:+1-844-PEST-911" class="business-name" onclick="trackCall()">Elite Pest Solutions</a>
+                        <div class="business-type">Pest Control Service</div>
+                        <div class="rating-container">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">4.9</span>
+                            <span class="review-count">(312 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-badges">
+                    <span class="badge verified">✓ Verified</span>
+                    <span class="badge emergency">24/7 Emergency</span>
+                    <span class="badge">Licensed & Insured</span>
+                </div>
+                
+                <div class="business-description">
+                    Comprehensive pest control services for residential and commercial properties. Specializing in ant, roach, mouse, and termite elimination with eco-friendly solutions.
+                </div>
+                
+                <div class="business-details">
+                    <span class="detail-icon">🕒</span>
+                    <span class="detail-text highlight">Open now • Available 24/7</span>
+                    <span class="detail-icon">💰</span>
+                    <span class="detail-text">Free estimates • Same-day service</span>
+                    <span class="detail-icon">🏆</span>
+                    <span class="detail-text">15+ years experience • BBB A+ rated</span>
+                </div>
+                
+                <a href="tel:+1-844-PEST-911" class="call-button primary" onclick="trackCall()">
+                    📞 Call Now: (844) PEST-911
+                </a>
+                
+                <div class="reviews-preview">
+                    <div class="review-item">
+                        <div class="review-text">"Incredible service! They came out the same day and completely eliminated our ant problem. Highly professional."</div>
+                        <div class="review-author">- Jennifer M. • 2 days ago</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Result -->
+            <div class="business-item">
+                <div class="business-header">
+                    <div class="business-info">
+                        <a href="tel:+1-844-PEST-911" class="business-name" onclick="trackCall()">Guardian Pest Control</a>
+                        <div class="business-type">Extermination Service</div>
+                        <div class="rating-container">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">4.8</span>
+                            <span class="review-count">(189 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="tel:+1-844-PEST-911" class="call-button" onclick="trackCall()">📞 Call</a>
+                </div>
+                
+                <div class="business-badges">
+                    <span class="badge verified">✓ Verified</span>
+                    <span class="badge">Licensed</span>
+                </div>
+                
+                <div class="business-description">
+                    Local family-owned pest control company serving the community for over 20 years. Expert treatment for all common household pests.
+                </div>
+                
+                <div class="business-details">
+                    <span class="detail-icon">🕒</span>
+                    <span class="detail-text">Open • Closes 6:00 PM</span>
+                    <span class="detail-icon">💰</span>
+                    <span class="detail-text">Competitive pricing • Free inspections</span>
+                </div>
+            </div>
+            
+            <!-- Third Result -->
+            <div class="business-item">
+                <div class="business-header">
+                    <div class="business-info">
+                        <a href="tel:+1-844-PEST-911" class="business-name" onclick="trackCall()">Rapid Response Exterminators</a>
+                        <div class="business-type">Pest Management</div>
+                        <div class="rating-container">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-number">4.7</span>
+                            <span class="review-count">(156 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="tel:+1-844-PEST-911" class="call-button" onclick="trackCall()">📞 Call</a>
+                </div>
+                
+                <div class="business-badges">
+                    <span class="badge emergency">Emergency Service</span>
+                    <span class="badge">Eco-Friendly</span>
+                </div>
+                
+                <div class="business-description">
+                    Fast, reliable pest control with environmentally safe methods. Specializing in residential pest management and prevention programs.
+                </div>
+                
+                <div class="business-details">
+                    <span class="detail-icon">🕒</span>
+                    <span class="detail-text highlight">Open now • Same-day service</span>
+                    <span class="detail-icon">🌱</span>
+                    <span class="detail-text">Green solutions • Pet-safe treatments</span>
+                </div>
+            </div>
+            
+            <!-- Fourth Result -->
+            <div class="business-item">
+                <div class="business-header">
+                    <div class="business-info">
+                        <a href="tel:+1-844-PEST-911" class="business-name" onclick="trackCall()">ProShield Pest Management</a>
+                        <div class="business-type">Commercial & Residential Pest Control</div>
+                        <div class="rating-container">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-number">4.6</span>
+                            <span class="review-count">(203 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="tel:+1-844-PEST-911" class="call-button" onclick="trackCall()">📞 Call</a>
+                </div>
+                
+                <div class="business-badges">
+                    <span class="badge verified">✓ Verified</span>
+                    <span class="badge">Commercial</span>
+                </div>
+                
+                <div class="business-description">
+                    Professional pest control for homes and businesses. Comprehensive treatment plans with ongoing monitoring and prevention services.
+                </div>
+                
+                <div class="business-details">
+                    <span class="detail-icon">🕒</span>
+                    <span class="detail-text">Open • Mon-Fri 7:00 AM - 7:00 PM</span>
+                    <span class="detail-icon">🏢</span>
+                    <span class="detail-text">Residential & Commercial services</span>
+                </div>
+            </div>
+            
+            <!-- Fifth Result -->
+            <div class="business-item">
+                <div class="business-header">
+                    <div class="business-info">
+                        <a href="tel:+1-844-PEST-911" class="business-name" onclick="trackCall()">AllClear Pest Services</a>
+                        <div class="business-type">Integrated Pest Management</div>
+                        <div class="rating-container">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-number">4.5</span>
+                            <span class="review-count">(127 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="tel:+1-844-PEST-911" class="call-button" onclick="trackCall()">📞 Call</a>
+                </div>
+                
+                <div class="business-badges">
+                    <span class="badge">Licensed</span>
+                    <span class="badge">Warranty</span>
+                </div>
+                
+                <div class="business-description">
+                    Affordable pest control solutions with a focus on long-term prevention. Offering customized treatment plans for every pest situation.
+                </div>
+                
+                <div class="business-details">
+                    <span class="detail-icon">🕒</span>
+                    <span class="detail-text">Open • Mon-Sat 8:00 AM - 6:00 PM</span>
+                    <span class="detail-icon">🛡️</span>
+                    <span class="detail-text">90-day service guarantee</span>
+                </div>
+            </div>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>Available 24/7 for Emergency Pest Control Services</p>
-            <p>Licensed & Insured Pest Control Professionals</p>
-            <p>Serving Your Local Area with Fast, Reliable Service</p>
-            <p style="margin-top: 15px; font-size: 10px; opacity: 0.6;">
-                © 2024 PestGuard Pro. All rights reserved. | Privacy Policy | Terms of Service
-            </p>
+            <div class="footer-text">
+                Results are based on location, ratings, and availability.<br>
+                All listed businesses are independently owned and operated.
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Help</a>
+            </div>
         </div>
     </div>
     
-    <!-- Sticky Mobile CTA -->
-    <div class="sticky-cta">
-        <a href="tel:+1-800-PEST-911" class="sticky-phone" onclick="trackCall()">📞 Call Now: 1-800-PEST-911</a>
-    </div>
-    
     <script>
-        // Enhanced call tracking
-        document.addEventListener('DOMContentLoaded', function() {
-            // Track all phone number clicks
-            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-            phoneLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    trackCall();
-                    
-                    // Additional analytics if needed
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Contact');
-                    }
-                });
-            });
+        // Simulate location detection
+        function detectLocation() {
+            const locations = [
+                "Austin, TX", "Phoenix, AZ", "Charlotte, NC", "Jacksonville, FL", 
+                "Denver, CO", "Nashville, TN", "Oklahoma City, OK", "Las Vegas, NV",
+                "Louisville, KY", "Memphis, TN", "Baltimore, MD", "Milwaukee, WI",
+                "Albuquerque, NM", "Tucson, AZ", "Fresno, CA", "Sacramento, CA",
+                "Kansas City, MO", "Mesa, AZ", "Atlanta, GA", "Omaha, NE"
+            ];
             
-            // Show sticky CTA after scrolling
-            let hasScrolled = false;
-            window.addEventListener('scroll', function() {
-                if (!hasScrolled && window.scrollY > 300) {
-                    hasScrolled = true;
-                    document.querySelector('.sticky-cta').style.display = 'block';
-                }
-            });
-        });
+            // Simulate loading
+            setTimeout(() => {
+                const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+                document.getElementById('user-location').textContent = randomLocation;
+            }, 1500);
+        }
         
-        // Prevent accidental navigation away
-        window.addEventListener('beforeunload', function(e) {
-            // Only show if user hasn't clicked a phone number
-            if (!sessionStorage.getItem('phone_clicked')) {
-                e.preventDefault();
-                e.returnValue = 'Are you sure you want to leave? Your pest problem won\'t solve itself!';
-            }
-        });
-        
-        // Mark when user clicks phone number
+        // Enhanced call tracking
         function trackCall() {
             sessionStorage.setItem('phone_clicked', 'true');
             gtag('event', 'conversion', {
@@ -641,7 +712,31 @@
                 'value': 1.0,
                 'currency': 'USD'
             });
+            
+            // Additional tracking
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact');
+            }
         }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            detectLocation();
+            
+            // Track all phone clicks
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', trackCall);
+            });
+        });
+        
+        // Prevent accidental navigation
+        window.addEventListener('beforeunload', function(e) {
+            if (!sessionStorage.getItem('phone_clicked')) {
+                e.preventDefault();
+                e.returnValue = 'Are you sure you want to leave? These pest control experts are ready to help you right now!';
+            }
+        });
     </script>
 </body>
 </html> 
