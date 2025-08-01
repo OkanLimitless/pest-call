@@ -454,6 +454,27 @@
         .urgency-icon {
             font-size: 16px;
         }
+        
+        /* Location Loading Animation */
+        .location-loading {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .location-spinner {
+            width: 12px;
+            height: 12px;
+            border: 1px solid #dadce0;
+            border-top: 1px solid #1a73e8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .location-detected {
+            color: #137333;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -477,7 +498,12 @@
             </div>
             <div class="location-info">
                 <span>📍</span>
-                <span id="user-location">Detecting your location...</span>
+                <span id="user-location">
+                    <span class="location-loading">
+                        <span class="location-spinner"></span>
+                        Detecting your location...
+                    </span>
+                </span>
             </div>
         </div>
         
@@ -687,21 +713,103 @@
     </div>
     
     <script>
-        // Simulate location detection
+        // Real IP-based location detection
         function detectLocation() {
-            const locations = [
-                "Austin, TX", "Phoenix, AZ", "Charlotte, NC", "Jacksonville, FL", 
-                "Denver, CO", "Nashville, TN", "Oklahoma City, OK", "Las Vegas, NV",
-                "Louisville, KY", "Memphis, TN", "Baltimore, MD", "Milwaukee, WI",
-                "Albuquerque, NM", "Tucson, AZ", "Fresno, CA", "Sacramento, CA",
-                "Kansas City, MO", "Mesa, AZ", "Atlanta, GA", "Omaha, NE"
-            ];
+            const locationElement = document.getElementById('user-location');
             
-            // Simulate loading
-            setTimeout(() => {
-                const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-                document.getElementById('user-location').textContent = randomLocation;
-            }, 1500);
+            function updateLocation(location) {
+                locationElement.innerHTML = `<span class="location-detected">${location}</span>`;
+            }
+            
+            function showError(fallbackText = 'Your Area') {
+                locationElement.innerHTML = `<span class="location-detected">${fallbackText}</span>`;
+            }
+            
+            // First try ipapi.co (most reliable and free)
+            fetch('https://ipapi.co/json/', { 
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                }
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('ipapi.co failed');
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.city && data.region_code) {
+                        updateLocation(`${data.city}, ${data.region_code}`);
+                    } else if (data.city && data.region) {
+                        updateLocation(`${data.city}, ${data.region}`);
+                    } else {
+                        throw new Error('Incomplete data from ipapi.co');
+                    }
+                })
+                .catch(error => {
+                    console.log('ipapi.co failed, trying ipinfo.io...');
+                    
+                    // Fallback to ipinfo.io
+                    fetch('https://ipinfo.io/json?token=', {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                        }
+                    })
+                        .then(response => {
+                            if (!response.ok) throw new Error('ipinfo.io failed');
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.city && data.region) {
+                                updateLocation(`${data.city}, ${data.region}`);
+                            } else if (data.city) {
+                                updateLocation(data.city);
+                            } else {
+                                throw new Error('Incomplete data from ipinfo.io');
+                            }
+                        })
+                        .catch(error => {
+                            console.log('ipinfo.io failed, trying browser geolocation...');
+                            
+                            // Try browser geolocation as final fallback
+                            if (navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(
+                                    position => {
+                                        const lat = position.coords.latitude;
+                                        const lon = position.coords.longitude;
+                                        
+                                        // Use free reverse geocoding service
+                                        fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.city && data.principalSubdivision) {
+                                                    updateLocation(`${data.city}, ${data.principalSubdivision}`);
+                                                } else if (data.locality && data.principalSubdivision) {
+                                                    updateLocation(`${data.locality}, ${data.principalSubdivision}`);
+                                                } else if (data.city) {
+                                                    updateLocation(data.city);
+                                                } else {
+                                                    showError();
+                                                }
+                                            })
+                                            .catch(() => {
+                                                showError();
+                                            });
+                                    },
+                                    error => {
+                                        console.log('Geolocation denied or failed');
+                                        showError();
+                                    },
+                                    { 
+                                        timeout: 10000,
+                                        enableHighAccuracy: false 
+                                    }
+                                );
+                            } else {
+                                showError();
+                            }
+                        });
+                });
         }
         
         // Enhanced call tracking
