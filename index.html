@@ -6,20 +6,43 @@
     <title>Pest Control Services Near You | Local Directory</title>
     <meta name="description" content="Find top-rated pest control services in your area. Compare local professionals, read reviews, and get instant quotes for ant, roach, mouse, and termite control.">
     
-    <!-- Google Ads Conversion Tracking -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
-    <script nonce="CSP_NONCE_PLACEHOLDER">
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
         gtag('config', 'AW-697295426');
-        
-        function trackCall() {
+    </script>
+
+    <!-- Event snippet for Ter - Click To Call Button conversion page -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
             gtag('event', 'conversion', {
-                'send_to': 'AW-697295426/call_conversion',
-                'value': 1.0,
-                'currency': 'USD'
+                'send_to': 'AW-697295426/H2cDCNC_pfEaEMLEv8wC',
+                'event_callback': callback
             });
+            return false;
+        }
+        
+        // Wrapper function for easier tracking
+        function trackCall() {
+            console.log('Call button clicked - firing conversion');
+            gtag_report_conversion();
+            
+            // Additional tracking if needed
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact');
+            }
+            
+            // Mark that user clicked phone number
+            sessionStorage.setItem('phone_clicked', 'true');
         }
     </script>
     
@@ -812,20 +835,7 @@
                 });
         }
         
-        // Enhanced call tracking
-        function trackCall() {
-            sessionStorage.setItem('phone_clicked', 'true');
-            gtag('event', 'conversion', {
-                'send_to': 'AW-697295426/call_conversion',
-                'value': 1.0,
-                'currency': 'USD'
-            });
-            
-            // Additional tracking
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Contact');
-            }
-        }
+        // Enhanced call tracking - function is defined in head section
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
