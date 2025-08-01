@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Flight Changes & Cancellations | 24/7 Customer Service</title>
-    <meta name="description" content="Need to change or cancel your Delta flight? Get immediate assistance from Delta customer service representatives. Available 24/7 for urgent flight modifications.">
+    <title>Emergency Pest Control Services | Call Now for Immediate Help</title>
+    <meta name="description" content="Professional pest control services available 24/7. Get immediate help with ants, roaches, mice, termites & more. Licensed experts ready to help. Call now!">
     
     <!-- Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
@@ -46,404 +46,602 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
-        /* Delta Header */
-        .delta-header {
-            background: #CE0E2D;
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
             color: white;
-            padding: 16px 20px;
+            padding: 20px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
-        .delta-logo {
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="10" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 8px;
         }
         
-        .delta-triangle {
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-bottom: 20px solid white;
-        }
-        
-        .delta-text {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-        
-        .header-subtitle {
-            font-size: 14px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        /* Main Content */
-        .content {
-            padding: 24px 20px;
-        }
-        
-        .urgent-banner {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        
-        .urgent-icon {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        
-        .urgent-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #856404;
-        }
-        
-        .main-title {
+        .logo::before {
+            content: '🛡️';
             font-size: 28px;
-            font-weight: 700;
-            color: #CE0E2D;
-            text-align: center;
-            margin-bottom: 16px;
-            line-height: 1.2;
         }
         
-        .main-subtitle {
-            font-size: 18px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 32px;
-            line-height: 1.4;
-        }
-        
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-        
-        .service-item {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 16px 12px;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-        
-        .service-item:hover {
-            border-color: #CE0E2D;
-            box-shadow: 0 2px 8px rgba(206, 14, 45, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-        
-        .service-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        /* Call to Action */
-        .cta-section {
-            background: linear-gradient(135deg, #CE0E2D 0%, #a00d24 100%);
-            border-radius: 16px;
-            padding: 24px;
-            text-align: center;
-            margin-bottom: 24px;
-            color: white;
-        }
-        
-        .cta-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .cta-subtitle {
+        .tagline {
             font-size: 14px;
             opacity: 0.9;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .call-button {
-            background: white;
-            color: #CE0E2D;
-            border: none;
-            border-radius: 50px;
-            padding: 16px 24px;
+        .emergency-badge {
+            background: #ff4444;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Main CTA Phone Button */
+        .main-cta {
+            background: #ff4444;
+            margin: 20px;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-cta::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff4444, #ff6666, #ff4444);
+            border-radius: 17px;
+            z-index: -1;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .cta-text {
+            color: white;
             font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .call-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-        }
-        
-        .call-button:active {
-            transform: translateY(0);
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         
         .phone-number {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        
-        .availability-text {
-            font-size: 12px;
-            opacity: 0.8;
-            margin-top: 12px;
-        }
-        
-        /* Trust Indicators */
-        .trust-section {
-            background: #f8f9fa;
+            display: block;
+            background: white;
+            color: #ff4444;
+            padding: 18px 25px;
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 24px;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        .trust-title {
-            font-size: 16px;
-            font-weight: 600;
+        .phone-number::before {
+            content: '📞';
+            margin-right: 10px;
+        }
+        
+        .phone-number:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .cta-subtext {
+            color: white;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            padding: 25px 20px;
+            background: #fff5f5;
+            border-left: 4px solid #ff4444;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        
+        .problem-title {
+            font-size: 20px;
+            font-weight: bold;
             color: #333;
+            margin-bottom: 15px;
             text-align: center;
-            margin-bottom: 16px;
         }
         
-        .trust-items {
-            display: flex;
-            flex-direction: column;
+        .pest-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
+            margin-bottom: 20px;
         }
         
-        .trust-item {
+        .pest-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 0;
+            gap: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .pest-item::before {
+            content: '🐛';
+            font-size: 16px;
+        }
+        
+        .pest-item:nth-child(2n)::before { content: '🐭'; }
+        .pest-item:nth-child(3n)::before { content: '🐜'; }
+        .pest-item:nth-child(4n)::before { content: '🪳'; }
+        .pest-item:nth-child(5n)::before { content: '🕷️'; }
+        .pest-item:nth-child(6n)::before { content: '🐝'; }
+        
+        /* Trust Signals */
+        .trust-section {
+            padding: 25px 20px;
+            background: #f8fff8;
+            margin: 20px;
+            border-radius: 10px;
+            border: 1px solid #e8f5e8;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .trust-badge {
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
         }
         
         .trust-icon {
-            font-size: 18px;
-            color: #CE0E2D;
+            font-size: 24px;
+            margin-bottom: 5px;
         }
         
         .trust-text {
+            font-size: 11px;
+            color: #4a7c59;
+            font-weight: 600;
+        }
+        
+        /* Features */
+        .features-section {
+            padding: 25px 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c5530;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .feature-content h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .feature-content p {
             font-size: 14px;
             color: #666;
         }
         
-        /* Why Choose Delta */
-        .why-delta {
-            margin-bottom: 32px;
+        /* Testimonials */
+        .testimonials-section {
+            padding: 25px 20px;
+            background: #fff;
         }
         
-        .why-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #CE0E2D;
-            margin-bottom: 16px;
+        .testimonial {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4a7c59;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 13px;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-bottom: 8px;
+        }
+        
+        /* Secondary CTA */
+        .secondary-cta {
+            background: #2c5530;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
         }
         
-        .why-items {
-            display: grid;
-            gap: 12px;
+        .secondary-cta h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
         
-        .why-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #CE0E2D;
-        }
-        
-        .why-icon {
-            font-size: 16px;
-            color: #CE0E2D;
-            margin-top: 2px;
-        }
-        
-        .why-text {
+        .secondary-cta p {
+            color: rgba(255,255,255,0.9);
             font-size: 14px;
-            color: #333;
-            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .secondary-phone {
+            display: block;
+            background: white;
+            color: #2c5530;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-phone:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         /* Footer */
         .footer {
-            background: #2c3e50;
+            background: #333;
             color: white;
             padding: 20px;
             text-align: center;
-        }
-        
-        .footer-text {
             font-size: 12px;
-            opacity: 0.8;
-            line-height: 1.4;
         }
         
-        /* Responsive */
-        @media (max-width: 380px) {
+        .footer p {
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        
+        /* Urgency Elements */
+        .urgency-bar {
+            background: #ff4444;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            animation: urgencyPulse 3s infinite;
+        }
+        
+        @keyframes urgencyPulse {
+            0%, 100% { background: #ff4444; }
+            50% { background: #ff6666; }
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 480px) {
             .container {
                 max-width: 100%;
-            }
-            
-            .main-title {
-                font-size: 24px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
+                box-shadow: none;
             }
             
             .phone-number {
-                font-size: 18px;
+                font-size: 24px;
+                padding: 16px 20px;
+            }
+            
+            .pest-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-badges {
+                justify-content: space-between;
+            }
+        }
+        
+        /* Sticky CTA for mobile */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ff4444;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .sticky-phone {
+            display: block;
+            background: white;
+            color: #ff4444;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 480px) {
+            .sticky-cta {
+                display: block;
+            }
+            
+            body {
+                padding-bottom: 80px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Delta Header -->
-        <header class="delta-header">
-            <div class="delta-logo">
-                <div class="delta-triangle"></div>
-                <div class="delta-text">DELTA</div>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">PestGuard Pro</div>
+                <div class="tagline">Licensed • Insured • Available 24/7</div>
+                <div class="emergency-badge">🚨 EMERGENCY SERVICE</div>
             </div>
-            <div class="header-subtitle">Customer Service Center</div>
-        </header>
+        </div>
         
-        <!-- Main Content -->
-        <main class="content">
-            <!-- Urgent Banner -->
-            <div class="urgent-banner">
-                <div class="urgent-icon">⚠️</div>
-                <div class="urgent-text">Need immediate flight assistance?</div>
+        <!-- Urgency Bar -->
+        <div class="urgency-bar">
+            ⏰ Don't Let Pests Take Over - Call Now for Same Day Service!
+        </div>
+        
+        <!-- Main CTA -->
+        <div class="main-cta">
+            <div class="cta-text">Get Immediate Pest Control Help</div>
+            <a href="tel:+1-800-PEST-911" class="phone-number" onclick="trackCall()">1-800-PEST-911</a>
+            <div class="cta-subtext">✅ Free Estimate • ✅ Same Day Service • ✅ 100% Guaranteed</div>
+        </div>
+        
+        <!-- Problem Section -->
+        <div class="problem-section">
+            <h2 class="problem-title">Dealing With Unwanted Pests?</h2>
+            <div class="pest-list">
+                <div class="pest-item">Ants</div>
+                <div class="pest-item">Mice & Rats</div>
+                <div class="pest-item">Cockroaches</div>
+                <div class="pest-item">Termites</div>
+                <div class="pest-item">Spiders</div>
+                <div class="pest-item">Wasps & Bees</div>
+                <div class="pest-item">Bed Bugs</div>
+                <div class="pest-item">Fleas & Ticks</div>
             </div>
-            
-            <!-- Main Title -->
-            <h1 class="main-title">Flight Changes & Cancellations</h1>
-            <p class="main-subtitle">Get immediate help with your Delta reservation from our customer service team</p>
-            
-            <!-- Services Grid -->
-            <div class="services-grid">
-                <div class="service-item">
-                    <div class="service-icon">✈️</div>
-                    <div class="service-text">Flight Changes</div>
+            <p style="text-align: center; font-weight: bold; color: #ff4444;">
+                Don't wait - pests multiply fast! Get professional help today.
+            </p>
+        </div>
+        
+        <!-- Trust Signals -->
+        <div class="trust-section">
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-icon">🏆</div>
+                    <div class="trust-text">Licensed<br>Professionals</div>
                 </div>
-                <div class="service-item">
-                    <div class="service-icon">❌</div>
-                    <div class="service-text">Cancellations</div>
+                <div class="trust-badge">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-text">Fully<br>Insured</div>
                 </div>
-                <div class="service-item">
-                    <div class="service-icon">🔄</div>
-                    <div class="service-text">Rebooking</div>
+                <div class="trust-badge">
+                    <div class="trust-icon">⭐</div>
+                    <div class="trust-text">5-Star<br>Rated</div>
                 </div>
-                <div class="service-item">
-                    <div class="service-icon">📅</div>
-                    <div class="service-text">Schedule Changes</div>
-                </div>
-            </div>
-            
-            <!-- Call to Action -->
-            <div class="cta-section">
-                <h2 class="cta-title">Speak with Delta Representative</h2>
-                <p class="cta-subtitle">Get personalized assistance for your flight changes</p>
-                <a href="tel:+18449822596" class="call-button" onclick="trackCall()">
-                    📞 <span class="phone-number">(844) 982-2596</span>
-                </a>
-                <p class="availability-text">Available 24/7 • Average wait time: 2-3 minutes</p>
-            </div>
-            
-            <!-- Trust Indicators -->
-            <div class="trust-section">
-                <h3 class="trust-title">Why Call Delta Direct?</h3>
-                <div class="trust-items">
-                    <div class="trust-item">
-                        <span class="trust-icon">🎯</span>
-                        <span class="trust-text">Direct access to your reservation</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">⚡</span>
-                        <span class="trust-text">Faster resolution than online</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">💼</span>
-                        <span class="trust-text">Expert customer service agents</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">🛡️</span>
-                        <span class="trust-text">Secure transaction processing</span>
-                    </div>
+                <div class="trust-badge">
+                    <div class="trust-icon">💯</div>
+                    <div class="trust-text">100%<br>Guarantee</div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Features -->
+        <div class="features-section">
+            <h2 class="section-title">Why Choose Our Pest Control Service?</h2>
             
-            <!-- Why Choose Delta -->
-            <div class="why-delta">
-                <h3 class="why-title">Delta Flight Modification Benefits</h3>
-                <div class="why-items">
-                    <div class="why-item">
-                        <span class="why-icon">✓</span>
-                        <div class="why-text">Flexible change policies for most tickets</div>
-                    </div>
-                    <div class="why-item">
-                        <span class="why-icon">✓</span>
-                        <div class="why-text">Same-day flight changes available</div>
-                    </div>
-                    <div class="why-item">
-                        <span class="why-icon">✓</span>
-                        <div class="why-text">24/7 customer support for urgent needs</div>
-                    </div>
-                    <div class="why-item">
-                        <span class="why-icon">✓</span>
-                        <div class="why-text">Award-winning customer service</div>
-                    </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-content">
+                    <h3>Same Day Emergency Service</h3>
+                    <p>We understand pest emergencies can't wait. Our team is ready to respond immediately to your call.</p>
                 </div>
             </div>
-        </main>
+            
+            <div class="feature">
+                <div class="feature-icon">🔬</div>
+                <div class="feature-content">
+                    <h3>Safe & Effective Treatments</h3>
+                    <p>EPA-approved methods that are safe for your family and pets while being deadly to pests.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <div class="feature-content">
+                    <h3>Free Inspection & Estimate</h3>
+                    <p>No hidden fees. We'll inspect your property and provide a detailed estimate at no cost.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-content">
+                    <h3>Targeted Treatment Plans</h3>
+                    <p>Custom solutions based on your specific pest problem and property needs.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonials -->
+        <div class="testimonials-section">
+            <h2 class="section-title">What Our Customers Say</h2>
+            
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">"Had a terrible ant problem in my kitchen. Called and they came out the same day! Problem solved completely. Highly recommend!"</div>
+                <div class="testimonial-author">- Sarah M., Homeowner</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">"Professional, fast, and effective. The technician explained everything and the treatment worked perfectly. No more mice!"</div>
+                <div class="testimonial-author">- Mike D., Property Manager</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">"Great service! They arrived quickly, were very thorough, and my roach problem is completely gone. Worth every penny."</div>
+                <div class="testimonial-author">- Jennifer L., Restaurant Owner</div>
+            </div>
+        </div>
+        
+        <!-- Secondary CTA -->
+        <div class="secondary-cta">
+            <h3>Ready to Get Rid of Pests for Good?</h3>
+            <p>Don't let pests take over your home or business. Our experts are standing by to help you right now.</p>
+            <a href="tel:+1-800-PEST-911" class="secondary-phone" onclick="trackCall()">📞 Call 1-800-PEST-911</a>
+        </div>
         
         <!-- Footer -->
-        <footer class="footer">
-            <p class="footer-text">
-                Delta Air Lines, Inc. • Customer Service<br>
-                For immediate assistance with flight changes and cancellations
+        <div class="footer">
+            <p>Available 24/7 for Emergency Pest Control Services</p>
+            <p>Licensed & Insured Pest Control Professionals</p>
+            <p>Serving Your Local Area with Fast, Reliable Service</p>
+            <p style="margin-top: 15px; font-size: 10px; opacity: 0.6;">
+                © 2024 PestGuard Pro. All rights reserved. | Privacy Policy | Terms of Service
             </p>
-        </footer>
+        </div>
     </div>
     
-    <script nonce="CSP_NONCE_PLACEHOLDER">
-        // Track page load
-        gtag('event', 'page_view', {
-            'send_to': 'AW-697295426'
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <a href="tel:+1-800-PEST-911" class="sticky-phone" onclick="trackCall()">📞 Call Now: 1-800-PEST-911</a>
+    </div>
+    
+    <script>
+        // Enhanced call tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track all phone number clicks
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    trackCall();
+                    
+                    // Additional analytics if needed
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Contact');
+                    }
+                });
+            });
+            
+            // Show sticky CTA after scrolling
+            let hasScrolled = false;
+            window.addEventListener('scroll', function() {
+                if (!hasScrolled && window.scrollY > 300) {
+                    hasScrolled = true;
+                    document.querySelector('.sticky-cta').style.display = 'block';
+                }
+            });
         });
+        
+        // Prevent accidental navigation away
+        window.addEventListener('beforeunload', function(e) {
+            // Only show if user hasn't clicked a phone number
+            if (!sessionStorage.getItem('phone_clicked')) {
+                e.preventDefault();
+                e.returnValue = 'Are you sure you want to leave? Your pest problem won\'t solve itself!';
+            }
+        });
+        
+        // Mark when user clicks phone number
+        function trackCall() {
+            sessionStorage.setItem('phone_clicked', 'true');
+            gtag('event', 'conversion', {
+                'send_to': 'AW-697295426/call_conversion',
+                'value': 1.0,
+                'currency': 'USD'
+            });
+        }
     </script>
 </body>
 </html> 
