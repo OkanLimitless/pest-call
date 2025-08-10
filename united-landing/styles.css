@@ -35,7 +35,7 @@ body {
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
-.logo { height: 32px; width: auto; object-fit: contain; }
+.logo { height: 44px; width: auto; object-fit: contain; }
 
 /* Buttons base + focus states */
 .cta-primary, .cta-secondary, .sticky-call, .header-cta {
