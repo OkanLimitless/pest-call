@@ -3,6 +3,10 @@
     {
       "source": "/terminix",
       "destination": "/terminix.html"
+    },
+    {
+      "source": "/united-landing",
+      "destination": "/united-landing/index.html"
     }
   ],
   "headers": [

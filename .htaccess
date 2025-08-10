@@ -59,6 +59,10 @@ ErrorDocument 404 /index.html
     Allow from all
 </Files>
 
+# Ensure /united-landing resolves to its index
+RewriteEngine On
+RewriteRule ^united-landing$ /united-landing/ [L,R=301]
+
 # Custom error pages (optional)
 # ErrorDocument 500 /error.html
 # ErrorDocument 403 /error.html 
