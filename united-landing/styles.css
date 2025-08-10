@@ -2,6 +2,7 @@
 :root {
   --united-blue: #005DAA;   /* United Blue */
   --rhapsody-blue: #0C2340; /* Deep navy */
+  --sky-blue: #41B6E6;      /* Accent */
   --white: #ffffff;
   --ink: #0f1a2b;
   --ink-weak: #cfe0ff;
@@ -29,28 +30,46 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(6px);
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 .brand { display: flex; align-items: center; gap: 10px; }
-.logo { height: 28px; width: auto; object-fit: contain; }
+.logo { height: 32px; width: auto; object-fit: contain; }
+
+/* Buttons base + focus states */
+.cta-primary, .cta-secondary, .sticky-call, .header-cta {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.cta-primary:active, .cta-secondary:active, .sticky-call:active, .header-cta:active { transform: translateY(1px); }
+.cta-primary:focus-visible, .cta-secondary:focus-visible, .sticky-call:focus-visible, .header-cta:focus-visible {
+  outline: 3px solid rgba(65, 182, 230, 0.7); /* Sky Blue */
+  outline-offset: 2px;
+  border-radius: 16px;
+}
 
 .header-cta {
   color: var(--white);
   text-decoration: none;
-  font-weight: 700;
-  background: rgba(255,255,255,0.12);
-  padding: 8px 12px;
+  font-weight: 800;
+  background: var(--united-blue);
+  padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 6px 14px rgba(0,93,170,0.28);
 }
+.header-cta:hover { filter: brightness(1.05); }
 
 /* Hero */
-.content { flex: 1; color: var(--white); }
+.content { flex: 1; color: var(--white); padding-bottom: 96px; }
+@supports (padding: max(0px)) {
+  .content { padding-bottom: max(96px, env(safe-area-inset-bottom)); }
+}
 .hero { padding: 28px 18px 10px; text-align: center; }
-.hero-title { margin: 6px 0 8px; font-size: 26px; line-height: 1.2; }
-.hero-sub { margin: 0 0 16px; color: var(--ink-weak); font-size: 15px; }
+.hero-title { margin: 6px 0 8px; font-size: 28px; line-height: 1.15; font-weight: 900; }
+.hero-sub { margin: 0 0 18px; color: var(--ink-weak); font-size: 15px; }
 
 .cta-primary {
   display: grid;
@@ -70,8 +89,8 @@ body {
   box-shadow: 0 12px 28px rgba(0,0,0,0.30), 0 3px 8px rgba(0,0,0,0.20);
 }
 .cta-icon { font-size: 22px; grid-row: 1 / span 2; }
-.cta-text { font-weight: 800; font-size: 16px; letter-spacing: 0.2px; }
-.cta-num { font-weight: 800; font-size: 18px; }
+.cta-text { font-weight: 900; font-size: 16px; letter-spacing: 0.2px; }
+.cta-num { font-weight: 900; font-size: 18px; }
 
 .chips { display: flex; gap: 8px; justify-content: center; margin: 14px 16px 0; flex-wrap: wrap; }
 .chip {
@@ -116,7 +135,7 @@ body {
   color: var(--rhapsody-blue);
   background: var(--white);
   border-radius: 14px;
-  font-weight: 800;
+  font-weight: 900;
   box-shadow: 0 10px 20px rgba(0,0,0,0.24), 0 2px 6px rgba(0,0,0,0.18);
 }
 
@@ -133,10 +152,10 @@ body {
   gap: 8px;
   height: 56px;
   border-radius: 16px;
-  background: var(--white);
-  color: var(--rhapsody-blue);
+  background: var(--united-blue);
+  color: var(--white);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 900;
   box-shadow: 0 12px 28px rgba(0,0,0,0.30), 0 3px 8px rgba(0,0,0,0.20);
 }
 .sticky-icon { font-size: 18px; }
