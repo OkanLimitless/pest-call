@@ -15,6 +15,29 @@
   <meta property="og:image" content="/assets/united-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-697295426"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} // eslint-disable-line
+    gtag('js', new Date());
+    gtag('config', 'AW-697295426');
+  </script>
+  <!-- Conversion event helper -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) !== 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-697295426/H2cDCNC_pfEaEMLEv8wC',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,14 +61,14 @@
       <div class="brand">
         <img src="assets/united-logo.svg" onerror="this.onerror=null;this.src='assets/united-logo.png'" alt="United Airlines" class="logo" width="240" height="44">
       </div>
-      <a class="header-cta" href="tel:+18449822596" aria-label="Call United Airlines support (844) 982-2596">Call (844) 982-2596</a>
+      <a class="header-cta" href="tel:+18449822596" aria-label="Call United Airlines support (844) 982-2596" onclick="return gtag_report_conversion('tel:+18449822596');">Call (844) 982-2596</a>
     </header>
 
     <main class="content" role="main">
       <section class="hero" aria-label="United Airlines phone support">
         <h1 class="hero-title">Need help with your flight?</h1>
         <p class="hero-sub">Bookings • Changes • Cancellations • Baggage • Credits</p>
-        <a class="cta-primary" href="tel:+18449822596" aria-label="Tap to call United Airlines support, (844) 982-2596">
+        <a class="cta-primary" href="tel:+18449822596" aria-label="Tap to call United Airlines support, (844) 982-2596" onclick="return gtag_report_conversion('tel:+18449822596');">
           <span class="cta-icon" aria-hidden="true">📞</span>
           <span class="cta-text">Call Now</span>
           <span class="cta-num">(844) 982-2596</span>
@@ -92,7 +115,7 @@
       </section>
 
       <section class="inline-cta" aria-label="Quick call action">
-        <a class="cta-secondary" href="tel:+18449822596" aria-label="Call now (844) 982-2596">
+        <a class="cta-secondary" href="tel:+18449822596" aria-label="Call now (844) 982-2596" onclick="return gtag_report_conversion('tel:+18449822596');">
           <span class="cta-icon" aria-hidden="true">📞</span>
           <span class="cta-text">Call United Airlines</span>
           <span class="cta-num">(844) 982-2596</span>
@@ -104,7 +127,7 @@
       <p class="fineprint">Customer support for bookings, changes, cancellations, baggage, travel credits and general inquiries.</p>
     </footer>
 
-    <a class="sticky-call" href="tel:+18449822596" aria-label="Call now (844) 982-2596">
+    <a class="sticky-call" href="tel:+18449822596" aria-label="Call now (844) 982-2596" onclick="return gtag_report_conversion('tel:+18449822596');">
       <span class="sticky-icon" aria-hidden="true">📞</span>
       <span class="sticky-label">Call</span>
       <span class="sticky-num">(844) 982-2596</span>
