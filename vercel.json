@@ -7,6 +7,10 @@
     {
       "source": "/united-landing",
       "destination": "/united-landing/index.html"
+    },
+    {
+      "source": "/delta-landing",
+      "destination": "/delta-landing/index.html"
     }
   ],
   "headers": [
