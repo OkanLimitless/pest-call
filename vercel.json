@@ -11,6 +11,10 @@
     {
       "source": "/delta-landing",
       "destination": "/delta-landing/index.html"
+    },
+    {
+      "source": "/priceline-landing",
+      "destination": "/priceline-landing/index.html"
     }
   ],
   "headers": [
