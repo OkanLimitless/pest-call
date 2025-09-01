@@ -58,16 +58,17 @@ body {
   border-radius: 16px;
 }
 
-.trust-mini { display: flex; align-items: center; gap: 8px; }
-.badge {
-  color: var(--rhapsody-blue);
-  background: rgba(255,255,255,0.8);
-  border: 1px solid rgba(0,0,0,0.06);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
+.header-cta {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 900;
+  background: var(--united-blue);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 6px 14px rgba(0,93,170,0.28);
 }
+.header-cta:hover { filter: brightness(1.05); }
 
 /* Hero */
 .content { flex: 1; color: var(--white); padding-bottom: 96px; background: transparent; background-clip: padding-box; }
@@ -75,13 +76,25 @@ body {
   .content { padding-bottom: max(96px, env(safe-area-inset-bottom)); }
 }
 .hero { padding: 28px 18px 10px; text-align: center; }
-.hero-title { margin: 6px 0 6px; font-size: 28px; line-height: 1.15; font-weight: 900; }
-.hero-sub { margin: 0 0 14px; color: #eaf0ff; font-size: 16px; font-weight: 700; }
+.hero-title { margin: 6px 0 8px; font-size: 26px; line-height: 1.2; font-weight: 900; }
 
-/* Primary above-the-fold CTA removed to focus on sticky CTA */
-.cta-icon { font-size: 22px; }
+.cta-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--cta-pop);
+  border-radius: 14px;
+  font-weight: 900;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.24), 0 2px 6px rgba(0,0,0,0.18);
+}
+.cta-icon { font-size: 20px; }
 .cta-text { font-weight: 900; font-size: 16px; letter-spacing: 0.2px; }
-.cta-num { font-weight: 900; font-size: 18px; }
+.cta-num { font-weight: 900; font-size: 16px; }
+
+.trust-badge { margin-top: 10px; font-size: 12px; color: #eaf0ff; }
 
 .chips { display: flex; gap: 8px; justify-content: center; margin: 14px 16px 0; flex-wrap: wrap; }
 .chip {
@@ -121,6 +134,7 @@ body {
 /* Inline CTA */
 /* Inline CTA removed to reduce competing CTAs */
 .inline-cta { display: none; }
+.mid-cta { padding: 8px 12px 24px; text-align: center; }
 
 /* Footer */
 .footer { padding: 16px 18px 80px; text-align: center; color: #c7d7f6; font-size: 12px; background: transparent; }
@@ -149,6 +163,7 @@ body {
 /* Social proof */
 .social-proof { padding: 8px 18px 12px; text-align: center; color: #eaf0ff; }
 .proof-head { margin: 0 0 4px; font-weight: 900; }
+.proof-cite { margin: 4px 0 0; font-size: 12px; color: var(--ink-weak); }
 .stars { color: #ffd166; letter-spacing: 2px; margin-bottom: 6px; }
 .proof-sub { margin: 0; font-size: 13px; color: var(--ink-weak); }
 
